@@ -1,342 +1,458 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Tools — Free Online Video Converter, Audio Extractor and Video Trimmer | Universe Invedors Tools</title>
-  <meta name="description" content="Convert video formats, extract audio from video, trim clips and inspect media metadata free online. All processing happens in your browser using ffmpeg.wasm. No file upload required." />
-  <meta name="keywords" content="online video converter free no upload, extract audio from video online free, trim video online free, free media converter browser based, video to MP3 online free, ffmpeg online tool" />
-  <link rel="canonical" href="https://media.universeinvedors.tech/" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Media Tools — Free Online Video & Audio Converter" />
-  <meta property="og:description" content="Convert, trim and process video and audio online free. Browser-based using ffmpeg.wasm. No upload." />
-  <meta property="og:url" content="https://media.universeinvedors.tech/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0d1117" />
-  <link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any" />
-  <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Media Tools",
-    "url": "https://media.universeinvedors.tech",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Web",
-    "browserRequirements": "Requires JavaScript",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-    "publisher": {
-      "@type": "Organization",
-      "name": "Universe Invedors",
-      "url": "https://universeinvedors.tech",
-      "logo": "https://universeinvedors.tech/logo.png",
-      "sameAs": [
-        "https://linkedin.com/company/universe-invedors",
-        "https://github.com/UniverseInvedors"
-      ]
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Universe Invedors", "item": "https://universeinvedors.tech"},
-      {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://universeinvedors.tech/tools"},
-      {"@type": "ListItem", "position": 3, "name": "Media Tools", "item": "https://media.universeinvedors.tech"}
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Media Tools",
-    "url": "https://media.universeinvedors.tech",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Universe Invedors Tools",
-      "url": "https://universeinvedors.tech"
-    }
-  }
-]
-</script>
-  <meta name="google-adsense-account" content="ca-pub-8759032363251002" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0d1117;--surface:#161b22;--card:#141b28;--border:rgba(255,255,255,.08);--text:#e6edf3;--muted:#8b949e;--cyan:#52e5e7;--font:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;display:flex;flex-direction:column}
-    .topbar{display:flex;align-items:center;gap:.75rem;padding:.6rem 1rem;border-bottom:1px solid var(--border);background:rgba(13,17,23,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;flex-wrap:wrap}
-    .logo{font-size:.85rem;font-weight:700}
-    .badges{display:flex;gap:.35rem}
-    .badge{font-size:.68rem;font-weight:700;padding:.2rem .55rem;border-radius:100px;border:1px solid}
-    .badge-green{background:rgba(16,185,129,.08);color:#10b981;border-color:rgba(16,185,129,.25)}
-    .badge-yellow{background:rgba(245,158,11,.08);color:#f59e0b;border-color:rgba(245,158,11,.25)}
-    .container{max-width:780px;margin:0 auto;padding:2rem 1rem;flex:1;width:100%}
-    h1{font-size:1.6rem;font-weight:800;margin-bottom:.5rem;letter-spacing:-.03em}
-    .subtitle{color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;line-height:1.6}
-    .warning{padding:.75rem 1rem;border-radius:10px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);font-size:.8rem;color:#f59e0b;margin-bottom:1.5rem}
-    .file-card{padding:1.25rem;border-radius:14px;border:1px solid var(--border);background:var(--card);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1.25rem}
-    .file-card:hover{border-color:rgba(82,229,231,.3);background:rgba(82,229,231,.03)}
-    .file-info h2{font-size:.88rem;font-weight:600;margin-bottom:.2rem}
-    .file-info p{font-size:.75rem;color:var(--muted)}
-    .btn{padding:.4rem .9rem;border-radius:8px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;transition:all .15s}
-    .btn-ghost{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
-    .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.12)}
-    .btn-cyan{background:var(--cyan);color:#000}
-    .btn-cyan:hover{background:#34d4d6}
-    .btn-cyan:disabled{opacity:.5;cursor:not-allowed}
-    .ops-tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.25rem}
-    .op-tab{padding:.4rem .9rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--muted);transition:all .15s;text-transform:capitalize}
-    .op-tab.active{background:rgba(82,229,231,.1);border-color:rgba(82,229,231,.3);color:var(--cyan)}
-    .format-grid{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
-    .fmt-btn{padding:.3rem .65rem;border-radius:6px;font-size:.72rem;font-weight:700;font-family:var(--mono);cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--muted);text-transform:uppercase;transition:all .15s}
-    .fmt-btn.active{background:rgba(82,229,231,.1);border-color:rgba(82,229,231,.3);color:var(--cyan)}
-    label.field-label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem}
-    .time-row{display:flex;gap:.75rem;flex-wrap:wrap}
-    .time-row input{padding:.45rem .7rem;border-radius:8px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:.85rem;width:130px;outline:none}
-    .time-row input:focus{border-color:var(--cyan)}
-    .progress-card{padding:1rem;border-radius:12px;background:var(--card);border:1px solid var(--border);margin-top:1.25rem}
-    .progress-log{font-family:var(--mono);font-size:.75rem;color:var(--muted);word-break:break-all;min-height:20px;margin-bottom:.5rem}
-    .progress-bar{height:5px;border-radius:3px;background:rgba(255,255,255,.08)}
-    .progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--cyan),#06b6d4);transition:width .3s;width:0%}
-    .result-card{padding:1.25rem;border-radius:14px;border:1px solid rgba(82,229,231,.2);background:rgba(82,229,231,.04);margin-top:1.25rem;text-align:center}
-    .result-card h3{font-size:.95rem;font-weight:700;color:var(--cyan);margin-bottom:.75rem}
-    .info-pre{padding:1rem;border-radius:10px;background:var(--surface);border:1px solid var(--border);font-family:var(--mono);font-size:.73rem;color:var(--muted);overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:.75rem;max-height:220px;overflow-y:auto}
-    .ad-slot{padding:.5rem;text-align:center;border-top:1px solid var(--border);margin-top:2rem}
-  </style>  <meta name="author" content="Universe Invedors" />
-  <meta name="publisher" content="Universe Invedors" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <link rel="sitemap" type="application/xml" href="https://media.universeinvedors.tech/sitemap.xml" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Media Tools — Free Online Video Converter, Audio Extractor, Trimmer and Waveform Viewer | Universe Invedors Tools</title>
+<meta name="description" content="Convert video formats, extract audio, trim clips, view waveforms and inspect media metadata free online. Powered by ffmpeg.wasm. All processing runs in your browser — no file upload."/>
+<meta name="keywords" content="online video converter free,extract audio from video,trim video online,video to mp3 free,waveform viewer online,media metadata viewer,ffmpeg online tool,browser video converter"/>
+<link rel="canonical" href="https://media.universeinvedors.tech/"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<meta name="author" content="Universe Invedors"/>
+<meta property="og:title" content="Media Tools — Free Online Video Converter, Trimmer and Waveform Viewer"/>
+<meta property="og:description" content="Convert, trim, extract audio and view waveforms. ffmpeg.wasm powered. All local — no upload. Free."/>
+<meta property="og:url" content="https://media.universeinvedors.tech/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+<link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
+<meta name="theme-color" content="#090c13"/>
+<meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Media Tools","url":"https://media.universeinvedors.tech","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"Media Tools","item":"https://media.universeinvedors.tech"}]}]</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#090c13;--surf:#0f1420;--elev:#141b28;--card:#1a2235;--inp:#111827;
+  --t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;
+  --acc:#52e5e7;--acc-h:#22d3ee;--acc-glow:rgba(82,229,231,.22);
+  --green:#10b981;--violet:#8b5cf6;--orange:#f97316;--blue:#3b82f6;
+  --border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.14);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
+  --r:10px;--th:52px;--tr:180ms cubic-bezier(.4,0,.2,1);
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100dvh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+.tb{height:var(--th);background:rgba(9,12,19,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .85rem;flex-shrink:0;position:sticky;top:0;z-index:200}
+.logo{display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap}
+.logo:hover{color:var(--acc-h);text-decoration:none}
+.sp{flex:1}
+.badge{display:inline-flex;align-items:center;gap:.25rem;padding:.18rem .55rem;border-radius:100px;font-size:.67rem;font-weight:700}
+.bg-green{background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.25)}
+.bg-yellow{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}
+.container{max-width:820px;margin:0 auto;padding:2rem 1rem;flex:1;width:100%}
+.page-title{font-size:1.75rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.4rem}
+.page-sub{color:var(--t2);font-size:.88rem;margin-bottom:1.75rem;line-height:1.6}
+.warning-box{padding:.75rem 1rem;border-radius:var(--r);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);font-size:.8rem;color:#f59e0b;margin-bottom:1.5rem;display:flex;gap:.5rem;align-items:flex-start}
 
-  <!-- Open Graph image (required for Google + social sharing previews) -->
-  <meta property="og:image" content="https://universeinvedors.tech/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Media Tools — Free Online Video Converter, Audio Extractor and Video Trimmer" />
-  <meta property="og:site_name" content="Universe Invedors Tools" />
-  <meta property="og:locale" content="en_US" />
+/* File card */
+.file-card{padding:1.25rem;border-radius:14px;border:2px dashed var(--border);background:var(--surf);cursor:pointer;transition:all var(--tr);display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1.5rem}
+.file-card:hover,.file-card.has-file{border-color:rgba(82,229,231,.3);background:rgba(82,229,231,.03)}
+.file-info h2{font-size:.9rem;font-weight:600;margin-bottom:.25rem}
+.file-info p{font-size:.75rem;color:var(--t2)}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.42rem .9rem;border-radius:var(--r);font-size:.78rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
+.bg{background:rgba(255,255,255,.06);color:var(--t2);border:1px solid var(--border)}
+.bg:hover{background:rgba(255,255,255,.1);border-color:var(--bh);color:var(--t1)}
+.bp{background:var(--acc);color:#000}
+.bp:hover{background:var(--acc-h);box-shadow:0 0 14px var(--acc-glow)}
+.bsm{padding:.28rem .65rem;font-size:.7rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
 
-  <!-- Twitter image -->
-  <meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg" />
-  <meta name="twitter:site" content="@universeinvedors" />
-  <meta name="twitter:creator" content="@universeinvedors" />
-  <meta name="twitter:label1" content="Category" />
-  <meta name="twitter:data1" content="Free Developer Tool" />
+/* Operation tabs */
+.op-tabs{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.opt{padding:.45rem 1rem;border-radius:var(--r);font-size:.8rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surf);color:var(--t2);transition:all var(--tr)}
+.opt:hover{border-color:var(--bh);color:var(--t1)}
+.opt.active{background:rgba(82,229,231,.1);border-color:rgba(82,229,231,.35);color:var(--acc-h)}
 
+/* Settings sections */
+.settings-box{padding:1rem;background:var(--surf);border:1px solid var(--border);border-radius:var(--r);margin-bottom:1.25rem}
+.sb-title{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-bottom:.75rem}
+.row{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center}
+.fl{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);margin-bottom:.28rem;display:block}
+.fi,.fs{padding:.42rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.82rem;outline:none;transition:border-color var(--tr)}
+.fi:focus,.fs:focus{border-color:rgba(82,229,231,.4)}
+/* Format grid */
+.fmt-grid{display:flex;flex-wrap:wrap;gap:.3rem}
+.fm{padding:.3rem .7rem;border-radius:7px;font-size:.72rem;font-weight:700;font-family:var(--mono);cursor:pointer;border:1px solid var(--border);background:var(--elev);color:var(--t3);text-transform:uppercase;transition:all var(--tr)}
+.fm:hover{background:rgba(82,229,231,.08);border-color:rgba(82,229,231,.25)}
+.fm.active{background:rgba(82,229,231,.12);border-color:rgba(82,229,231,.4);color:var(--acc-h)}
+
+/* Progress */
+.progress-card{padding:1rem;border-radius:var(--r);background:var(--card);border:1px solid var(--border);margin-bottom:1.25rem}
+.progress-bar{height:5px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden;margin:.6rem 0}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--acc),var(--blue));transition:width .3s}
+.progress-log{font-family:var(--mono);font-size:.72rem;color:var(--t2);word-break:break-all;min-height:1.2em}
+
+/* Result */
+.result-box{padding:1.25rem;border-radius:14px;border:1px solid rgba(82,229,231,.2);background:rgba(82,229,231,.04);text-align:center;margin-bottom:1.25rem}
+.result-title{font-size:.95rem;font-weight:700;color:var(--acc-h);margin-bottom:.75rem}
+
+/* Waveform */
+.waveform-wrap{width:100%;height:120px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-top:.75rem}
+canvas#waveform{width:100%;height:100%;display:block}
+
+/* Metadata */
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem;margin-top:.75rem}
+.meta-item{padding:.65rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.meta-key{font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-bottom:.2rem}
+.meta-val{font-size:.82rem;color:var(--t1);font-family:var(--mono);word-break:break-all}
+
+/* Info / How-to */
+.info-section{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.info-section h2{font-size:1rem;font-weight:700;margin-bottom:.75rem}
+.info-section ul{color:var(--t2);font-size:.86rem;line-height:2;padding-left:1.25rem}
+.info-section li::marker{color:var(--acc)}
+
+.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.4rem .85rem;border-top:1px solid var(--border);background:var(--surf);font-size:.67rem;color:var(--t3)}
+.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2)}
+.sfl{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
+.toasts{position:fixed;bottom:1rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
+.toast{padding:.55rem .9rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 8px 32px rgba(0,0,0,.5);animation:tin .22s ease}
+.toast.ok{border-color:rgba(82,229,231,.3);color:var(--acc)}.toast.err{border-color:rgba(239,68,68,.3);color:#f87171}
+@keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+</style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="logo">🎬 <a href="https://universeinvedors.tech/tools" style="color:inherit;text-decoration:none">Universe Tools</a> / Media Tools</div>
-  <div class="badges">
-    <span class="badge badge-green">🔒 Local</span>
-    <span class="badge badge-yellow">Beta</span>
-  </div>
+<header class="tb">
+  <a href="https://universeinvedors.tech/tools" class="logo">🎬 Universe Tools <span style="color:var(--t4);font-weight:400;font-size:.75rem">/</span> <span style="color:var(--acc-h)">Media Tools</span></a>
+  <div class="sp"></div>
+  <span class="badge bg-green">🔒 Local Processing</span>
+  <span class="badge bg-yellow" style="margin-left:.25rem">Beta</span>
 </header>
 
 <div class="container">
-  <h1>Media Tools — Free Online</h1>
-  <p class="subtitle">Convert video formats, extract audio, trim clips and inspect metadata — all in your browser. Powered by ffmpeg.wasm. Your files never leave your device.</p>
+  <h1 class="page-title">Media Tools — Free Online</h1>
+  <p class="page-sub">Convert video formats, extract audio, trim clips, visualise waveforms and inspect media metadata. All processing runs in your browser using WebAssembly — your files never leave your device.</p>
 
-  <div class="warning">⚗️ <strong>Beta:</strong> ffmpeg.wasm downloads ~30MB on first use. Keep video files under 200MB for best performance. Processing runs in a Web Worker.</div>
+  <div class="warning-box">
+    <span>⚗️</span>
+    <div><strong>Beta:</strong> ffmpeg.wasm downloads ~30MB on first use. Keep files under 200MB for best performance. Supported browsers: Chrome, Firefox, Edge (requires SharedArrayBuffer / COOP headers).</div>
+  </div>
 
-  <div class="file-card" id="fileCard" onclick="document.getElementById('fileInput').click()">
+  <!-- File drop -->
+  <div class="file-card" id="file-card"
+    onclick="document.getElementById('file-input').click()"
+    ondragover="event.preventDefault();this.style.borderColor='var(--acc)'"
+    ondragleave="this.style.borderColor=''"
+    ondrop="event.preventDefault();this.style.borderColor='';selectFile(event.dataTransfer.files[0])">
     <div class="file-info">
-      <h2 id="fileName">No file selected</h2>
-      <p id="fileSize">Drop a video or audio file here, or click to browse</p>
+      <h2 id="file-name">Drop a video or audio file here</h2>
+      <p id="file-size">MP4, WebM, MKV, AVI, MOV, MP3, WAV, AAC and more</p>
     </div>
-    <button class="btn btn-ghost" onclick="event.stopPropagation();document.getElementById('fileInput').click()">Browse</button>
+    <button class="btn bg bsm" onclick="event.stopPropagation();document.getElementById('file-input').click()">Browse</button>
   </div>
-  <input type="file" id="fileInput" accept="video/*,audio/*" style="display:none" onchange="selectFile(this.files[0])">
+  <input type="file" id="file-input" accept="video/*,audio/*" style="display:none" onchange="selectFile(this.files[0])">
 
-  <div class="ops-tabs">
-    <div class="op-tab active" onclick="setOp('convert',this)">Convert</div>
-    <div class="op-tab" onclick="setOp('extract-audio',this)">Extract Audio</div>
-    <div class="op-tab" onclick="setOp('trim',this)">Trim</div>
-    <div class="op-tab" onclick="setOp('info',this)">Media Info</div>
+  <!-- Operations -->
+  <div class="op-tabs">
+    <button class="opt active" onclick="setOp('convert',this)">🔄 Convert</button>
+    <button class="opt" onclick="setOp('extract',this)">🎵 Extract Audio</button>
+    <button class="opt" onclick="setOp('trim',this)">✂️ Trim</button>
+    <button class="opt" onclick="setOp('waveform',this)">📊 Waveform</button>
+    <button class="opt" onclick="setOp('info',this)">ℹ️ Media Info</button>
   </div>
 
-  <div id="convertSection">
-    <label class="field-label">Output format</label>
-    <div class="format-grid">
-      <div class="fmt-btn active" onclick="setFmt('mp4',this)">mp4</div>
-      <div class="fmt-btn" onclick="setFmt('webm',this)">webm</div>
-      <div class="fmt-btn" onclick="setFmt('mkv',this)">mkv</div>
-      <div class="fmt-btn" onclick="setFmt('mp3',this)">mp3</div>
-      <div class="fmt-btn" onclick="setFmt('aac',this)">aac</div>
-      <div class="fmt-btn" onclick="setFmt('wav',this)">wav</div>
+  <!-- Convert settings -->
+  <div id="op-convert" class="settings-box">
+    <p class="sb-title">Output Format</p>
+    <div class="fmt-grid">
+      <div class="fm active" onclick="setFmt('mp4',this)">mp4</div>
+      <div class="fm" onclick="setFmt('webm',this)">webm</div>
+      <div class="fm" onclick="setFmt('mkv',this)">mkv</div>
+      <div class="fm" onclick="setFmt('avi',this)">avi</div>
+      <div class="fm" onclick="setFmt('mov',this)">mov</div>
+      <div class="fm" onclick="setFmt('mp3',this)">mp3</div>
+      <div class="fm" onclick="setFmt('aac',this)">aac</div>
+      <div class="fm" onclick="setFmt('wav',this)">wav</div>
+      <div class="fm" onclick="setFmt('ogg',this)">ogg</div>
+      <div class="fm" onclick="setFmt('flac',this)">flac</div>
     </div>
   </div>
 
-  <div id="trimSection" style="display:none">
-    <div class="time-row">
-      <div><label class="field-label">Start time</label><input type="text" id="trimStart" value="00:00:00" placeholder="HH:MM:SS"></div>
-      <div><label class="field-label">End time</label><input type="text" id="trimEnd" value="00:00:30" placeholder="HH:MM:SS"></div>
+  <!-- Extract settings -->
+  <div id="op-extract" class="settings-box" style="display:none">
+    <p class="sb-title">Audio Format</p>
+    <div class="fmt-grid">
+      <div class="fm active" onclick="setFmt('mp3',this)">mp3</div>
+      <div class="fm" onclick="setFmt('aac',this)">aac</div>
+      <div class="fm" onclick="setFmt('wav',this)">wav</div>
+      <div class="fm" onclick="setFmt('ogg',this)">ogg</div>
+      <div class="fm" onclick="setFmt('flac',this)">flac</div>
     </div>
+    <p style="font-size:.75rem;color:var(--t2);margin-top:.6rem">Extracts the audio track from your video and saves it as a standalone audio file.</p>
   </div>
 
-  <div id="infoSection" style="display:none">
-    <p style="font-size:.82rem;color:var(--muted)">Reads media metadata (codec, resolution, duration, bitrate) without re-encoding.</p>
+  <!-- Trim settings -->
+  <div id="op-trim" class="settings-box" style="display:none">
+    <p class="sb-title">Trim Range</p>
+    <div class="row">
+      <div>
+        <label class="fl">Start time</label>
+        <input class="fi" type="text" id="trim-start" value="00:00:00" placeholder="HH:MM:SS" style="width:130px">
+      </div>
+      <div>
+        <label class="fl">End time</label>
+        <input class="fi" type="text" id="trim-end" value="00:00:30" placeholder="HH:MM:SS" style="width:130px">
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--t2);margin-top:.6rem">Uses stream copy — fast trim without re-encoding. Output keeps original format.</p>
   </div>
 
-  <div style="margin-top:1.25rem">
-    <button class="btn btn-cyan" id="runBtn" onclick="run()" disabled>Run</button>
+  <!-- Waveform settings -->
+  <div id="op-waveform" class="settings-box" style="display:none">
+    <p class="sb-title">Waveform Visualiser</p>
+    <p style="font-size:.78rem;color:var(--t2)">Renders an audio waveform using the Web Audio API. Drop an audio file and click Render to see the waveform. No ffmpeg required for this mode.</p>
+    <button class="btn bg bsm" style="margin-top:.65rem" onclick="renderWaveform()">📊 Render Waveform</button>
+    <div class="waveform-wrap"><canvas id="waveform"></canvas></div>
   </div>
 
-  <div id="progressCard" class="progress-card" style="display:none">
-    <div class="progress-log" id="progressLog">Initialising…</div>
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <!-- Info settings -->
+  <div id="op-info" class="settings-box" style="display:none">
+    <p class="sb-title">Media Metadata</p>
+    <p style="font-size:.78rem;color:var(--t2)">Reads codec, resolution, duration, bitrate and stream info from the file without re-encoding.</p>
+    <div class="meta-grid" id="quick-meta"></div>
   </div>
 
-  <div id="resultCard" class="result-card" style="display:none">
-    <h3 id="resultTitle">✅ Done</h3>
-    <a id="dlLink" class="btn btn-cyan" href="#" download="">↓ Download</a>
-    <pre id="infoOutput" class="info-pre" style="display:none"></pre>
+  <!-- Run button -->
+  <button class="btn bp" id="run-btn" onclick="run()" disabled style="width:100%;justify-content:center;padding:.7rem;font-size:.9rem;margin-bottom:1.25rem">
+    Run
+  </button>
+
+  <!-- Progress -->
+  <div id="progress-card" class="progress-card" style="display:none">
+    <div class="progress-log" id="progress-log">Initialising…</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <p style="font-size:.7rem;color:var(--t3);margin-top:.3rem">Processing in your browser — no upload. First run downloads ffmpeg.wasm (~30MB).</p>
   </div>
 
-  <!-- SEO content -->
-  <section style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)">
-    <h2 style="font-size:1rem;font-weight:700;margin-bottom:.75rem">Supported operations</h2>
-    <ul style="color:var(--muted);font-size:.87rem;line-height:2;padding-left:1.25rem">
-      <li><strong>Convert:</strong> Change video container format (MP4, WebM, MKV) or audio format (MP3, AAC, WAV)</li>
-      <li><strong>Extract Audio:</strong> Pull the audio track from a video file and save as MP3</li>
-      <li><strong>Trim:</strong> Cut a video or audio clip to a specific time range</li>
-      <li><strong>Media Info:</strong> Inspect codec, resolution, duration and bitrate without any conversion</li>
+  <!-- Result -->
+  <div id="result-box" class="result-box" style="display:none">
+    <div class="result-title" id="result-title">✅ Processing Complete</div>
+    <a id="dl-link" class="btn bp" href="#" download="" style="display:none">↓ Download Output</a>
+    <pre id="info-output" style="display:none;text-align:left;font-family:var(--mono);font-size:.72rem;color:var(--t2);margin-top:.75rem;padding:.75rem;background:var(--card);border-radius:var(--r);overflow-x:auto;white-space:pre-wrap;word-break:break-all;max-height:280px;overflow-y:auto"></pre>
+  </div>
+
+  <!-- Quick meta from HTML5 video element -->
+  <div id="media-preview" style="display:none;margin-bottom:1.25rem">
+    <video id="preview-video" controls style="width:100%;border-radius:var(--r);background:#000;max-height:300px"></video>
+  </div>
+
+  <!-- How-to -->
+  <section class="info-section">
+    <h2>Supported operations</h2>
+    <ul>
+      <li><strong>Convert:</strong> Change container format (MP4, WebM, MKV) or audio format (MP3, AAC, WAV, FLAC)</li>
+      <li><strong>Extract Audio:</strong> Pull the audio track from any video file</li>
+      <li><strong>Trim:</strong> Cut a clip to a specific time range using stream copy (no re-encode)</li>
+      <li><strong>Waveform:</strong> Visualise the audio waveform using Web Audio API — no ffmpeg needed</li>
+      <li><strong>Media Info:</strong> Read codec, resolution, duration and bitrate without conversion</li>
+    </ul>
+    <h2 style="margin-top:1.25rem">Tips</h2>
+    <ul>
+      <li>First run downloads ffmpeg.wasm (~30MB) — subsequent runs are faster</li>
+      <li>Files under 100MB process fastest; very large files may run slowly on low-memory devices</li>
+      <li>Waveform mode works for any audio/video file without ffmpeg — instant and offline</li>
+      <li>Use Trim with stream copy for near-instant cuts of large files</li>
     </ul>
   </section>
 </div>
 
-<div class="ad-slot" aria-label="Advertisement">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8759032363251002" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+<footer class="seo-footer">
+  <div class="sfl">
+    <a href="https://universeinvedors.tech">Universe Invedors</a>
+    <a href="https://universeinvedors.tech/tools">All Tools</a>
+    <a href="https://code.universeinvedors.tech">Code</a>
+    <a href="https://diagram.universeinvedors.tech">Diagrams</a>
+    <a href="https://chart.universeinvedors.tech">Charts</a>
+    <a href="https://ocr.universeinvedors.tech">OCR</a>
+    <a href="https://pdf.universeinvedors.tech">PDF</a>
+    <a href="https://image.universeinvedors.tech">Image</a>
+    <a href="https://3d.universeinvedors.tech">3D</a>
+    <a href="https://map.universeinvedors.tech">Maps</a>
+  </div>
+  <span>© 2024 Universe Invedors · ffmpeg.wasm · Web Audio API · Free media tools</span>
+</footer>
+
+<div class="toasts" id="toasts"></div>
 
 <script>
-let selectedFile = null, currentOp = 'convert', currentFmt = 'mp4'
+let selectedFile=null, currentOp='convert', currentFmt='mp4'
 
-function selectFile(f) {
-  if (!f) return
-  selectedFile = f
-  document.getElementById('fileName').textContent = f.name
-  document.getElementById('fileSize').textContent = (f.size/1024/1024).toFixed(1) + ' MB · ' + f.type
-  document.getElementById('runBtn').disabled = false
-  document.getElementById('resultCard').style.display = 'none'
-  document.getElementById('progressCard').style.display = 'none'
+function selectFile(f){
+  if(!f) return
+  selectedFile=f
+  document.getElementById('file-name').textContent=f.name
+  document.getElementById('file-size').textContent=`${(f.size/1024/1024).toFixed(2)} MB · ${f.type||'unknown type'}`
+  document.getElementById('file-card').classList.add('has-file')
+  document.getElementById('run-btn').disabled=false
+  document.getElementById('result-box').style.display='none'
+  document.getElementById('progress-card').style.display='none'
+  // Show preview for video/audio
+  const pv=document.getElementById('preview-video')
+  if(f.type.startsWith('video/')||f.type.startsWith('audio/')){
+    pv.src=URL.createObjectURL(f)
+    document.getElementById('media-preview').style.display='block'
+  }
+  // Show quick meta
+  showQuickMeta(f)
 }
 
-function setOp(op, btn) {
-  currentOp = op
-  document.querySelectorAll('.op-tab').forEach(b => b.classList.remove('active'))
-  btn.classList.add('active')
-  document.getElementById('convertSection').style.display = op === 'convert' ? '' : 'none'
-  document.getElementById('trimSection').style.display = op === 'trim' ? '' : 'none'
-  document.getElementById('infoSection').style.display = op === 'info' ? '' : 'none'
+function showQuickMeta(f){
+  const qm=document.getElementById('quick-meta')
+  const meta=[
+    {k:'File Name',v:f.name},
+    {k:'Size',v:`${(f.size/1024/1024).toFixed(2)} MB`},
+    {k:'MIME Type',v:f.type||'unknown'},
+    {k:'Last Modified',v:new Date(f.lastModified).toLocaleDateString()},
+  ]
+  // Use media element for basic info
+  const el=document.createElement(f.type.startsWith('audio/')?'audio':'video')
+  el.src=URL.createObjectURL(f)
+  el.onloadedmetadata=()=>{
+    if(el.duration) meta.push({k:'Duration',v:formatDur(el.duration)})
+    if(el.videoWidth) meta.push({k:'Resolution',v:`${el.videoWidth}×${el.videoHeight}`})
+    qm.innerHTML=meta.map(m=>`<div class="meta-item"><div class="meta-key">${m.k}</div><div class="meta-val">${m.v}</div></div>`).join('')
+  }
+  qm.innerHTML=meta.map(m=>`<div class="meta-item"><div class="meta-key">${m.k}</div><div class="meta-val">${m.v}</div></div>`).join('')
 }
 
-function setFmt(fmt, btn) {
-  currentFmt = fmt
-  document.querySelectorAll('.fmt-btn').forEach(b => b.classList.remove('active'))
-  btn.classList.add('active')
+function formatDur(s){ const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=Math.floor(s%60); return [h,m,sec].map(n=>n.toString().padStart(2,'0')).join(':') }
+
+function setOp(op,btn){
+  currentOp=op
+  document.querySelectorAll('.opt').forEach(b=>b.classList.remove('active')); btn.classList.add('active')
+  ;['convert','extract','trim','waveform','info'].forEach(o=>{ document.getElementById('op-'+o).style.display=o===op?'block':'none' })
+  // Update run button label
+  const labels={convert:'▶ Convert',extract:'▶ Extract Audio',trim:'▶ Trim',waveform:'▶ Render Waveform',info:'▶ Read Info'}
+  document.getElementById('run-btn').textContent=labels[op]||'▶ Run'
+  // Reset fmt for extract
+  if(op==='extract') setFmt('mp3',document.querySelector('#op-extract .fm'))
+  else if(op==='convert') setFmt('mp4',document.querySelector('#op-convert .fm'))
 }
 
-async function run() {
-  if (!selectedFile) return
-  document.getElementById('progressCard').style.display = 'block'
-  document.getElementById('resultCard').style.display = 'none'
-  document.getElementById('runBtn').disabled = true
-  setLog('Loading ffmpeg.wasm (first load ~30 seconds)…')
+function setFmt(fmt,el){
+  currentFmt=fmt
+  const parent=el?.closest('.settings-box')
+  if(parent) parent.querySelectorAll('.fm').forEach(f=>f.classList.remove('active'))
+  el?.classList.add('active')
+}
+
+async function run(){
+  if(!selectedFile) return
+  if(currentOp==='waveform'){ renderWaveform(); return }
+  if(currentOp==='info'){ readInfo(); return }
+
+  document.getElementById('progress-card').style.display='block'
+  document.getElementById('result-box').style.display='none'
+  document.getElementById('run-btn').disabled=true
+  setLog('Loading ffmpeg.wasm (~30MB on first use)…')
 
   try {
-    const { FFmpeg } = await import('https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js')
-    const { fetchFile, toBlobURL } = await import('https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js')
-    const ff = new FFmpeg()
-    ff.on('log', ({message}) => setLog(message.slice(0,120)))
+    const {FFmpeg}=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js')
+    const {fetchFile,toBlobURL}=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js')
+    const ff=new FFmpeg()
+    ff.on('log',({message})=>setLog(message.slice(0,130)))
 
-    const base = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
+    const base='https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
     await ff.load({
-      coreURL: await toBlobURL(`${base}/ffmpeg-core.js`, 'text/javascript'),
-      wasmURL: await toBlobURL(`${base}/ffmpeg-core.wasm`, 'application/wasm'),
+      coreURL:await toBlobURL(`${base}/ffmpeg-core.js`,'text/javascript'),
+      wasmURL:await toBlobURL(`${base}/ffmpeg-core.wasm`,'application/wasm'),
     })
 
-    const inName = selectedFile.name
-    await ff.writeFile(inName, await fetchFile(selectedFile))
+    const inName=selectedFile.name
+    await ff.writeFile(inName,await fetchFile(selectedFile))
+    setLog('Processing…'); document.getElementById('progress-fill').style.width='50%'
 
-    let outName = '', args = []
-
-    if (currentOp === 'convert') {
-      outName = `output.${currentFmt}`
-      args = ['-i', inName, outName]
-    } else if (currentOp === 'extract-audio') {
-      outName = 'audio.mp3'
-      args = ['-i', inName, '-vn', '-acodec', 'libmp3lame', '-q:a', '2', outName]
-    } else if (currentOp === 'trim') {
-      const ext = inName.split('.').pop() || 'mp4'
-      outName = `trimmed.${ext}`
-      args = ['-i', inName, '-ss', document.getElementById('trimStart').value, '-to', document.getElementById('trimEnd').value, '-c', 'copy', outName]
-    } else if (currentOp === 'info') {
-      let log = ''
-      ff.on('log', ({message}) => { log += message + '\n'; setLog(message.slice(0,120)) })
-      try { await ff.exec(['-i', inName]) } catch {}
-      document.getElementById('infoOutput').textContent = log
-      document.getElementById('infoOutput').style.display = 'block'
-      document.getElementById('dlLink').style.display = 'none'
-      document.getElementById('resultTitle').textContent = '✅ Media Information'
-      document.getElementById('resultCard').style.display = 'block'
-      document.getElementById('progressCard').style.display = 'none'
-      document.getElementById('runBtn').disabled = false
-      return
-    }
+    let outName='', args=[]
+    if(currentOp==='convert'){ outName=`output.${currentFmt}`; args=['-i',inName,outName] }
+    else if(currentOp==='extract'){ outName=`audio.${currentFmt}`; args=['-i',inName,'-vn','-acodec','libmp3lame','-q:a','2',outName] }
+    else if(currentOp==='trim'){ const ext=inName.split('.').pop()||'mp4'; outName=`trimmed.${ext}`; args=['-i',inName,'-ss',document.getElementById('trim-start').value,'-to',document.getElementById('trim-end').value,'-c','copy',outName] }
 
     await ff.exec(args)
-    const data = await ff.readFile(outName)
-    const blob = new Blob([data])
-    const url = URL.createObjectURL(blob)
-    document.getElementById('dlLink').href = url
-    document.getElementById('dlLink').download = outName
-    document.getElementById('dlLink').style.display = ''
-    document.getElementById('infoOutput').style.display = 'none'
-    document.getElementById('resultTitle').textContent = '✅ Processing complete'
-    document.getElementById('resultCard').style.display = 'block'
-    document.getElementById('progressCard').style.display = 'none'
-  } catch(e) {
-    setLog('❌ ' + (e.message || 'Processing failed'))
-    document.getElementById('progressFill').style.background = '#ef4444'
+    document.getElementById('progress-fill').style.width='90%'
+    const data=await ff.readFile(outName)
+    const blob=new Blob([data])
+    const url=URL.createObjectURL(blob)
+    const dl=document.getElementById('dl-link'); dl.href=url; dl.download=outName; dl.style.display='inline-flex'
+    document.getElementById('info-output').style.display='none'
+    document.getElementById('result-title').textContent='✅ Processing complete'
+    document.getElementById('result-box').style.display='block'
+    document.getElementById('progress-fill').style.width='100%'
+    toast('Done! Click to download.','ok')
+  } catch(e){
+    setLog('❌ '+( e.message||'Processing failed'))
+    document.getElementById('progress-fill').style.background='var(--red,#ef4444)'
+    toast('Processing failed: '+(e.message||'').slice(0,60),'err')
   }
-  document.getElementById('runBtn').disabled = false
+  document.getElementById('run-btn').disabled=false
 }
 
-function setLog(msg) {
-  document.getElementById('progressLog').textContent = msg
-  document.getElementById('progressFill').style.width = '75%'
+async function readInfo(){
+  if(!selectedFile) return
+  document.getElementById('progress-card').style.display='block'
+  document.getElementById('result-box').style.display='none'
+  document.getElementById('run-btn').disabled=true
+  setLog('Loading ffmpeg.wasm…')
+  try {
+    const {FFmpeg}=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js')
+    const {fetchFile,toBlobURL}=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js')
+    const ff=new FFmpeg(); let log=''
+    ff.on('log',({message})=>{ log+=message+'\n'; setLog(message.slice(0,130)) })
+    const base='https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
+    await ff.load({coreURL:await toBlobURL(`${base}/ffmpeg-core.js`,'text/javascript'),wasmURL:await toBlobURL(`${base}/ffmpeg-core.wasm`,'application/wasm')})
+    await ff.writeFile(selectedFile.name,await fetchFile(selectedFile))
+    try{ await ff.exec(['-i',selectedFile.name]) }catch{}
+    document.getElementById('info-output').textContent=log; document.getElementById('info-output').style.display='block'
+    document.getElementById('dl-link').style.display='none'
+    document.getElementById('result-title').textContent='ℹ️ Media Information'
+    document.getElementById('result-box').style.display='block'
+    document.getElementById('progress-card').style.display='none'
+  } catch(e){ setLog('❌ '+(e.message||'Failed')); toast('Failed','err') }
+  document.getElementById('run-btn').disabled=false
 }
 
-// Drop on file card
-document.getElementById('fileCard').addEventListener('dragover', e => e.preventDefault())
-document.getElementById('fileCard').addEventListener('drop', e => { e.preventDefault(); selectFile(e.dataTransfer.files[0]) })
+async function renderWaveform(){
+  if(!selectedFile) return
+  try {
+    const ac=new AudioContext()
+    const buf=await selectedFile.arrayBuffer()
+    const decoded=await ac.decodeAudioData(buf)
+    const canvas=document.getElementById('waveform')
+    const ctx=canvas.getContext('2d')
+    const W=canvas.offsetWidth*devicePixelRatio, H=canvas.offsetHeight*devicePixelRatio
+    canvas.width=W; canvas.height=H
+    const data=decoded.getChannelData(0)
+    const step=Math.ceil(data.length/W)
+    ctx.fillStyle='#090c13'; ctx.fillRect(0,0,W,H)
+    ctx.strokeStyle='#52e5e7'; ctx.lineWidth=1; ctx.beginPath()
+    for(let i=0;i<W;i++){
+      let min=1,max=-1
+      for(let j=0;j<step;j++){
+        const s=data[(i*step)+j]||0
+        if(s<min)min=s; if(s>max)max=s
+      }
+      ctx.moveTo(i,(.5+min*.45)*H); ctx.lineTo(i,(.5+max*.45)*H)
+    }
+    ctx.stroke()
+    // Center line
+    ctx.strokeStyle='rgba(255,255,255,.1)'; ctx.lineWidth=1; ctx.beginPath()
+    ctx.moveTo(0,H/2); ctx.lineTo(W,H/2); ctx.stroke()
+    toast(`Waveform: ${decoded.numberOfChannels}ch · ${decoded.sampleRate}Hz · ${decoded.duration.toFixed(2)}s`,'ok')
+  } catch(e){ toast('Waveform failed: '+(e.message||''),'err') }
+}
+
+function setLog(msg){ document.getElementById('progress-log').textContent=msg; document.getElementById('progress-fill').style.width='35%' }
+
+function toast(msg,type=''){
+  const el=document.createElement('div'); el.className='toast'+(type?' '+type:''); el.textContent=msg
+  document.getElementById('toasts').appendChild(el); setTimeout(()=>el.remove(),3000)
+}
 </script>
-
-<!-- SEO Footer — internal links to main site and sibling tools -->
-<footer style="padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.07);background:#0a0d13;font-family:'Inter',system-ui,sans-serif;font-size:.72rem;color:#6b7685;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center;justify-content:space-between">
-  <div style="display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center">
-    <a href="https://universeinvedors.tech" style="color:#3b82f6;text-decoration:none" rel="noopener">Universe Invedors</a>
-    <span>·</span>
-    <a href="https://universeinvedors.tech/tools" style="color:#8b949e;text-decoration:none">All Tools</a>
-    <span>·</span>
-    <a href="https://code.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Code</a>
-    <a href="https://diagram.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Diagrams</a>
-    <a href="https://chart.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Charts</a>
-    <a href="https://ocr.universeinvedors.tech" style="color:#8b949e;text-decoration:none">OCR</a>
-    <a href="https://pdf.universeinvedors.tech" style="color:#8b949e;text-decoration:none">PDF</a>
-    <a href="https://image.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Image</a>
-    <a href="https://3d.universeinvedors.tech" style="color:#8b949e;text-decoration:none">3D</a>
-    <a href="https://map.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Maps</a>
-    <a href="https://media.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Media</a>
-  </div>
-  <div>
-    <a href="https://universeinvedors.tech/privacy" style="color:#6b7685;text-decoration:none">Privacy</a>
-    &nbsp;·&nbsp;
-    <span>&copy; 2024 Universe Invedors</span>
-  </div>
-</footer>
 </body>
 </html>
