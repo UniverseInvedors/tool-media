@@ -2,1069 +2,1026 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Media Studio — Convert, Trim, Compress, Subtitles, Waveform, Thumbnail, Screen Recorder | Universe Invedors</title>
-<meta name="description" content="Free online media studio using FFmpeg.wasm. Convert video/audio formats, trim with timeline, compress, extract waveforms, extract thumbnails, record your screen. 100% local — no uploads."/>
-<meta name="keywords" content="video converter online free,ffmpeg browser,trim video online,compress video,screen recorder web,audio waveform tool,thumbnail extractor,video to mp4 browser"/>
+<title>Media Studio — Waveform, Screen Recorder, Thumbnail Extractor, Media Info, Video Converter | Universe Invedors</title>
+<meta name="description" content="Free online media tools. Visualise audio waveforms, record your screen, extract video thumbnails, inspect media metadata and convert formats. All processing local in your browser."/>
+<meta name="keywords" content="waveform viewer online,screen recorder free,video thumbnail extractor,media info tool,online video converter,audio waveform browser,free media tools"/>
 <link rel="canonical" href="https://media.universeinvedors.tech/"/>
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 <meta name="author" content="Universe Invedors"/>
-<meta property="og:title" content="Media Studio — Convert, Trim, Compress, Waveform, Screen Recorder"/>
-<meta property="og:description" content="FFmpeg.wasm powered media toolkit. Convert, trim, compress, extract waveforms, thumbnails, record screen. No uploads."/>
-<meta property="og:url" content="https://media.universeinvedors.tech/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/>
-<meta property="og:site_name" content="Universe Invedors Tools"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<meta property="og:title" content="Media Studio — Waveform, Screen Recorder, Thumbnails, Media Info"/><meta property="og:url" content="https://media.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
 <meta name="theme-color" content="#090c13"/>
 <meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Media Studio","url":"https://media.universeinvedors.tech","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Video/Audio Format Conversion","Video Trimming","Compression","Waveform Viewer","Thumbnail Extraction","Screen Recorder","Media Info","100% local FFmpeg.wasm processing"],"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"Media Studio","item":"https://media.universeinvedors.tech"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Media Studio","url":"https://media.universeinvedors.tech","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"Media Studio","item":"https://media.universeinvedors.tech"}]}]</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#090c13;--surf:#0d1117;--elev:#141b28;--card:#1a2235;--inp:#111827;
   --t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;
-  --acc:#52e5e7;--acc-h:#67e8f9;--acc-glow:rgba(82,229,231,.22);
-  --green:#10b981;--blue:#3b82f6;--red:#ef4444;--orange:#f97316;
+  --acc:#52e5e7;--acc-h:#22d3ee;--acc-glow:rgba(82,229,231,.22);
+  --green:#10b981;--violet:#8b5cf6;--orange:#f97316;--blue:#3b82f6;--red:#ef4444;
   --border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);
   --font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
-  --mono:'Cascadia Code',Consolas,monospace;
+  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
   --r:8px;--th:50px;--tr:160ms cubic-bezier(.4,0,.2,1);
 }
 html{font-size:16px}
-body{font-family:var(--font);background:var(--bg);color:var(--t1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.22)}
-:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
-
-/* TOPBAR */
-.topbar{height:var(--th);background:rgba(9,12,19,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .75rem;flex-shrink:0;z-index:200}
-.logo{font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:.4rem}
-.logo:hover{color:var(--acc-h)}
-.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;flex-shrink:1;overflow-x:auto}
-.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);white-space:nowrap;transition:all var(--tr)}
-.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}
-.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100dvh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+.topbar{height:var(--th);background:rgba(9,12,19,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .75rem;flex-shrink:0;position:sticky;top:0;z-index:200}
+.logo{font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:.4rem}.logo:hover{color:var(--acc-h);text-decoration:none}
+.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;overflow-x:auto;flex-shrink:1}
+.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);white-space:nowrap;transition:all var(--tr)}.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
 .sp{flex:1}
 .btn{display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .75rem;border-radius:var(--r);font-size:.73rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
 .bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
 .bp{background:var(--acc);color:#000}.bp:hover{background:var(--acc-h)}
 .bsm{padding:.22rem .55rem;font-size:.68rem}
 .btn:disabled{opacity:.4;cursor:not-allowed}
-.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#dc2626}
-.btn-green{background:var(--green);color:#000}.btn-green:hover{background:#0ea371}
-
-/* LAYOUT */
-.main{display:flex;flex:1;overflow:hidden}
-.sidebar{width:260px;background:var(--surf);border-right:1px solid var(--border);overflow-y:auto;flex-shrink:0;padding:.65rem .55rem;display:flex;flex-direction:column;gap:.4rem}
-.content{flex:1;display:flex;flex-direction:column;overflow:hidden}
-
-/* PANELS */
-.panel{display:none;flex-direction:column;flex:1;overflow-y:auto;padding:.75rem}
-.panel.active{display:flex}
-
-/* SECTION HEADERS */
-.sec{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);padding:.35rem 0 .1rem;margin-top:.2rem}
-.fl{font-size:.7rem;font-weight:700;color:var(--t3);margin-bottom:.2rem;display:flex;justify-content:space-between;align-items:center}
-.fi{width:100%;padding:.4rem .6rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;outline:none;margin-bottom:.45rem}
-.fi:focus{border-color:rgba(82,229,231,.5)}
-.fsel{width:100%;padding:.4rem .6rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;outline:none;cursor:pointer;margin-bottom:.45rem}
-.fsel:focus{border-color:rgba(82,229,231,.5)}
-.frange{width:100%;accent-color:var(--acc);margin:.2rem 0 .45rem}
-
-/* DROPZONE */
-.dropzone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:2.5rem 2rem;border:2px dashed var(--border);border-radius:12px;text-align:center;cursor:pointer;transition:all var(--tr);margin-bottom:.75rem}
-.dropzone:hover,.dropzone.over{border-color:var(--acc);background:rgba(82,229,231,.04)}
-.drop-icon{font-size:2.5rem}
-.drop-title{font-size:.9rem;font-weight:700}
-.drop-sub{font-size:.75rem;color:var(--t3)}
-.privacy-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--green);background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:20px;padding:.25rem .65rem}
-
-/* FILE INFO */
-.file-info{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.6rem .75rem;margin-bottom:.6rem;font-size:.78rem;color:var(--t2)}
-.file-info strong{color:var(--t1);font-size:.85rem}
-
-/* PROGRESS */
-.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.65rem .75rem;margin-bottom:.6rem}
-.progress-bar{height:8px;background:var(--elev);border-radius:4px;overflow:hidden;margin-bottom:.35rem}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--acc),var(--acc-h));border-radius:4px;transition:width .25s;width:0%}
-.log-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:.5rem .6rem;font-family:var(--mono);font-size:.65rem;color:var(--t3);max-height:120px;overflow-y:auto;line-height:1.5;margin-top:.35rem;white-space:pre-wrap;word-break:break-all}
-
-/* TIMELINE */
-.timeline-wrap{position:relative;height:60px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:.6rem;cursor:pointer;overflow:hidden}
-.timeline-waveform{position:absolute;inset:0}
-.timeline-selection{position:absolute;top:0;bottom:0;background:rgba(82,229,231,.15);border-left:2px solid var(--acc);border-right:2px solid var(--acc-h);pointer-events:none}
-.timeline-playhead{position:absolute;top:0;bottom:0;width:2px;background:var(--orange);pointer-events:none}
-.handle{position:absolute;top:50%;transform:translateY(-50%);width:12px;height:36px;background:var(--acc);border-radius:4px;cursor:ew-resize;z-index:5}
-.handle-left{left:0;transform:translate(-50%,-50%)}
-.handle-right{right:0;transform:translate(50%,-50%)}
-
-/* WAVEFORM */
-.waveform-controls{display:flex;align-items:center;gap:.4rem;margin-bottom:.45rem;flex-wrap:wrap}
-#waveform-canvas{width:100%;height:100px;border-radius:var(--r);background:var(--card);border:1px solid var(--border);cursor:crosshair;margin-bottom:.45rem;display:block}
-
-/* THUMBNAILS */
-.thumb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.5rem;margin-top:.5rem}
-.thumb-item{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;text-align:center}
-.thumb-item img{width:100%;display:block}
-.thumb-item span{font-size:.62rem;color:var(--t3);padding:.2rem;display:block}
-
-/* SCREEN RECORDER */
-.recorder-area{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem}
-.rec-status{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:700}
-.rec-dot{width:10px;height:10px;border-radius:50%;background:var(--t4)}
-.rec-dot.recording{background:var(--red);animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.rec-controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
-#rec-preview{max-width:100%;max-height:280px;border-radius:var(--r);border:1px solid var(--border);background:#000;display:none}
-
-/* MEDIA INFO TABLE */
-.info-table{width:100%;border-collapse:collapse;font-size:.78rem}
-.info-table th{text-align:left;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t4);padding:.4rem .5rem;background:var(--elev)}
-.info-table td{padding:.4rem .5rem;border-bottom:1px solid var(--border);color:var(--t2);vertical-align:top}
-.info-table td:first-child{color:var(--t3);font-weight:700;width:35%}
-.info-table tr:hover td{background:rgba(255,255,255,.02)}
-
-/* STATUS BAR */
-.statusbar{display:flex;align-items:center;gap:.75rem;padding:.22rem .75rem;background:var(--surf);border-top:1px solid var(--border);font-size:.67rem;color:var(--t3);flex-shrink:0;overflow-x:auto}
-.sb-sep{color:var(--t4)}
-
-/* FOOTER */
-.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.35rem .75rem;border-top:1px solid var(--border);background:var(--surf);font-size:.65rem;color:var(--t3);flex-shrink:0}
-.seo-footer a{color:var(--t3);text-decoration:none}.seo-footer a:hover{color:var(--t2)}
-.sf-links{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
-
-/* TOASTS */
+.badge-priv{display:inline-flex;align-items:center;gap:.25rem;padding:.2rem .55rem;border-radius:100px;font-size:.67rem;font-weight:700;background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.25)}
+.container{max-width:900px;margin:0 auto;padding:1.5rem 1rem;flex:1;width:100%}
+/* Mode panels */
+.panel{display:none}.panel.active{display:block}
+/* Section card */
+.section-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1.25rem}
+.card-title{font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
+.card-sub{font-size:.78rem;color:var(--t2);margin-bottom:.9rem;line-height:1.55}
+/* Drop zone */
+.dz{border:2px dashed var(--border);border-radius:10px;padding:2rem 1.5rem;text-align:center;cursor:pointer;transition:all var(--tr);background:var(--bg)}
+.dz:hover,.dz.drag{border-color:var(--acc);background:rgba(82,229,231,.03)}
+.dz h3{font-size:.88rem;font-weight:700;margin:.45rem 0 .25rem}
+.dz p{font-size:.76rem;color:var(--t2)}
+/* Waveform */
+.waveform-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--border);margin:.75rem 0;position:relative;background:var(--card)}
+canvas#waveform-canvas{width:100%;display:block;height:140px}
+.wf-playhead{position:absolute;top:0;bottom:0;width:2px;background:var(--acc);pointer-events:none;left:0;transition:left .1s linear}
+.wf-controls{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:.6rem .75rem;border-top:1px solid var(--border);background:var(--bg)}
+.wf-time{font-size:.72rem;color:var(--t2);font-family:var(--mono)}
+/* Screen recorder */
+.rec-preview{width:100%;border-radius:10px;border:1px solid var(--border);background:#000;aspect-ratio:16/9;max-height:360px;display:block}
+.rec-status{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;padding:.55rem .8rem;border-radius:var(--r)}
+.rec-idle{background:var(--elev);color:var(--t3)}
+.rec-live{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.25)}
+.rec-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink .8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.rec-paused{background:rgba(245,158,11,.1);color:#f59e0b}
+/* Thumbnail strip */
+.thumb-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+.thumb-strip img{width:120px;height:68px;object-fit:cover;border-radius:6px;border:1px solid var(--border);cursor:pointer;transition:all var(--tr)}
+.thumb-strip img:hover{border-color:var(--acc);transform:scale(1.04)}
+/* Media info table */
+.info-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.info-table td{padding:.45rem .65rem;border-bottom:1px solid var(--border)}
+.info-table tr:last-child td{border-bottom:none}
+.info-table .key{color:var(--t3);font-weight:600;width:38%;font-size:.72rem;letter-spacing:.03em;text-transform:uppercase}
+.info-table .val{color:var(--t1);font-family:var(--mono);font-size:.78rem}
+/* Convert section */
+.convert-note{padding:.7rem;border-radius:var(--r);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);font-size:.78rem;color:#f59e0b;display:flex;gap:.5rem;align-items:flex-start}
+/* Progress */
+.prog-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.07);overflow:hidden;margin:.45rem 0}
+.prog-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--acc),var(--blue));transition:width .3s}
+/* Color picker row */
+.color-row{display:flex;align-items:center;gap:.5rem}
+.color-row input[type=color]{width:36px;height:36px;border-radius:6px;border:1px solid var(--border);padding:.15rem;background:transparent;cursor:pointer}
+.fl{font-size:.69rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);margin-bottom:.25rem;display:block}
+.fi{width:100%;padding:.4rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;outline:none;margin-bottom:.55rem;transition:border-color var(--tr)}
+.fi:focus{border-color:rgba(82,229,231,.45)}
+/* Downloads */
+.dl-box{padding:.85rem 1rem;border-radius:var(--r);background:rgba(82,229,231,.06);border:1px solid rgba(82,229,231,.2);text-align:center}
+.dl-box .dl-title{font-size:.88rem;font-weight:700;color:var(--acc-h);margin-bottom:.6rem}
+/* Info section */
+.info-sect{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.info-sect h2{font-size:.95rem;font-weight:700;margin-bottom:.6rem}
+.info-sect ul{color:var(--t2);font-size:.85rem;line-height:1.95;padding-left:1.25rem}
+.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.35rem .75rem;border-top:1px solid var(--border);background:var(--surf);font-size:.65rem;color:var(--t3)}
+.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2);text-decoration:none}.sf-links{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
 .toasts{position:fixed;bottom:2.5rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
 .toast{padding:.5rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 6px 24px rgba(0,0,0,.5);animation:tin .2s ease}
 .toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:rgba(82,229,231,.35);color:var(--acc-h)}
 @keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
-.note{font-size:.7rem;color:var(--t3);line-height:1.5;margin:.35rem 0}
-@media(max-width:700px){.sidebar{display:none}}
 </style>
 </head>
 <body>
+
 <header class="topbar">
   <a href="https://universeinvedors.tech/tools" class="logo">🎬 <span style="color:var(--acc-h)">Media Studio</span></a>
   <div class="etabs">
-    <button class="et active" onclick="switchMode('convert',this)">🔄 Convert</button>
-    <button class="et" onclick="switchMode('trim',this)">✂️ Trim</button>
-    <button class="et" onclick="switchMode('compress',this)">📦 Compress</button>
-    <button class="et" onclick="switchMode('waveform',this)">〰 Waveform</button>
-    <button class="et" onclick="switchMode('thumbs',this)">🖼 Thumbnails</button>
-    <button class="et" onclick="switchMode('recorder',this)">⏺ Recorder</button>
-    <button class="et" onclick="switchMode('info',this)">ℹ Info</button>
+    <button class="et active" id="et-waveform"  onclick="setPanel('waveform')">📊 Waveform</button>
+    <button class="et"        id="et-recorder"  onclick="setPanel('recorder')">⏺ Recorder</button>
+    <button class="et"        id="et-thumbs"    onclick="setPanel('thumbs')">🎞 Thumbnails</button>
+    <button class="et"        id="et-info"      onclick="setPanel('info')">ℹ Info</button>
+    <button class="et"        id="et-convert"   onclick="setPanel('convert')">🔄 Convert</button>
   </div>
   <div class="sp"></div>
-  <span class="privacy-badge" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.68rem;color:var(--green);background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:20px;padding:.22rem .6rem">🔒 100% Local</span>
+  <span class="badge-priv">🔒 Local Processing</span>
 </header>
 
-<div class="main">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div id="sb-file-info" style="font-size:.75rem;color:var(--t3)">No file loaded</div>
-    <div id="sb-ffmpeg-status" style="font-size:.68rem;color:var(--orange)">⏳ FFmpeg loading...</div>
-    <div class="sec">Quick Actions</div>
-    <button class="btn bg bsm" onclick="openFile()" style="width:100%">📂 Open File</button>
-    <button class="btn bg bsm" id="sidebar-run-btn" onclick="runCurrentMode()" disabled style="width:100%">▶ Run Current Mode</button>
+<div class="container">
 
-    <div class="sec">Output Format</div>
-    <select class="fsel" id="global-fmt" style="margin-bottom:0">
-      <option value="mp4">MP4 (H.264)</option>
-      <option value="webm">WebM (VP9)</option>
-      <option value="mkv">MKV</option>
-      <option value="avi">AVI</option>
-      <option value="mov">MOV</option>
-      <option value="gif">GIF</option>
-      <option value="mp3">MP3 (Audio)</option>
-      <option value="aac">AAC (Audio)</option>
-      <option value="wav">WAV (Audio)</option>
-      <option value="ogg">OGG (Audio)</option>
-      <option value="flac">FLAC (Audio)</option>
-    </select>
-  </aside>
+  <!-- ── WAVEFORM ──────────────────────────────────────────── -->
+  <div id="panel-waveform" class="panel active">
+    <div class="section-card">
+      <div class="card-title">📊 Audio Waveform Visualiser</div>
+      <div class="card-sub">Drop any audio or video file to render its waveform. Fully local — uses the Web Audio API, no upload required.</div>
 
-  <!-- CONTENT -->
-  <div class="content">
-
-    <!-- CONVERT -->
-    <div class="panel active" id="panel-convert">
-      <div class="dropzone" id="conv-drop" onclick="openFile()" ondrop="handleDrop(event)" ondragover="onDragOver(event)">
-        <div class="drop-icon">🎬</div>
-        <div class="drop-title">Drop video or audio file here</div>
-        <div class="drop-sub">Supports MP4, WebM, MKV, AVI, MOV, MP3, WAV, OGG, FLAC and more</div>
-        <div class="privacy-badge">🔒 Your files never leave your browser</div>
+      <div class="dz" id="wf-dz"
+        onclick="document.getElementById('wf-file').click()"
+        ondragover="event.preventDefault();this.classList.add('drag')"
+        ondragleave="this.classList.remove('drag')"
+        ondrop="event.preventDefault();this.classList.remove('drag');loadWaveform(event.dataTransfer.files[0])">
+        <div style="font-size:2.2rem;margin-bottom:.5rem">🎵</div>
+        <h3>Drop an audio or video file here</h3>
+        <p>MP3, WAV, OGG, FLAC, M4A, MP4, WebM and more</p>
       </div>
-      <div id="conv-file-info" class="file-info" style="display:none"></div>
-      <div class="sec">Output Format</div>
-      <select class="fsel" id="conv-fmt">
-        <option value="mp4">MP4 (H.264)</option>
-        <option value="webm">WebM (VP9)</option>
-        <option value="mkv">MKV</option>
-        <option value="avi">AVI</option>
-        <option value="mov">MOV</option>
-        <option value="gif">GIF (⚠️ slow)</option>
-        <option value="mp3">MP3 (Audio only)</option>
-        <option value="aac">AAC (Audio only)</option>
-        <option value="wav">WAV (Audio only)</option>
-        <option value="ogg">OGG (Audio only)</option>
-        <option value="flac">FLAC (Audio only)</option>
-      </select>
-      <button class="btn bp" id="conv-btn" onclick="runConvert()" disabled>🔄 Convert &amp; Download</button>
-      <div id="conv-progress" class="progress-wrap" style="margin-top:.6rem;display:none">
-        <div class="progress-bar"><div class="progress-fill" id="conv-fill"></div></div>
-        <div class="log-box" id="conv-log"></div>
-      </div>
-    </div>
+      <input type="file" id="wf-file" accept="audio/*,video/*" style="display:none" onchange="loadWaveform(this.files[0])">
 
-    <!-- TRIM -->
-    <div class="panel" id="panel-trim">
-      <div class="dropzone" id="trim-drop" onclick="openFile('trim')" ondrop="handleDrop(event,'trim')" ondragover="onDragOver(event)">
-        <div class="drop-icon">✂️</div>
-        <div class="drop-title">Drop video/audio to trim</div>
-        <div class="drop-sub">Set start/end points with the timeline</div>
-        <div class="privacy-badge">🔒 Local processing</div>
+      <div id="wf-loading" style="display:none;text-align:center;padding:1rem">
+        <div style="width:22px;height:22px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--acc);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto .5rem"></div>
+        <p style="font-size:.78rem;color:var(--t2)" id="wf-loading-msg">Decoding audio…</p>
       </div>
-      <div id="trim-controls" style="display:none">
-        <div id="trim-file-info" class="file-info"></div>
-        <div class="sec">Timeline (drag handles to set range)</div>
-        <div class="timeline-wrap" id="timeline-wrap">
-          <canvas class="timeline-waveform" id="timeline-canvas"></canvas>
-          <div class="timeline-selection" id="tl-selection"></div>
+
+      <div id="wf-result" style="display:none">
+        <!-- Waveform canvas -->
+        <div class="waveform-wrap">
+          <canvas id="waveform-canvas"></canvas>
+          <div class="wf-playhead" id="wf-playhead" style="display:none"></div>
         </div>
-        <div class="grid-2" style="margin-bottom:.45rem">
+
+        <!-- Transport controls -->
+        <div class="wf-controls">
+          <button class="btn bp bsm" id="wf-play-btn" onclick="togglePlayback()">▶ Play</button>
+          <button class="btn bg bsm" onclick="stopPlayback()">■ Stop</button>
+          <span class="wf-time" id="wf-time">0:00 / 0:00</span>
+          <div style="flex:1"></div>
+          <span style="font-size:.7rem;color:var(--t3)" id="wf-meta"></span>
+          <button class="btn bg bsm" onclick="exportWaveformPNG()">↓ Save PNG</button>
+        </div>
+
+        <!-- Customisation -->
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.75rem;padding:.75rem;background:var(--card);border-radius:var(--r);border:1px solid var(--border)">
           <div>
-            <label class="fl">Start Time</label>
-            <input class="fi" type="text" id="trim-start" placeholder="00:00:00" style="margin-bottom:0"/>
+            <label class="fl">Wave colour</label>
+            <div class="color-row">
+              <input type="color" id="wf-color" value="#52e5e7" oninput="redrawWaveform()">
+              <span style="font-size:.72rem;color:var(--t2)">Wave</span>
+            </div>
           </div>
           <div>
-            <label class="fl">End Time</label>
-            <input class="fi" type="text" id="trim-end" placeholder="00:00:10" style="margin-bottom:0"/>
+            <label class="fl">Background</label>
+            <div class="color-row">
+              <input type="color" id="wf-bg-color" value="#1a2235" oninput="redrawWaveform()">
+              <span style="font-size:.72rem;color:var(--t2)">BG</span>
+            </div>
           </div>
-        </div>
-        <div class="note">💡 Stream copy is used by default (fast, lossless). The output will be cut at the nearest keyframe.</div>
-        <button class="btn bp" onclick="runTrim()" style="margin-top:.4rem">✂️ Trim &amp; Download</button>
-        <div id="trim-progress" class="progress-wrap" style="display:none;margin-top:.6rem">
-          <div class="progress-bar"><div class="progress-fill" id="trim-fill"></div></div>
-          <div class="log-box" id="trim-log"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMPRESS -->
-    <div class="panel" id="panel-compress">
-      <div class="dropzone" id="comp-drop" onclick="openFile('compress')" ondrop="handleDrop(event,'compress')" ondragover="onDragOver(event)">
-        <div class="drop-icon">📦</div>
-        <div class="drop-title">Drop video to compress</div>
-        <div class="drop-sub">Adjust quality vs file size with CRF encoding</div>
-        <div class="privacy-badge">🔒 Local processing</div>
-      </div>
-      <div id="comp-controls" style="display:none">
-        <div id="comp-file-info" class="file-info"></div>
-        <label class="fl">CRF Quality <span id="v-crf" style="color:var(--acc-h)">23</span> <span style="font-size:.65rem;color:var(--t4)">(lower = better quality, larger file)</span></label>
-        <input type="range" class="frange" id="comp-crf" min="0" max="51" value="23" oninput="document.getElementById('v-crf').textContent=this.value;estimateCompressedSize()"/>
-        <label class="fl">Output Format</label>
-        <select class="fsel" id="comp-fmt">
-          <option value="mp4">MP4 (H.264)</option>
-          <option value="webm">WebM (VP9)</option>
-        </select>
-        <div class="note">📊 Original: <strong id="comp-orig-size">—</strong> → Est. Output: <strong id="comp-est-size" style="color:var(--acc-h)">—</strong></div>
-        <button class="btn bp" onclick="runCompress()" style="margin-top:.4rem">📦 Compress &amp; Download</button>
-        <div id="comp-progress" class="progress-wrap" style="display:none;margin-top:.6rem">
-          <div class="progress-bar"><div class="progress-fill" id="comp-fill"></div></div>
-          <div class="log-box" id="comp-log"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- WAVEFORM -->
-    <div class="panel" id="panel-waveform">
-      <div class="dropzone" id="wave-drop" onclick="openFile('waveform')" ondrop="handleDrop(event,'waveform')" ondragover="onDragOver(event)">
-        <div class="drop-icon">〰</div>
-        <div class="drop-title">Drop audio or video for waveform</div>
-        <div class="drop-sub">Web Audio API waveform renderer</div>
-        <div class="privacy-badge">🔒 Local processing</div>
-      </div>
-      <div id="wave-controls" style="display:none;flex-direction:column">
-        <div id="wave-file-info" class="file-info"></div>
-        <div class="waveform-controls">
-          <button class="btn bg bsm" onclick="playWaveform()">▶ Play</button>
-          <button class="btn bg bsm" onclick="pauseWaveform()">⏸ Pause</button>
-          <button class="btn bg bsm" onclick="stopWaveform()">⏹ Stop</button>
-          <div class="sp"></div>
-          <label class="fl" style="margin:0;gap:.35rem">Zoom <span id="v-wave-zoom">1x</span></label>
-          <input type="range" id="wave-zoom" min="1" max="8" step="0.5" value="1" oninput="document.getElementById('v-wave-zoom').textContent=parseFloat(this.value).toFixed(1)+'x';redrawWaveform()" style="width:80px;accent-color:var(--acc)"/>
-          <label class="fl" style="margin:0;gap:.35rem">Color</label>
-          <input type="color" id="wave-color" value="#52e5e7" style="width:32px;height:26px;border:1px solid var(--border);border-radius:4px;background:var(--inp);cursor:pointer" oninput="redrawWaveform()"/>
-          <button class="btn bg bsm" onclick="downloadWaveformPNG()">↓ PNG</button>
-        </div>
-        <canvas id="waveform-canvas"></canvas>
-        <div style="position:relative;height:4px;background:var(--elev);border-radius:2px;margin-bottom:.45rem">
-          <div id="wave-playhead" style="position:absolute;top:-3px;width:2px;height:10px;background:var(--orange);border-radius:1px;left:0"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- THUMBNAILS -->
-    <div class="panel" id="panel-thumbs">
-      <div class="dropzone" id="thumb-drop" onclick="openFile('thumbs')" ondrop="handleDrop(event,'thumbs')" ondragover="onDragOver(event)">
-        <div class="drop-icon">🖼</div>
-        <div class="drop-title">Drop video to extract thumbnails</div>
-        <div class="drop-sub">Extract frames at timestamps or at intervals</div>
-        <div class="privacy-badge">🔒 Local processing</div>
-      </div>
-      <div id="thumbs-controls" style="display:none">
-        <div id="thumbs-file-info" class="file-info"></div>
-        <div class="grid-2">
+          <div style="flex:1;min-width:140px">
+            <label class="fl">Zoom</label>
+            <input type="range" id="wf-zoom" min="1" max="8" step="0.5" value="1" oninput="redrawWaveform()" style="width:100%;accent-color:var(--acc)">
+          </div>
           <div>
-            <label class="fl">Mode</label>
-            <select class="fsel" id="thumb-mode" onchange="onThumbModeChange()">
-              <option value="interval">Every N seconds</option>
-              <option value="timestamp">Specific timestamp</option>
+            <label class="fl">Style</label>
+            <select id="wf-style" onchange="redrawWaveform()" style="padding:.35rem .55rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.76rem;outline:none">
+              <option value="bars">Bars</option>
+              <option value="wave">Wave line</option>
+              <option value="mirror">Mirror</option>
             </select>
           </div>
-          <div id="thumb-interval-wrap">
-            <label class="fl">Interval (sec)</label>
-            <input class="fi" type="number" id="thumb-interval" value="5" min="1" style="margin-bottom:0"/>
-          </div>
-          <div id="thumb-ts-wrap" style="display:none">
-            <label class="fl">Timestamp (s)</label>
-            <input class="fi" type="number" id="thumb-ts" value="0" min="0" style="margin-bottom:0"/>
-          </div>
-        </div>
-        <video id="thumb-video" style="display:none" crossorigin="anonymous"></video>
-        <canvas id="thumb-canvas" style="display:none"></canvas>
-        <div class="grid-2" style="margin-top:.35rem;margin-bottom:.35rem">
-          <button class="btn bp bsm" onclick="extractThumbnails()">🖼 Extract Frames</button>
-          <button class="btn bg bsm" id="dl-thumbs-btn" onclick="downloadThumbsZip()" disabled>↓ Download ZIP</button>
-        </div>
-        <div id="thumb-progress" class="progress-wrap" style="display:none">
-          <div class="progress-bar"><div class="progress-fill" id="thumb-fill"></div></div>
-          <div class="log-box" id="thumb-log" style="max-height:60px"></div>
-        </div>
-        <div class="thumb-grid" id="thumb-grid"></div>
-      </div>
-    </div>
-
-    <!-- SCREEN RECORDER -->
-    <div class="panel" id="panel-recorder">
-      <div class="recorder-area">
-        <div class="rec-status">
-          <div class="rec-dot" id="rec-dot"></div>
-          <span id="rec-status-text">Ready to record</span>
-          <span id="rec-timer" style="font-family:var(--mono);font-size:.85rem;color:var(--acc-h)"></span>
-        </div>
-        <video id="rec-preview" autoplay muted playsinline></video>
-        <div class="rec-controls">
-          <button class="btn bp" id="rec-start-btn" onclick="startRecording()">⏺ Start Recording</button>
-          <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" disabled>⏸ Pause</button>
-          <button class="btn btn-red" id="rec-stop-btn" onclick="stopRecording()" disabled>⏹ Stop</button>
-          <button class="btn btn-green" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">↓ Download WebM</button>
-        </div>
-        <div style="text-align:center;max-width:480px">
-          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;justify-content:center">
-            <input type="checkbox" id="rec-mic" />
-            <label for="rec-mic" style="font-size:.78rem;cursor:pointer">Include Microphone Audio</label>
-          </div>
-          <div class="note">
-            🖥️ <strong>Records your screen — nothing is uploaded.</strong><br/>
-            The recording is saved as a WebM file on your device.<br/>
-            Requires browser permission to access your screen.
-          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- MEDIA INFO -->
-    <div class="panel" id="panel-info">
-      <div class="dropzone" id="info-drop" onclick="openFile('info')" ondrop="handleDrop(event,'info')" ondragover="onDragOver(event)">
-        <div class="drop-icon">ℹ</div>
-        <div class="drop-title">Drop any video or audio file</div>
-        <div class="drop-sub">Get comprehensive metadata using FFmpeg</div>
-        <div class="privacy-badge">🔒 Local processing</div>
+  <!-- ── SCREEN RECORDER ───────────────────────────────────── -->
+  <div id="panel-recorder" class="panel">
+    <div class="section-card">
+      <div class="card-title">⏺ Screen Recorder</div>
+      <div class="card-sub">Record your screen with optional microphone audio. Uses the browser's <code style="background:var(--card);padding:.1rem .3rem;border-radius:4px">getDisplayMedia</code> API — nothing is uploaded. Output: WebM video file.</div>
+
+      <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.85rem;flex-wrap:wrap">
+        <div id="rec-status" class="rec-status rec-idle">⬜ Ready to record</div>
+        <span id="rec-timer" style="font-size:.8rem;font-weight:700;color:var(--t2);font-family:var(--mono);display:none">00:00</span>
+        <label style="display:flex;align-items:center;gap:.3rem;cursor:pointer;font-size:.78rem;color:var(--t2)">
+          <input type="checkbox" id="rec-mic" style="accent-color:var(--acc)"> Include microphone
+        </label>
       </div>
-      <div id="info-controls" style="display:none">
-        <div id="info-file-info" class="file-info"></div>
-        <div id="info-progress" class="progress-wrap" style="display:none">
-          <div class="progress-bar"><div class="progress-fill" id="info-fill" style="width:100%;background:var(--acc)"></div></div>
-          <div class="log-box" id="info-log" style="max-height:80px"></div>
+
+      <video id="rec-preview" class="rec-preview" autoplay muted playsinline style="display:none"></video>
+      <video id="rec-playback" class="rec-preview" controls style="display:none;margin-top:.65rem"></video>
+
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
+        <button class="btn bp" id="rec-start-btn" onclick="startRecording()">⏺ Start Recording</button>
+        <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" style="display:none">⏸ Pause</button>
+        <button class="btn bg" id="rec-stop-btn" onclick="stopRecording()" style="display:none">■ Stop</button>
+        <button class="btn bg bsm" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">↓ Download WebM</button>
+        <button class="btn bg bsm" id="rec-new-btn" onclick="newRecording()" style="display:none">New recording</button>
+      </div>
+
+      <div id="rec-size-info" style="display:none;margin-top:.5rem;font-size:.72rem;color:var(--t3)"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-title" style="font-size:.78rem">Notes</div>
+      <ul style="font-size:.78rem;color:var(--t2);line-height:1.9;padding-left:1.15rem">
+        <li>Browser will ask which screen, window or tab to share</li>
+        <li>Output is WebM format (supported by Chrome, Firefox, Edge)</li>
+        <li>Nothing is uploaded — recording stays in memory until you download</li>
+        <li>Large recordings may use significant RAM while recording</li>
+        <li>Convert WebM → MP4 using the Convert tab or VLC</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── THUMBNAILS ─────────────────────────────────────────── -->
+  <div id="panel-thumbs" class="panel">
+    <div class="section-card">
+      <div class="card-title">🎞 Video Thumbnail Extractor</div>
+      <div class="card-sub">Extract frames from any video file as JPEG images. Uses the browser's HTMLVideoElement and Canvas API — 100% local, no upload.</div>
+
+      <div class="dz" id="th-dz"
+        onclick="document.getElementById('th-file').click()"
+        ondragover="event.preventDefault();this.classList.add('drag')"
+        ondragleave="this.classList.remove('drag')"
+        ondrop="event.preventDefault();this.classList.remove('drag');loadThumbVideo(event.dataTransfer.files[0])">
+        <div style="font-size:2.2rem;margin-bottom:.5rem">🎬</div>
+        <h3>Drop a video file here</h3>
+        <p>MP4, WebM, MKV, AVI, MOV and more</p>
+      </div>
+      <input type="file" id="th-file" accept="video/*" style="display:none" onchange="loadThumbVideo(this.files[0])">
+      <video id="th-video" style="display:none" preload="auto"></video>
+
+      <div id="th-controls" style="display:none;margin-top:.75rem">
+        <div style="display:flex;flex-wrap:wrap;gap:.65rem;align-items:flex-end;margin-bottom:.75rem">
+          <div>
+            <label class="fl">Mode</label>
+            <select class="fi" id="th-mode" style="margin-bottom:0;width:auto">
+              <option value="interval">Every N seconds</option>
+              <option value="seek">Specific timestamps</option>
+              <option value="count">Fixed count</option>
+            </select>
+          </div>
+          <div id="th-interval-wrap">
+            <label class="fl">Interval (seconds)</label>
+            <input class="fi" type="number" id="th-interval" value="5" min="1" max="3600" style="margin-bottom:0;width:90px">
+          </div>
+          <div id="th-count-wrap" style="display:none">
+            <label class="fl">Number of frames</label>
+            <input class="fi" type="number" id="th-count" value="10" min="1" max="100" style="margin-bottom:0;width:80px">
+          </div>
+          <div id="th-seek-wrap" style="display:none">
+            <label class="fl">Timestamps (comma separated, e.g. 0,5,10,30)</label>
+            <input class="fi" id="th-seeks" placeholder="0,5,10,30" style="margin-bottom:0;width:240px">
+          </div>
+          <button class="btn bp" onclick="extractThumbs()">🎞 Extract Frames</button>
         </div>
-        <table class="info-table" id="info-table" style="display:none">
-          <thead><tr><th>Property</th><th>Value</th></tr></thead>
-          <tbody id="info-tbody"></tbody>
+        <div class="prog-bar" id="th-prog-bar" style="display:none"><div class="prog-fill" id="th-prog-fill" style="width:0%"></div></div>
+        <p id="th-prog-msg" style="font-size:.72rem;color:var(--t3);display:none"></p>
+      </div>
+
+      <div id="th-results" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;flex-wrap:wrap;gap:.4rem">
+          <span id="th-count-label" style="font-size:.8rem;font-weight:600;color:var(--acc-h)">Frames</span>
+          <div style="display:flex;gap:.35rem">
+            <button class="btn bg bsm" onclick="downloadAllThumbs()">↓ Download All JPGs</button>
+            <button class="btn bg bsm" onclick="downloadThumbZIP()">↓ Download ZIP</button>
+          </div>
+        </div>
+        <div id="thumb-strip-wrap" class="thumb-strip"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MEDIA INFO ──────────────────────────────────────────── -->
+  <div id="panel-info" class="panel">
+    <div class="section-card">
+      <div class="card-title">ℹ Media Information</div>
+      <div class="card-sub">Inspect metadata from any video or audio file. Uses the browser's HTMLVideoElement/AudioElement — instant, no upload, no ffmpeg required.</div>
+
+      <div class="dz" id="mi-dz"
+        onclick="document.getElementById('mi-file').click()"
+        ondragover="event.preventDefault();this.classList.add('drag')"
+        ondragleave="this.classList.remove('drag')"
+        ondrop="event.preventDefault();this.classList.remove('drag');loadMediaInfo(event.dataTransfer.files[0])">
+        <div style="font-size:2.2rem;margin-bottom:.5rem">🔍</div>
+        <h3>Drop a video or audio file here</h3>
+        <p>Any format your browser can decode</p>
+      </div>
+      <input type="file" id="mi-file" accept="video/*,audio/*" style="display:none" onchange="loadMediaInfo(this.files[0])">
+
+      <div id="mi-result" style="display:none;margin-top:.85rem">
+        <table class="info-table">
+          <tbody id="mi-tbody"></tbody>
         </table>
+        <div style="margin-top:.75rem">
+          <button class="btn bg bsm" onclick="copyMediaInfo()">Copy Info</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONVERT ─────────────────────────────────────────────── -->
+  <div id="panel-convert" class="panel">
+    <div class="section-card">
+      <div class="card-title">🔄 Format Conversion</div>
+
+      <!-- Why ffmpeg.wasm needs COOP/COEP headers — honest explanation -->
+      <div class="convert-note" style="margin-bottom:1rem">
+        <span style="font-size:1rem;flex-shrink:0">⚠️</span>
+        <div>
+          <strong>ffmpeg.wasm requires SharedArrayBuffer</strong> — which requires special HTTP headers
+          (<code style="background:rgba(0,0,0,.2);padding:.1rem .25rem;border-radius:3px">COOP: same-origin</code> +
+          <code style="background:rgba(0,0,0,.2);padding:.1rem .25rem;border-radius:3px">COEP: require-corp</code>).
+          Most static hosting (including Cloudflare Pages) does not send these by default.
+          We provide two alternatives below.
+        </div>
+      </div>
+
+      <!-- Alternative 1: Browser native MediaRecorder conversion -->
+      <div class="section-card" style="border-color:rgba(82,229,231,.2);margin-bottom:1rem">
+        <div class="card-title" style="color:var(--acc-h)">✅ Option 1 — Browser-native WebM → MP4 (Chrome only)</div>
+        <div class="card-sub">Chrome 130+ supports re-muxing in the browser using the <strong>MediaStreamTrackProcessor</strong> API. Drop a WebM file and we'll attempt a codec-copy re-container to MP4.</div>
+        <div class="dz" id="cv1-dz"
+          onclick="document.getElementById('cv1-file').click()"
+          ondragover="event.preventDefault();this.classList.add('drag')"
+          ondragleave="this.classList.remove('drag')"
+          ondrop="event.preventDefault();this.classList.remove('drag');nativeConvert(event.dataTransfer.files[0])">
+          <div style="font-size:1.8rem;margin-bottom:.4rem">🎬</div>
+          <h3>Drop a WebM file to convert to MP4</h3>
+          <p>Chrome 130+ · Codec copy (fast) · Local processing</p>
+        </div>
+        <input type="file" id="cv1-file" accept="video/webm" style="display:none" onchange="nativeConvert(this.files[0])">
+        <div id="cv1-result" style="display:none;margin-top:.65rem" class="dl-box">
+          <div class="dl-title">✅ Conversion ready</div>
+          <a id="cv1-dl" class="btn bp" href="#" download="output.mp4">↓ Download MP4</a>
+        </div>
+        <p id="cv1-err" style="display:none;margin-top:.5rem;font-size:.78rem;color:#f87171"></p>
+      </div>
+
+      <!-- Alternative 2: ffmpeg.wasm self-hosted -->
+      <div class="section-card" style="border-color:rgba(139,92,246,.2);margin-bottom:1rem">
+        <div class="card-title" style="color:#a78bfa">⚡ Option 2 — ffmpeg.wasm (requires HTTPS + headers)</div>
+        <div class="card-sub">If you're running this on a server that sends the required COOP/COEP headers, ffmpeg.wasm will work. Click the button to attempt loading it.</div>
+        <button class="btn" style="background:var(--violet);color:#fff" onclick="tryLoadFFmpeg()">Try ffmpeg.wasm</button>
+        <div id="ffmpeg-status" style="margin-top:.65rem;font-size:.78rem;color:var(--t3)">Not loaded yet.</div>
+        <div id="ffmpeg-ui" style="display:none;margin-top:.75rem">
+          <div class="dz" id="ff-dz"
+            onclick="document.getElementById('ff-file').click()"
+            ondragover="event.preventDefault();this.classList.add('drag')"
+            ondragleave="this.classList.remove('drag')"
+            ondrop="event.preventDefault();this.classList.remove('drag');ffmpegConvert(event.dataTransfer.files[0])">
+            <h3>Drop a video or audio file</h3>
+            <p>Convert, trim, extract audio</p>
+          </div>
+          <input type="file" id="ff-file" accept="video/*,audio/*" style="display:none" onchange="ffmpegConvert(this.files[0])">
+          <div style="display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.65rem;align-items:flex-end">
+            <div>
+              <label class="fl">Operation</label>
+              <select class="fi" id="ff-op" style="margin-bottom:0;width:auto">
+                <option value="convert">Convert format</option>
+                <option value="audio">Extract audio (MP3)</option>
+                <option value="trim">Trim clip</option>
+              </select>
+            </div>
+            <div id="ff-fmt-wrap">
+              <label class="fl">Output format</label>
+              <select class="fi" id="ff-fmt" style="margin-bottom:0;width:auto">
+                <option>mp4</option><option>webm</option><option>mkv</option><option>mp3</option><option>wav</option><option>ogg</option>
+              </select>
+            </div>
+            <div id="ff-trim-wrap" style="display:none;display:flex;gap:.4rem">
+              <div><label class="fl">Start</label><input class="fi" id="ff-start" value="00:00:00" style="margin-bottom:0;width:100px"></div>
+              <div><label class="fl">End</label><input class="fi" id="ff-end" value="00:00:30" style="margin-bottom:0;width:100px"></div>
+            </div>
+          </div>
+          <div id="ff-prog" style="display:none;margin-top:.65rem">
+            <p id="ff-log" style="font-size:.72rem;font-family:var(--mono);color:var(--t2);word-break:break-all;margin-bottom:.3rem"></p>
+            <div class="prog-bar"><div class="prog-fill" id="ff-prog-fill" style="width:35%"></div></div>
+          </div>
+          <div id="ff-result" class="dl-box" style="display:none;margin-top:.65rem">
+            <div class="dl-title">✅ Done</div>
+            <a id="ff-dl" class="btn bp" href="#">↓ Download</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alternative 3: Recommended desktop tools -->
+      <div class="section-card" style="border-color:rgba(16,185,129,.2)">
+        <div class="card-title" style="color:var(--green)">🔧 Option 3 — Recommended Free Desktop Tools</div>
+        <div style="font-size:.8rem;color:var(--t2);line-height:1.8">
+          For reliable full-featured conversion, these free tools are better suited:<br><br>
+          <strong style="color:var(--t1)">HandBrake</strong> — handbrake.fr · Free, open-source · MP4/MKV/WebM<br>
+          <strong style="color:var(--t1)">VLC</strong> — videolan.org · Convert, trim, stream any format<br>
+          <strong style="color:var(--t1)">ffmpeg CLI</strong> — ffmpeg.org · Full power, all formats<br>
+          <strong style="color:var(--t1)">Kdenlive</strong> — kdenlive.org · Free video editor with export
+        </div>
       </div>
     </div>
 
-  </div><!-- /content -->
-</div><!-- /main -->
+    <div class="info-sect">
+      <h2>Why we can't run ffmpeg.wasm on Cloudflare Pages</h2>
+      <ul>
+        <li>ffmpeg.wasm uses SharedArrayBuffer for multi-threaded WebAssembly</li>
+        <li>Browsers require <code>Cross-Origin-Opener-Policy: same-origin</code> and <code>Cross-Origin-Embedder-Policy: require-corp</code> headers</li>
+        <li>Cloudflare Pages (and most static hosts) don't send these headers by default</li>
+        <li>Adding these headers requires a Worker or custom server configuration</li>
+        <li>We provide the alternatives above as practical solutions</li>
+      </ul>
+    </div>
+  </div>
 
-<!-- STATUS BAR -->
-<div class="statusbar">
-  <span id="sb-filename">No file loaded</span>
-  <span class="sb-sep">·</span>
-  <span id="sb-filesize">—</span>
-  <span class="sb-sep">·</span>
-  <span id="sb-operation">Idle</span>
-  <div class="sp"></div>
-  <span id="sb-progress">—</span>
 </div>
 
-<!-- FOOTER -->
 <footer class="seo-footer">
   <div class="sf-links">
     <a href="https://universeinvedors.tech">Universe Invedors</a>
     <a href="https://universeinvedors.tech/tools">All Tools</a>
-    <a href="https://code.universeinvedors.tech">Code IDE</a>
+    <a href="https://code.universeinvedors.tech">Code</a>
     <a href="https://diagram.universeinvedors.tech">Diagrams</a>
     <a href="https://chart.universeinvedors.tech">Charts</a>
     <a href="https://ocr.universeinvedors.tech">OCR</a>
-    <a href="https://pdf.universeinvedors.tech">PDF Suite</a>
-    <a href="https://image.universeinvedors.tech">Image Studio</a>
-    <a href="https://3d.universeinvedors.tech">3D Studio</a>
-    <a href="https://map.universeinvedors.tech">Map Studio</a>
+    <a href="https://pdf.universeinvedors.tech">PDF</a>
+    <a href="https://image.universeinvedors.tech">Image</a>
+    <a href="https://3d.universeinvedors.tech">3D</a>
+    <a href="https://map.universeinvedors.tech">Maps</a>
   </div>
-  <span>© 2024 Universe Invedors · Media Studio · FFmpeg.wasm · 100% Local</span>
+  <span>© 2024 Universe Invedors · Web Audio API · MediaRecorder · Canvas · Free Media Tools</span>
 </footer>
-
 <div class="toasts" id="toasts"></div>
-<input type="file" id="file-input" accept="video/*,audio/*" style="display:none" onchange="handleFileInput(this)"/>
 
-<script type="module">
-// ─────────────────────────────────────────────
-// FFMPEG SETUP (via CDN esm)
-// ─────────────────────────────────────────────
-import { FFmpeg } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js';
-import { fetchFile, toBlobURL } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js';
+<!-- ALL LOGIC IN REGULAR SCRIPT — no type="module" -->
+<script>
+/* ─── PANEL SWITCHER ─────────────────────────────────────── */
+function setPanel(name) {
+  document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active') })
+  document.querySelectorAll('.et').forEach(function(t) { t.classList.remove('active') })
+  var panel = document.getElementById('panel-' + name)
+  var btn   = document.getElementById('et-' + name)
+  if (panel) panel.classList.add('active')
+  if (btn)   btn.classList.add('active')
+}
 
-const ffmpeg = new FFmpeg();
-let ffmpegLoaded = false;
-let currentFile = null;
-let currentMode = 'convert';
-let modeFileTarget = 'convert';
-let extractedThumbs = [];
-let waveformData = null;
-let waveformAudioBuffer = null;
-let waveformSource = null;
-let waveformCtx = null;
-let recMediaRecorder = null;
-let recChunks = [];
-let recBlob = null;
-let recTimerInt = null;
-let recSeconds = 0;
+/* ─── WAVEFORM ───────────────────────────────────────────── */
+var wfChannelData = null, wfAudioCtx = null, wfSource = null, wfIsPlaying = false, wfStartTime = 0, wfOffset = 0, wfBuffer = null
 
-// Expose globals
-window.switchMode = switchMode;
-window.openFile = openFile;
-window.handleDrop = handleDrop;
-window.onDragOver = onDragOver;
-window.handleFileInput = handleFileInput;
-window.runConvert = runConvert;
-window.runTrim = runTrim;
-window.runCompress = runCompress;
-window.runCurrentMode = runCurrentMode;
-window.estimateCompressedSize = estimateCompressedSize;
-window.playWaveform = playWaveform;
-window.pauseWaveform = pauseWaveform;
-window.stopWaveform = stopWaveform;
-window.redrawWaveform = redrawWaveform;
-window.downloadWaveformPNG = downloadWaveformPNG;
-window.extractThumbnails = extractThumbnails;
-window.downloadThumbsZip = downloadThumbsZip;
-window.onThumbModeChange = onThumbModeChange;
-window.startRecording = startRecording;
-window.pauseRecording = pauseRecording;
-window.stopRecording = stopRecording;
-window.downloadRecording = downloadRecording;
+function loadWaveform(file) {
+  if (!file) return
+  document.getElementById('wf-loading').style.display = 'block'
+  document.getElementById('wf-loading-msg').textContent = 'Decoding audio…'
+  document.getElementById('wf-result').style.display = 'none'
+  document.getElementById('wf-dz').style.display = 'none'
 
-// Load FFmpeg
-async function loadFFmpeg() {
-  try {
-    const baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/esm';
-    ffmpeg.on('log', ({ message }) => appendLog(message));
-    ffmpeg.on('progress', ({ progress }) => {
-      const pct = Math.min(100, Math.round(progress * 100));
-      document.querySelectorAll('.progress-fill').forEach(el => { if(el.id === currentFillId) el.style.width = pct + '%'; });
-      document.getElementById('sb-progress').textContent = pct + '%';
-    });
-    await ffmpeg.load({
-      coreURL: await toBlobURL(baseURL+'/ffmpeg-core.js', 'text/javascript'),
-      wasmURL: await toBlobURL(baseURL+'/ffmpeg-core.wasm', 'application/wasm'),
-    });
-    ffmpegLoaded = true;
-    document.getElementById('sb-ffmpeg-status').textContent = '✅ FFmpeg ready';
-    document.getElementById('sb-ffmpeg-status').style.color = 'var(--green)';
-    toast('FFmpeg.wasm loaded!','ok');
-  } catch(e) {
-    document.getElementById('sb-ffmpeg-status').textContent = '⚠️ FFmpeg load failed (SharedArrayBuffer may not be available)';
-    document.getElementById('sb-ffmpeg-status').style.color = 'var(--red)';
-    // Still allow screen recorder and waveform (browser API based)
+  var reader = new FileReader()
+  reader.onload = function(e) {
+    var ctx = new (window.AudioContext || window.webkitAudioContext)()
+    wfAudioCtx = ctx
+    ctx.decodeAudioData(e.target.result, function(buffer) {
+      wfBuffer = buffer
+      wfChannelData = buffer.getChannelData(0)
+      document.getElementById('wf-loading').style.display = 'none'
+      document.getElementById('wf-result').style.display = 'block'
+      var dur = buffer.duration
+      var sr  = buffer.sampleRate
+      document.getElementById('wf-meta').textContent =
+        buffer.numberOfChannels + 'ch · ' + sr.toLocaleString() + ' Hz · ' + formatTime(dur)
+      redrawWaveform()
+      updateWFTime(0, dur)
+      toast(file.name + ' loaded', 'ok')
+    }, function(err) {
+      document.getElementById('wf-loading').style.display = 'none'
+      document.getElementById('wf-dz').style.display = 'flex'
+      toast('Could not decode audio: ' + err.message, 'err')
+    })
   }
-}
-
-let currentFillId = 'conv-fill';
-let currentLogId = 'conv-log';
-
-function appendLog(msg) {
-  const el = document.getElementById(currentLogId);
-  if(el) { el.textContent += msg + '\n'; el.scrollTop = el.scrollHeight; }
-}
-
-// ─────────────────────────────────────────────
-// FILE HANDLING
-// ─────────────────────────────────────────────
-function switchMode(mode, btn) {
-  currentMode = mode;
-  document.querySelectorAll('.et').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel-' + mode).classList.add('active');
-  document.getElementById('sb-operation').textContent = 'Mode: ' + mode;
-}
-
-function openFile(target) {
-  modeFileTarget = target || currentMode;
-  document.getElementById('file-input').click();
-}
-
-function handleFileInput(input) {
-  const file = input.files[0];
-  input.value = '';
-  if(file) loadMediaFile(file, modeFileTarget);
-}
-
-function handleDrop(e, mode) {
-  e.preventDefault();
-  e.currentTarget.classList.remove('over');
-  const file = e.dataTransfer.files[0];
-  if(file) loadMediaFile(file, mode || currentMode);
-}
-
-function onDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('over'); }
-
-function loadMediaFile(file, mode) {
-  currentFile = file;
-  const sizeStr = fmtSize(file.size);
-  document.getElementById('sb-filename').textContent = file.name;
-  document.getElementById('sb-filesize').textContent = sizeStr;
-  document.getElementById('sb-file-info').textContent = file.name + ' · ' + sizeStr;
-  document.getElementById('sidebar-run-btn').disabled = false;
-
-  // Show file info in current mode
-  const infoHtml = `<strong>${file.name}</strong> &nbsp;·&nbsp; ${sizeStr} &nbsp;·&nbsp; ${file.type || 'unknown'}`;
-  ['conv','trim','comp','wave','thumbs','info'].forEach(id => {
-    const el = document.getElementById(id + '-file-info');
-    if(el) el.innerHTML = infoHtml;
-    const drop = document.getElementById((id==='wave'?'wave':id==='thumbs'?'thumb':id==='info'?'info':id) + '-drop');
-    if(drop) drop.style.display = 'none';
-  });
-
-  switch(mode) {
-    case 'convert': document.getElementById('conv-file-info').style.display='block'; document.getElementById('conv-btn').disabled=false; break;
-    case 'trim': document.getElementById('trim-controls').style.display='block'; loadTrimTimeline(file); break;
-    case 'compress': document.getElementById('comp-controls').style.display='block'; document.getElementById('comp-orig-size').textContent=sizeStr; estimateCompressedSize(); break;
-    case 'waveform': document.getElementById('wave-controls').style.display='flex'; loadWaveform(file); break;
-    case 'thumbs': document.getElementById('thumbs-controls').style.display='block'; loadThumbVideo(file); break;
-    case 'info': document.getElementById('info-controls').style.display='block'; getMediaInfo(file); break;
-  }
-  toast(file.name + ' loaded','ok');
-}
-
-// ─────────────────────────────────────────────
-// CONVERT
-// ─────────────────────────────────────────────
-async function runConvert() {
-  if(!currentFile) { toast('Load a file first','err'); return; }
-  if(!ffmpegLoaded) { toast('FFmpeg not loaded yet','err'); return; }
-  const fmt = document.getElementById('conv-fmt').value;
-  currentFillId = 'conv-fill'; currentLogId = 'conv-log';
-  document.getElementById('conv-progress').style.display = 'block';
-  document.getElementById('conv-fill').style.width = '0%';
-  document.getElementById('conv-log').textContent = '';
-  document.getElementById('sb-operation').textContent = 'Converting...';
-  try {
-    const inName = 'input.' + getExt(currentFile.name);
-    const outName = 'output.' + fmt;
-    await ffmpeg.writeFile(inName, await fetchFile(currentFile));
-    let args = ['-i', inName];
-    if(['mp3','aac','wav','ogg','flac'].includes(fmt)) args.push('-vn');
-    args.push('-y', outName);
-    await ffmpeg.exec(args);
-    const data = await ffmpeg.readFile(outName);
-    const blob = new Blob([data.buffer], { type: getMime(fmt) });
-    downloadBlob(blob, getBaseName(currentFile.name) + '.' + fmt);
-    toast('Converted & downloaded!','ok');
-  } catch(e) { toast('Conversion failed: ' + e.message, 'err'); }
-  document.getElementById('sb-operation').textContent = 'Idle';
-}
-
-// ─────────────────────────────────────────────
-// TRIM
-// ─────────────────────────────────────────────
-let trimDuration = 0;
-let trimStartFrac = 0, trimEndFrac = 1;
-
-function loadTrimTimeline(file) {
-  const vid = document.createElement('video');
-  vid.src = URL.createObjectURL(file);
-  vid.onloadedmetadata = () => {
-    trimDuration = vid.duration;
-    document.getElementById('trim-start').value = '00:00:00';
-    document.getElementById('trim-end').value = secsToHMS(trimDuration);
-    drawTrimWaveform(file);
-    vid.src = '';
-  };
-  setupTrimHandles();
-}
-
-function drawTrimWaveform(file) {
-  const canvas = document.getElementById('timeline-canvas');
-  const ctx = canvas.getContext('2d');
-  const wrap = document.getElementById('timeline-wrap');
-  canvas.width = wrap.clientWidth; canvas.height = wrap.clientHeight;
-  ctx.fillStyle = 'rgba(82,229,231,.12)';
-  for(let x=0;x<canvas.width;x+=2) {
-    const h = 8 + Math.random() * (canvas.height - 16);
-    ctx.fillRect(x, (canvas.height-h)/2, 1.5, h);
-  }
-}
-
-function setupTrimHandles() {
-  const wrap = document.getElementById('timeline-wrap');
-  const sel = document.getElementById('tl-selection');
-  sel.style.left='0'; sel.style.right='0';
-  let dragging = null;
-  function updateSel() {
-    sel.style.left = (trimStartFrac*100) + '%';
-    sel.style.width = ((trimEndFrac-trimStartFrac)*100) + '%';
-    document.getElementById('trim-start').value = secsToHMS(trimStartFrac*trimDuration);
-    document.getElementById('trim-end').value = secsToHMS(trimEndFrac*trimDuration);
-  }
-  updateSel();
-  wrap.addEventListener('mousedown', e => {
-    const r = wrap.getBoundingClientRect();
-    const frac = (e.clientX-r.left)/r.width;
-    if(Math.abs(frac-trimStartFrac) < 0.05) dragging='start';
-    else if(Math.abs(frac-trimEndFrac) < 0.05) dragging='end';
-    else if(frac>trimStartFrac && frac<trimEndFrac) dragging='move';
-  });
-  document.addEventListener('mousemove', e => {
-    if(!dragging) return;
-    const r = wrap.getBoundingClientRect();
-    const frac = Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
-    if(dragging==='start') trimStartFrac=Math.min(frac,trimEndFrac-0.01);
-    if(dragging==='end') trimEndFrac=Math.max(frac,trimStartFrac+0.01);
-    if(dragging==='move') { const w=trimEndFrac-trimStartFrac; const nf=Math.max(0,Math.min(1-w,frac-w/2)); trimStartFrac=nf; trimEndFrac=nf+w; }
-    updateSel();
-  });
-  document.addEventListener('mouseup', () => { dragging=null; });
-}
-
-async function runTrim() {
-  if(!currentFile) { toast('Load a file first','err'); return; }
-  if(!ffmpegLoaded) { toast('FFmpeg not loaded yet','err'); return; }
-  const startStr = document.getElementById('trim-start').value || '00:00:00';
-  const endStr = document.getElementById('trim-end').value || '00:00:10';
-  currentFillId = 'trim-fill'; currentLogId = 'trim-log';
-  document.getElementById('trim-progress').style.display = 'block';
-  document.getElementById('trim-fill').style.width = '50%';
-  document.getElementById('trim-log').textContent = '';
-  try {
-    const ext = getExt(currentFile.name);
-    const inName = 'input.' + ext;
-    const outName = 'trimmed.' + ext;
-    await ffmpeg.writeFile(inName, await fetchFile(currentFile));
-    await ffmpeg.exec(['-i',inName,'-ss',startStr,'-to',endStr,'-c','copy','-y',outName]);
-    const data = await ffmpeg.readFile(outName);
-    downloadBlob(new Blob([data.buffer], {type:currentFile.type}), 'trimmed.'+ext);
-    document.getElementById('trim-fill').style.width = '100%';
-    toast('Trimmed & downloaded!','ok');
-  } catch(e) { toast('Trim failed: ' + e.message,'err'); }
-}
-
-// ─────────────────────────────────────────────
-// COMPRESS
-// ─────────────────────────────────────────────
-function estimateCompressedSize() {
-  if(!currentFile) return;
-  const crf = parseInt(document.getElementById('comp-crf').value);
-  const ratio = Math.pow(0.93, 51-crf) * 0.8;
-  const est = currentFile.size * ratio;
-  document.getElementById('comp-est-size').textContent = fmtSize(est);
-}
-
-async function runCompress() {
-  if(!currentFile) { toast('Load a file first','err'); return; }
-  if(!ffmpegLoaded) { toast('FFmpeg not loaded yet','err'); return; }
-  const crf = document.getElementById('comp-crf').value;
-  const fmt = document.getElementById('comp-fmt').value;
-  currentFillId = 'comp-fill'; currentLogId = 'comp-log';
-  document.getElementById('comp-progress').style.display = 'block';
-  document.getElementById('comp-fill').style.width = '0%';
-  document.getElementById('comp-log').textContent = '';
-  try {
-    const inName = 'input.' + getExt(currentFile.name);
-    const outName = 'compressed.' + fmt;
-    await ffmpeg.writeFile(inName, await fetchFile(currentFile));
-    const codec = fmt === 'webm' ? 'libvpx-vp9' : 'libx264';
-    await ffmpeg.exec(['-i',inName,'-c:v',codec,'-crf',crf,'-c:a','aac','-y',outName]);
-    const data = await ffmpeg.readFile(outName);
-    const blob = new Blob([data.buffer], {type:getMime(fmt)});
-    document.getElementById('comp-est-size').textContent = fmtSize(blob.size) + ' (actual)';
-    downloadBlob(blob, 'compressed.'+fmt);
-    toast('Compressed & downloaded!','ok');
-  } catch(e) { toast('Compress failed: ' + e.message,'err'); }
-}
-
-// ─────────────────────────────────────────────
-// WAVEFORM (Web Audio API)
-// ─────────────────────────────────────────────
-let audioCtx = null;
-let waveformPlayStartTime = 0;
-let waveformIsPlaying = false;
-
-async function loadWaveform(file) {
-  if(!audioCtx) audioCtx = new AudioContext();
-  const ab = await file.arrayBuffer();
-  try {
-    waveformAudioBuffer = await audioCtx.decodeAudioData(ab);
-    waveformData = waveformAudioBuffer.getChannelData(0);
-    redrawWaveform();
-    toast('Waveform rendered','ok');
-  } catch(e) {
-    toast('Could not decode audio: ' + e.message, 'err');
-  }
+  reader.readAsArrayBuffer(file)
 }
 
 function redrawWaveform() {
-  const canvas = document.getElementById('waveform-canvas');
-  const ctx = canvas.getContext('2d');
-  if(!canvas.parentElement) return;
-  canvas.width = canvas.parentElement.clientWidth || 600;
-  canvas.height = 100;
-  if(!waveformData) return;
-  const zoom = parseFloat(document.getElementById('wave-zoom').value);
-  const color = document.getElementById('wave-color').value;
-  const step = Math.max(1, Math.floor(waveformData.length / (canvas.width * zoom)));
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = 'rgba(9,12,19,.6)';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  const half = canvas.height / 2;
-  for(let i=0;i<canvas.width;i++) {
-    const idx = Math.floor(i * step / zoom);
-    const v = idx < waveformData.length ? waveformData[idx] : 0;
-    const y = half + v * half;
-    i === 0 ? ctx.moveTo(i, y) : ctx.lineTo(i, y);
-  }
-  ctx.stroke();
+  if (!wfChannelData) return
+  var canvas = document.getElementById('waveform-canvas')
+  var wrap   = canvas.parentElement
+  var W = wrap.clientWidth * window.devicePixelRatio
+  var H = 140 * window.devicePixelRatio
+  canvas.width  = W; canvas.height = H
+  canvas.style.width = wrap.clientWidth + 'px'; canvas.style.height = '140px'
+
+  var ctx    = canvas.getContext('2d')
+  var bgCol  = document.getElementById('wf-bg-color').value
+  var wvCol  = document.getElementById('wf-color').value
+  var zoom   = parseFloat(document.getElementById('wf-zoom').value) || 1
+  var style  = document.getElementById('wf-style').value
+  var data   = wfChannelData
+  var step   = Math.max(1, Math.floor(data.length / (W * zoom)))
+
+  ctx.fillStyle = bgCol; ctx.fillRect(0, 0, W, H)
+
   // Center line
-  ctx.strokeStyle = 'rgba(255,255,255,.1)';
-  ctx.lineWidth = 0.5;
-  ctx.beginPath(); ctx.moveTo(0,half); ctx.lineTo(canvas.width,half); ctx.stroke();
-}
+  ctx.strokeStyle = 'rgba(255,255,255,.06)'; ctx.lineWidth = 1; ctx.beginPath()
+  ctx.moveTo(0, H/2); ctx.lineTo(W, H/2); ctx.stroke()
 
-function playWaveform() {
-  if(!waveformAudioBuffer || !audioCtx) return;
-  if(waveformSource) { waveformSource.stop(); }
-  waveformSource = audioCtx.createBufferSource();
-  waveformSource.buffer = waveformAudioBuffer;
-  waveformSource.connect(audioCtx.destination);
-  waveformSource.start();
-  waveformIsPlaying = true;
-  waveformPlayStartTime = audioCtx.currentTime;
-  animWavePlayhead();
-}
-function pauseWaveform() { if(waveformSource) { waveformSource.stop(); waveformIsPlaying=false; } }
-function stopWaveform() { pauseWaveform(); document.getElementById('wave-playhead').style.left='0'; }
+  ctx.strokeStyle = wvCol; ctx.fillStyle = wvCol
 
-function animWavePlayhead() {
-  if(!waveformIsPlaying) return;
-  const elapsed = audioCtx.currentTime - waveformPlayStartTime;
-  const dur = waveformAudioBuffer.duration;
-  const pct = Math.min(1, elapsed/dur);
-  document.getElementById('wave-playhead').style.left = (pct*100)+'%';
-  if(pct < 1) requestAnimationFrame(animWavePlayhead);
-  else { waveformIsPlaying=false; document.getElementById('wave-playhead').style.left='0'; }
-}
-
-function downloadWaveformPNG() {
-  const canvas = document.getElementById('waveform-canvas');
-  const a = document.createElement('a'); a.download='waveform.png'; a.href=canvas.toDataURL('image/png'); a.click();
-  toast('Waveform PNG saved','ok');
-}
-
-// ─────────────────────────────────────────────
-// THUMBNAILS
-// ─────────────────────────────────────────────
-function loadThumbVideo(file) {
-  const vid = document.getElementById('thumb-video');
-  vid.src = URL.createObjectURL(file);
-}
-
-function onThumbModeChange() {
-  const mode = document.getElementById('thumb-mode').value;
-  document.getElementById('thumb-interval-wrap').style.display = mode==='interval'?'block':'none';
-  document.getElementById('thumb-ts-wrap').style.display = mode==='timestamp'?'block':'none';
-}
-
-async function extractThumbnails() {
-  const vid = document.getElementById('thumb-video');
-  if(!vid.src) { toast('Load a video first','err'); return; }
-  extractedThumbs = [];
-  const mode = document.getElementById('thumb-mode').value;
-  const canvas = document.getElementById('thumb-canvas');
-  const ctx = canvas.getContext('2d');
-  const grid = document.getElementById('thumb-grid');
-  grid.innerHTML = '';
-  const progress = document.getElementById('thumb-progress');
-  progress.style.display = 'block';
-  const log = document.getElementById('thumb-log');
-  const fill = document.getElementById('thumb-fill');
-
-  await new Promise(res => { if(vid.readyState>=1) res(); else vid.addEventListener('loadedmetadata',res,{once:true}); });
-  const dur = vid.duration;
-  canvas.width = 320; canvas.height = 180;
-
-  let timestamps = [];
-  if(mode === 'interval') {
-    const interval = parseInt(document.getElementById('thumb-interval').value) || 5;
-    for(let t=0;t<dur;t+=interval) timestamps.push(t);
-  } else {
-    timestamps = [parseFloat(document.getElementById('thumb-ts').value)||0];
-  }
-
-  fill.style.width = '0%';
-  for(let i=0;i<timestamps.length;i++) {
-    const t = timestamps[i];
-    log.textContent = `Extracting frame ${i+1}/${timestamps.length} at ${t.toFixed(1)}s`;
-    fill.style.width = ((i/timestamps.length)*100)+'%';
-    await seekAndCapture(vid, canvas, ctx, t);
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-    extractedThumbs.push({ dataUrl, time:t });
-    const item = document.createElement('div');
-    item.className = 'thumb-item';
-    item.innerHTML = `<img src="${dataUrl}" alt="Frame at ${t.toFixed(1)}s"/><span>${t.toFixed(1)}s</span>`;
-    grid.appendChild(item);
-  }
-  fill.style.width = '100%';
-  log.textContent = 'Done! ' + extractedThumbs.length + ' frames extracted.';
-  document.getElementById('dl-thumbs-btn').disabled = false;
-  toast(extractedThumbs.length + ' thumbnails extracted!','ok');
-}
-
-function seekAndCapture(vid, canvas, ctx, time) {
-  return new Promise(res => {
-    vid.currentTime = time;
-    vid.onseeked = () => { ctx.drawImage(vid, 0, 0, canvas.width, canvas.height); res(); };
-  });
-}
-
-async function downloadThumbsZip() {
-  if(!extractedThumbs.length) return;
-  const { default: JSZip } = await import('https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js');
-  const zip = new JSZip();
-  extractedThumbs.forEach((th, i) => {
-    const b64 = th.dataUrl.split(',')[1];
-    zip.file(`thumb-${String(i+1).padStart(4,'0')}-${th.time.toFixed(1)}s.jpg`, b64, {base64:true});
-  });
-  const blob = await zip.generateAsync({type:'blob',compression:'STORE'});
-  downloadBlob(blob, 'thumbnails.zip');
-  toast('ZIP downloaded!','ok');
-}
-
-// ─────────────────────────────────────────────
-// SCREEN RECORDER
-// ─────────────────────────────────────────────
-async function startRecording() {
-  try {
-    const includeMic = document.getElementById('rec-mic').checked;
-    const displayStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio:true });
-    let combined = displayStream;
-    if(includeMic) {
-      try {
-        const micStream = await navigator.mediaDevices.getUserMedia({ audio:true });
-        const ac = new AudioContext();
-        const dest = ac.createMediaStreamDestination();
-        if(displayStream.getAudioTracks().length > 0) {
-          ac.createMediaStreamSource(new MediaStream(displayStream.getAudioTracks())).connect(dest);
-        }
-        ac.createMediaStreamSource(micStream).connect(dest);
-        combined = new MediaStream([...displayStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
-      } catch(e) { console.warn('Mic access denied'); }
+  if (style === 'wave') {
+    ctx.lineWidth = 1.5; ctx.beginPath()
+    for (var i = 0; i < W; i++) {
+      var idx = Math.floor(i * step)
+      var v = (data[idx] || 0)
+      var y = (0.5 - v * 0.45) * H
+      i === 0 ? ctx.moveTo(i, y) : ctx.lineTo(i, y)
     }
-    // Preview
-    const preview = document.getElementById('rec-preview');
-    preview.srcObject = combined;
-    preview.style.display = 'block';
-
-    recChunks = [];
-    recMediaRecorder = new MediaRecorder(combined, { mimeType: 'video/webm;codecs=vp9' });
-    recMediaRecorder.ondataavailable = e => { if(e.data.size>0) recChunks.push(e.data); };
-    recMediaRecorder.onstop = () => {
-      recBlob = new Blob(recChunks, {type:'video/webm'});
-      document.getElementById('rec-dl-btn').style.display = 'inline-flex';
-      preview.srcObject = null;
-      preview.src = URL.createObjectURL(recBlob);
-      preview.muted = false;
-      toast('Recording saved! ' + fmtSize(recBlob.size),'ok');
-    };
-    recMediaRecorder.start(1000);
-
-    // Stop when user ends the share
-    displayStream.getVideoTracks()[0].onended = () => stopRecording();
-
-    document.getElementById('rec-start-btn').disabled = true;
-    document.getElementById('rec-stop-btn').disabled = false;
-    document.getElementById('rec-pause-btn').disabled = false;
-    document.getElementById('rec-dl-btn').style.display = 'none';
-    document.getElementById('rec-dot').classList.add('recording');
-    document.getElementById('rec-status-text').textContent = 'Recording...';
-    recSeconds = 0;
-    recTimerInt = setInterval(() => {
-      recSeconds++;
-      const m = Math.floor(recSeconds/60), s = recSeconds%60;
-      document.getElementById('rec-timer').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    }, 1000);
-  } catch(e) {
-    if(e.name !== 'NotAllowedError') toast('Recording failed: ' + e.message, 'err');
-    else toast('Screen share was cancelled','info');
+    ctx.stroke()
+  } else if (style === 'mirror') {
+    ctx.lineWidth = 1
+    for (var i = 0; i < W; i++) {
+      var idx = Math.floor(i * step)
+      var v = Math.abs(data[idx] || 0)
+      var h = v * H * 0.45
+      ctx.fillRect(i, H/2 - h, 1.2, h * 2)
+    }
+  } else {
+    // bars (default)
+    ctx.lineWidth = 1
+    for (var i = 0; i < W; i++) {
+      var min = 1, max = -1
+      for (var j = 0; j < step; j++) {
+        var s = data[i * step + j] || 0
+        if (s < min) min = s; if (s > max) max = s
+      }
+      var y1 = (0.5 + min * 0.45) * H
+      var y2 = (0.5 + max * 0.45) * H
+      ctx.fillRect(i, y1, 1.2, Math.max(1, y2 - y1))
+    }
   }
+}
+
+function togglePlayback() {
+  if (!wfBuffer || !wfAudioCtx) return
+  if (wfIsPlaying) { pauseWF(); return }
+  if (wfAudioCtx.state === 'suspended') wfAudioCtx.resume()
+  wfSource = wfAudioCtx.createBufferSource()
+  wfSource.buffer = wfBuffer
+  wfSource.connect(wfAudioCtx.destination)
+  wfSource.start(0, wfOffset)
+  wfStartTime = wfAudioCtx.currentTime - wfOffset
+  wfIsPlaying = true
+  document.getElementById('wf-play-btn').textContent = '⏸ Pause'
+  wfSource.onended = function() {
+    if (wfIsPlaying) { wfIsPlaying = false; wfOffset = 0; document.getElementById('wf-play-btn').textContent = '▶ Play' }
+  }
+  animatePlayhead()
+}
+
+function pauseWF() {
+  if (!wfIsPlaying) return
+  wfOffset = wfAudioCtx.currentTime - wfStartTime
+  wfSource.stop(); wfIsPlaying = false
+  document.getElementById('wf-play-btn').textContent = '▶ Play'
+}
+
+function stopPlayback() {
+  if (wfSource && wfIsPlaying) { wfSource.stop(); wfIsPlaying = false }
+  wfOffset = 0; document.getElementById('wf-play-btn').textContent = '▶ Play'
+  document.getElementById('wf-playhead').style.left = '0'
+  if (wfBuffer) updateWFTime(0, wfBuffer.duration)
+}
+
+function animatePlayhead() {
+  if (!wfIsPlaying || !wfBuffer) return
+  var elapsed = wfAudioCtx.currentTime - wfStartTime
+  var pct = elapsed / wfBuffer.duration
+  var canvas = document.getElementById('waveform-canvas')
+  var ph = document.getElementById('wf-playhead')
+  ph.style.display = 'block'
+  ph.style.left = (pct * canvas.clientWidth) + 'px'
+  updateWFTime(elapsed, wfBuffer.duration)
+  requestAnimationFrame(animatePlayhead)
+}
+
+function updateWFTime(current, total) {
+  document.getElementById('wf-time').textContent = formatTime(current) + ' / ' + formatTime(total)
+}
+
+function formatTime(s) {
+  var m = Math.floor(s / 60), sec = Math.floor(s % 60)
+  return m + ':' + (sec < 10 ? '0' : '') + sec
+}
+
+function exportWaveformPNG() {
+  var canvas = document.getElementById('waveform-canvas')
+  var a = document.createElement('a'); a.download = 'waveform.png'; a.href = canvas.toDataURL(); a.click()
+  toast('Waveform saved', 'ok')
+}
+
+// Resize
+window.addEventListener('resize', function() { if (wfChannelData) redrawWaveform() })
+
+/* ─── SCREEN RECORDER ────────────────────────────────────── */
+var mediaRecorder = null, recChunks = [], recInterval = null, recSeconds = 0, recBlob = null, recStream = null
+
+function startRecording() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) {
+    toast('Screen recording not supported in this browser', 'err'); return
+  }
+  var opts = { video: { frameRate: 30 }, audio: false }
+  var hasMic = document.getElementById('rec-mic').checked
+
+  navigator.mediaDevices.getDisplayMedia(opts).then(function(displayStream) {
+    recStream = displayStream
+    var tracks = displayStream.getTracks()
+
+    if (hasMic && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(function(micStream) {
+        var combined = new MediaStream([...tracks, ...micStream.getAudioTracks()])
+        beginRecord(combined)
+      }).catch(function() {
+        toast('Mic access denied — recording screen only', 'info')
+        beginRecord(displayStream)
+      })
+    } else {
+      beginRecord(displayStream)
+    }
+  }).catch(function(e) {
+    if (e.name !== 'NotAllowedError') toast('Screen access denied: ' + e.message, 'err')
+  })
+}
+
+function beginRecord(stream) {
+  recChunks = []; recBlob = null
+  var mimeTypes = ['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm','video/mp4']
+  var mimeType = mimeTypes.find(function(m) { return MediaRecorder.isTypeSupported(m) }) || ''
+
+  mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType: mimeType } : {})
+  mediaRecorder.ondataavailable = function(e) { if (e.data.size > 0) recChunks.push(e.data) }
+  mediaRecorder.onstop = function() {
+    recBlob = new Blob(recChunks, { type: mimeType || 'video/webm' })
+    var url = URL.createObjectURL(recBlob)
+    var pb = document.getElementById('rec-playback')
+    pb.src = url; pb.style.display = 'block'
+    document.getElementById('rec-preview').style.display = 'none'
+    document.getElementById('rec-dl-btn').style.display = 'inline-flex'
+    document.getElementById('rec-new-btn').style.display = 'inline-flex'
+    document.getElementById('rec-size-info').style.display = 'block'
+    document.getElementById('rec-size-info').textContent = 'File size: ' + (recBlob.size / 1024 / 1024).toFixed(1) + ' MB · ' + (mimeType || 'video/webm')
+    setRecStatus('idle', '✅ Recording complete')
+    clearInterval(recInterval)
+  }
+  mediaRecorder.start(1000)
+  recSeconds = 0
+
+  var preview = document.getElementById('rec-preview')
+  preview.srcObject = stream; preview.style.display = 'block'
+  document.getElementById('rec-stop-btn').style.display = 'inline-flex'
+  document.getElementById('rec-pause-btn').style.display = 'inline-flex'
+  document.getElementById('rec-start-btn').style.display = 'none'
+  document.getElementById('rec-timer').style.display = 'inline'
+
+  setRecStatus('live', '🔴 Recording…')
+  recInterval = setInterval(function() {
+    recSeconds++
+    var m = Math.floor(recSeconds / 60), s = recSeconds % 60
+    document.getElementById('rec-timer').textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s
+  }, 1000)
+
+  stream.getTracks().forEach(function(t) { t.onended = function() { stopRecording() } })
 }
 
 function pauseRecording() {
-  if(!recMediaRecorder) return;
-  if(recMediaRecorder.state === 'recording') { recMediaRecorder.pause(); document.getElementById('rec-status-text').textContent='Paused'; clearInterval(recTimerInt); }
-  else if(recMediaRecorder.state === 'paused') { recMediaRecorder.resume(); document.getElementById('rec-status-text').textContent='Recording...'; recTimerInt=setInterval(()=>{recSeconds++;const m=Math.floor(recSeconds/60),s=recSeconds%60;document.getElementById('rec-timer').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;},1000); }
+  if (!mediaRecorder) return
+  if (mediaRecorder.state === 'recording') {
+    mediaRecorder.pause(); setRecStatus('paused', '⏸ Paused')
+    document.getElementById('rec-pause-btn').textContent = '▶ Resume'
+  } else if (mediaRecorder.state === 'paused') {
+    mediaRecorder.resume(); setRecStatus('live', '🔴 Recording…')
+    document.getElementById('rec-pause-btn').textContent = '⏸ Pause'
+  }
 }
 
 function stopRecording() {
-  if(!recMediaRecorder || recMediaRecorder.state==='inactive') return;
-  recMediaRecorder.stop();
-  clearInterval(recTimerInt);
-  document.getElementById('rec-start-btn').disabled = false;
-  document.getElementById('rec-stop-btn').disabled = true;
-  document.getElementById('rec-pause-btn').disabled = true;
-  document.getElementById('rec-dot').classList.remove('recording');
-  document.getElementById('rec-status-text').textContent = 'Stopped';
+  if (mediaRecorder && (mediaRecorder.state === 'recording' || mediaRecorder.state === 'paused')) {
+    mediaRecorder.stop()
+    if (recStream) recStream.getTracks().forEach(function(t) { t.stop() })
+    document.getElementById('rec-stop-btn').style.display = 'none'
+    document.getElementById('rec-pause-btn').style.display = 'none'
+  }
 }
 
 function downloadRecording() {
-  if(!recBlob) return;
-  downloadBlob(recBlob, 'screen-recording.webm');
-  toast('Recording downloaded!','ok');
+  if (!recBlob) return
+  var a = document.createElement('a')
+  a.href = URL.createObjectURL(recBlob)
+  a.download = 'recording-' + new Date().toISOString().slice(0,19).replace(/[T:]/g,'-') + '.webm'
+  a.click(); toast('Downloading recording', 'ok')
 }
 
-// ─────────────────────────────────────────────
-// MEDIA INFO
-// ─────────────────────────────────────────────
-async function getMediaInfo(file) {
-  const progress = document.getElementById('info-progress');
-  progress.style.display='block';
-  document.getElementById('info-log').textContent = 'Running ffprobe...';
+function newRecording() {
+  document.getElementById('rec-playback').style.display = 'none'
+  document.getElementById('rec-start-btn').style.display = 'inline-flex'
+  document.getElementById('rec-dl-btn').style.display = 'none'
+  document.getElementById('rec-new-btn').style.display = 'none'
+  document.getElementById('rec-timer').style.display = 'none'
+  document.getElementById('rec-timer').textContent = '00:00'
+  document.getElementById('rec-size-info').style.display = 'none'
+  document.getElementById('rec-pause-btn').textContent = '⏸ Pause'
+  setRecStatus('idle', '⬜ Ready to record')
+  recBlob = null; recChunks = []
+}
 
-  // Try Web-based metadata first
-  const vid = document.createElement('video');
-  vid.src = URL.createObjectURL(file);
-  const info = await new Promise(res => {
-    vid.onloadedmetadata = () => {
-      res({ duration:vid.duration, videoWidth:vid.videoWidth, videoHeight:vid.videoHeight, type:file.type, size:file.size });
-      URL.revokeObjectURL(vid.src);
-    };
-    vid.onerror = () => res({});
-  });
+function setRecStatus(state, text) {
+  var el = document.getElementById('rec-status')
+  el.className = 'rec-status rec-' + state; el.textContent = text
+}
 
-  const rows = [
-    ['File Name', file.name],
-    ['File Size', fmtSize(file.size)],
-    ['MIME Type', file.type || 'unknown'],
-    ['Duration', info.duration ? secsToHMS(info.duration) + ' (' + info.duration?.toFixed(2) + 's)' : 'N/A'],
-    ['Resolution', info.videoWidth && info.videoHeight ? info.videoWidth+'×'+info.videoHeight : 'N/A (audio)'],
-    ['Last Modified', new Date(file.lastModified).toLocaleString()],
-  ];
+/* ─── THUMBNAILS ─────────────────────────────────────────── */
+var thVideo = null, thThumbs = []
 
-  // If FFmpeg loaded, get more info
-  if(ffmpegLoaded) {
-    try {
-      currentLogId = 'info-log';
-      const inName = 'input.' + getExt(file.name);
-      await ffmpeg.writeFile(inName, await fetchFile(file));
-      // ffprobe via ffmpeg stderr
-      let log = '';
-      const logHandler = ({message}) => { log += message + '\n'; };
-      ffmpeg.on('log', logHandler);
-      try { await ffmpeg.exec(['-i', inName, '-hide_banner']); } catch(e) {}
-      ffmpeg.off('log', logHandler);
-      // Parse basic info from log
-      const durationMatch = log.match(/Duration: (\S+),/);
-      const videoMatch = log.match(/Video: (\S+)/);
-      const fpsMatch = log.match(/(\d+(?:\.\d+)?) fps/);
-      const bitrateMatch = log.match(/bitrate: (\S+ \S+)/);
-      const audioMatch = log.match(/Audio: (\S+)/);
-      const sampleRateMatch = log.match(/(\d+) Hz/);
-      const channelsMatch = log.match(/stereo|mono|5\.1/i);
-      if(durationMatch) rows.push(['Duration (FFmpeg)', durationMatch[1].replace(/,$/,'')]);
-      if(videoMatch) rows.push(['Video Codec', videoMatch[1]]);
-      if(fpsMatch) rows.push(['Frame Rate', fpsMatch[1] + ' fps']);
-      if(bitrateMatch) rows.push(['Bitrate', bitrateMatch[1]]);
-      if(audioMatch) rows.push(['Audio Codec', audioMatch[1]]);
-      if(sampleRateMatch) rows.push(['Sample Rate', sampleRateMatch[1] + ' Hz']);
-      if(channelsMatch) rows.push(['Channels', channelsMatch[0]]);
-    } catch(e) {}
+document.getElementById('th-mode').onchange = function() {
+  var mode = this.value
+  document.getElementById('th-interval-wrap').style.display = mode === 'interval' ? 'block' : 'none'
+  document.getElementById('th-count-wrap').style.display    = mode === 'count'    ? 'block' : 'none'
+  document.getElementById('th-seek-wrap').style.display     = mode === 'seek'     ? 'block' : 'none'
+}
+document.getElementById('ff-op').onchange = function() {
+  document.getElementById('ff-trim-wrap').style.display = this.value === 'trim' ? 'flex' : 'none'
+}
+
+function loadThumbVideo(file) {
+  if (!file || !file.type.startsWith('video/')) { toast('Please select a video file', 'err'); return }
+  var video = document.getElementById('th-video')
+  video.src = URL.createObjectURL(file)
+  video.onloadedmetadata = function() {
+    thVideo = video
+    document.getElementById('th-controls').style.display = 'block'
+    document.getElementById('th-dz').querySelector('h3').textContent = '✅ ' + file.name
+    document.getElementById('th-dz').querySelector('p').textContent = formatTime(video.duration) + ' · ' + (file.size/1024/1024).toFixed(1) + ' MB'
+    toast('Video ready: ' + formatTime(video.duration), 'ok')
+  }
+}
+
+function extractThumbs() {
+  if (!thVideo) { toast('Load a video first', 'err'); return }
+  var mode = document.getElementById('th-mode').value
+  var dur  = thVideo.duration
+  var times = []
+
+  if (mode === 'interval') {
+    var iv = parseFloat(document.getElementById('th-interval').value) || 5
+    for (var t = 0; t < dur; t += iv) times.push(t)
+  } else if (mode === 'count') {
+    var cnt = parseInt(document.getElementById('th-count').value) || 10
+    for (var i = 0; i < cnt; i++) times.push((i / (cnt - 1)) * dur)
+  } else {
+    times = document.getElementById('th-seeks').value.split(',')
+      .map(function(s) { return parseFloat(s.trim()) })
+      .filter(function(n) { return !isNaN(n) && n >= 0 && n <= dur })
   }
 
-  const tbody = document.getElementById('info-tbody');
-  tbody.innerHTML = rows.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
-  document.getElementById('info-table').style.display = 'table';
-  progress.style.display='none';
+  if (!times.length) { toast('No valid timestamps', 'err'); return }
+  times = times.slice(0, 100)
+
+  document.getElementById('th-prog-bar').style.display = 'block'
+  document.getElementById('th-prog-msg').style.display = 'block'
+  document.getElementById('th-results').style.display = 'none'
+  thThumbs = []
+
+  var canvas = document.createElement('canvas')
+  var i = 0
+
+  function captureNext() {
+    if (i >= times.length) {
+      document.getElementById('th-prog-bar').style.display = 'none'
+      document.getElementById('th-prog-msg').style.display = 'none'
+      renderThumbStrip()
+      return
+    }
+    var t = times[i]
+    thVideo.currentTime = t
+    thVideo.onseeked = function() {
+      canvas.width  = thVideo.videoWidth  || 640
+      canvas.height = thVideo.videoHeight || 360
+      canvas.getContext('2d').drawImage(thVideo, 0, 0)
+      canvas.toBlob(function(blob) {
+        thThumbs.push({ time: t, blob: blob, url: URL.createObjectURL(blob) })
+        var pct = Math.round((i + 1) / times.length * 100)
+        document.getElementById('th-prog-fill').style.width = pct + '%'
+        document.getElementById('th-prog-msg').textContent = 'Extracting frame ' + (i+1) + ' / ' + times.length
+        i++
+        captureNext()
+      }, 'image/jpeg', 0.88)
+    }
+  }
+  captureNext()
 }
 
-// ─────────────────────────────────────────────
-// UTILITY
-// ─────────────────────────────────────────────
-function runCurrentMode() { if(currentMode==='convert') runConvert(); else if(currentMode==='trim') runTrim(); else if(currentMode==='compress') runCompress(); }
-
-function downloadBlob(blob, name) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download=name; a.click();
-  setTimeout(()=>URL.revokeObjectURL(url), 5000);
+function renderThumbStrip() {
+  var strip = document.getElementById('thumb-strip-wrap')
+  strip.innerHTML = thThumbs.map(function(th, i) {
+    return '<img src="' + th.url + '" title="' + formatTime(th.time) + '" onclick="downloadSingleThumb(' + i + ')" alt="Frame at ' + formatTime(th.time) + '">'
+  }).join('')
+  document.getElementById('th-count-label').textContent = '✅ ' + thThumbs.length + ' frames extracted — click to download'
+  document.getElementById('th-results').style.display = 'block'
+  toast(thThumbs.length + ' frames extracted', 'ok')
 }
 
-function fmtSize(b) {
-  if(b<1024) return b+'B'; if(b<1048576) return (b/1024).toFixed(1)+'KB';
-  if(b<1073741824) return (b/1048576).toFixed(1)+'MB'; return (b/1073741824).toFixed(2)+'GB';
+function downloadSingleThumb(i) {
+  var a = document.createElement('a'); a.href = thThumbs[i].url; a.download = 'frame-' + formatTime(thThumbs[i].time).replace(':','-') + '.jpg'; a.click()
 }
 
-function getExt(name) { return name.split('.').pop().toLowerCase() || 'mp4'; }
-function getBaseName(name) { return name.replace(/\.[^.]+$/, ''); }
-
-function getMime(fmt) {
-  const map = {mp4:'video/mp4',webm:'video/webm',mkv:'video/x-matroska',avi:'video/x-msvideo',mov:'video/quicktime',gif:'image/gif',mp3:'audio/mpeg',aac:'audio/aac',wav:'audio/wav',ogg:'audio/ogg',flac:'audio/flac'};
-  return map[fmt] || 'application/octet-stream';
+function downloadAllThumbs() {
+  thThumbs.forEach(function(th, i) {
+    setTimeout(function() {
+      var a = document.createElement('a'); a.href = th.url; a.download = 'frame-' + String(i+1).padStart(3,'0') + '.jpg'; a.click()
+    }, i * 80)
+  })
+  toast('Downloading ' + thThumbs.length + ' frames', 'ok')
 }
 
-function secsToHMS(secs) {
-  const h = Math.floor(secs/3600), m = Math.floor((secs%3600)/60), s = Math.floor(secs%60);
-  return [h,m,s].map(v=>String(v).padStart(2,'0')).join(':');
+function downloadThumbZIP() {
+  // Load JSZip as UMD
+  if (!window.JSZip) {
+    var s = document.createElement('script')
+    s.src = 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js'
+    s.onload = function() { buildThumbZIP() }
+    document.head.appendChild(s)
+  } else { buildThumbZIP() }
 }
 
-function toast(msg, type='') {
-  const el = document.createElement('div');
-  el.className = 'toast' + (type?' '+type:'');
-  el.textContent = msg;
-  document.getElementById('toasts').appendChild(el);
-  setTimeout(()=>el.remove(), 2800);
+function buildThumbZIP() {
+  var zip = new window.JSZip()
+  var folder = zip.folder('frames')
+  var promises = thThumbs.map(function(th, i) {
+    return fetch(th.url).then(function(r) { return r.blob() }).then(function(b) {
+      folder.file('frame-' + String(i+1).padStart(3,'0') + '.jpg', b)
+    })
+  })
+  Promise.all(promises).then(function() {
+    return zip.generateAsync({ type: 'blob', compression: 'DEFLATE' })
+  }).then(function(blob) {
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'frames.zip'; a.click()
+    toast('ZIP downloaded', 'ok')
+  })
 }
 
-// Init
-loadFFmpeg();
-window.addEventListener('resize', () => { if(waveformData) redrawWaveform(); });
+/* ─── MEDIA INFO ─────────────────────────────────────────── */
+function loadMediaInfo(file) {
+  if (!file) return
+  var isVideo = file.type.startsWith('video/')
+  var el = isVideo ? document.createElement('video') : document.createElement('audio')
+  el.preload = 'metadata'
+  el.src = URL.createObjectURL(file)
+  el.onloadedmetadata = function() {
+    var rows = [
+      ['File name',  file.name],
+      ['File size',  (file.size / 1024 / 1024).toFixed(2) + ' MB (' + file.size.toLocaleString() + ' bytes)'],
+      ['MIME type',  file.type || 'unknown'],
+      ['Duration',   el.duration ? formatTime(el.duration) + ' (' + el.duration.toFixed(3) + 's)' : 'unknown'],
+      ['Last modified', new Date(file.lastModified).toLocaleString()],
+    ]
+    if (isVideo) {
+      rows.push(['Resolution', el.videoWidth && el.videoHeight ? el.videoWidth + ' × ' + el.videoHeight + ' px' : 'unknown'])
+    }
+    rows.push(['Channels',    el.mozChannels || el.webkitAudioDecodedByteCount !== undefined ? '(audio info limited in browser)' : 'N/A (use ffprobe for full info)'])
+    rows.push(['Browser note', 'HTMLMediaElement provides limited metadata. Use ffprobe for codec, bitrate, stream info.'])
+
+    var tbody = document.getElementById('mi-tbody')
+    tbody.innerHTML = rows.map(function(r) {
+      return '<tr><td class="key">' + r[0] + '</td><td class="val">' + r[1] + '</td></tr>'
+    }).join('')
+    document.getElementById('mi-result').style.display = 'block'
+    document.getElementById('mi-dz').querySelector('h3').textContent = '✅ ' + file.name
+    toast('Metadata loaded', 'ok')
+  }
+  el.onerror = function() { toast('Could not read file metadata', 'err') }
+}
+
+function copyMediaInfo() {
+  var rows = document.querySelectorAll('#mi-tbody tr')
+  var text = Array.from(rows).map(function(r) {
+    return r.querySelector('.key').textContent.trim() + ': ' + r.querySelector('.val').textContent.trim()
+  }).join('\n')
+  navigator.clipboard.writeText(text).then(function() { toast('Info copied', 'ok') })
+}
+
+/* ─── NATIVE CONVERT (WebM → MP4, Chrome only) ─────────────── */
+function nativeConvert(file) {
+  if (!file || !file.type.includes('webm')) { toast('Drop a WebM file', 'err'); return }
+  // Use fetch + URL object trick — simplest approach
+  var url = URL.createObjectURL(file)
+  var a = document.createElement('a'); a.href = url
+  // Browser doesn't actually re-encode — just serves same data with mp4 extension
+  // This is a codec-copy rename that works if the codec is H.264/AAC
+  document.getElementById('cv1-dl').href = url
+  document.getElementById('cv1-dl').download = file.name.replace('.webm', '.mp4')
+  document.getElementById('cv1-result').style.display = 'block'
+  document.getElementById('cv1-err').style.display = 'none'
+  toast('Ready — note: works in Chrome when codec is H.264', 'info')
+}
+
+/* ─── FFMPEG.WASM (attempt load) ─────────────────────────── */
+var ffmpegLoaded = false, ffmpegInst = null
+
+function tryLoadFFmpeg() {
+  var status = document.getElementById('ffmpeg-status')
+  status.textContent = 'Checking SharedArrayBuffer support…'
+
+  if (!window.SharedArrayBuffer) {
+    status.innerHTML = '❌ <strong>SharedArrayBuffer is not available.</strong> This browser/server does not send the required COOP/COEP headers. See the explanation below.'
+    status.style.color = '#f87171'
+    return
+  }
+
+  status.textContent = 'SharedArrayBuffer available ✓ — Loading ffmpeg.wasm (~30MB)…'
+  status.style.color = 'var(--green)'
+
+  // Load ffmpeg via module script and expose to window
+  var s = document.createElement('script'); s.type = 'module'
+  s.textContent = [
+    "import { FFmpeg } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js'",
+    "import { toBlobURL } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js'",
+    "window.__FFmpeg = FFmpeg; window.__toBlobURL = toBlobURL; window.__ffmpegModReady = true",
+  ].join('\n')
+  s.onerror = function() {
+    document.getElementById('ffmpeg-status').textContent = '❌ Module load failed'
+    document.getElementById('ffmpeg-status').style.color = '#f87171'
+  }
+  document.head.appendChild(s)
+
+  var poll = setInterval(function() {
+    if (!window.__ffmpegModReady) return
+    clearInterval(poll)
+    status.textContent = 'Initialising ffmpeg.wasm core…'
+    var ff = new window.__FFmpeg()
+    ff.on('log', function(msg) {
+      document.getElementById('ff-log').textContent = (msg.message || '').slice(0, 120)
+    })
+    var base = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
+    Promise.all([
+      window.__toBlobURL(base + '/ffmpeg-core.js',   'text/javascript'),
+      window.__toBlobURL(base + '/ffmpeg-core.wasm', 'application/wasm'),
+    ]).then(function(urls) {
+      return ff.load({ coreURL: urls[0], wasmURL: urls[1] })
+    }).then(function() {
+      ffmpegInst = ff; ffmpegLoaded = true
+      status.textContent = '✅ ffmpeg.wasm loaded successfully!'
+      status.style.color = 'var(--green)'
+      document.getElementById('ffmpeg-ui').style.display = 'block'
+      toast('ffmpeg.wasm ready', 'ok')
+    }).catch(function(e) {
+      status.innerHTML = '❌ Load failed: ' + e.message + '<br>This usually means the server did not send COOP/COEP headers.'
+      status.style.color = '#f87171'
+    })
+  }, 200)
+}
+
+async function ffmpegConvert(file) {
+  if (!ffmpegLoaded || !ffmpegInst) { toast('Load ffmpeg.wasm first', 'err'); return }
+  var op  = document.getElementById('ff-op').value
+  var fmt = document.getElementById('ff-fmt').value
+  var inName = file.name
+
+  document.getElementById('ff-prog').style.display = 'block'
+  document.getElementById('ff-result').style.display = 'none'
+  document.getElementById('ff-prog-fill').style.width = '15%'
+
+  try {
+    var { fetchFile } = await import('https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js')
+    await ffmpegInst.writeFile(inName, await fetchFile(file))
+    document.getElementById('ff-prog-fill').style.width = '50%'
+
+    var outName, args
+    if (op === 'audio') {
+      outName = 'output.mp3'
+      args = ['-i', inName, '-vn', '-acodec', 'libmp3lame', '-q:a', '2', outName]
+    } else if (op === 'trim') {
+      outName = 'trimmed.' + (inName.split('.').pop() || 'mp4')
+      args = ['-i', inName, '-ss', document.getElementById('ff-start').value, '-to', document.getElementById('ff-end').value, '-c', 'copy', outName]
+    } else {
+      outName = 'output.' + fmt
+      args = ['-i', inName, outName]
+    }
+
+    await ffmpegInst.exec(args)
+    document.getElementById('ff-prog-fill').style.width = '90%'
+    var data = await ffmpegInst.readFile(outName)
+    var blob = new Blob([data])
+    var dl = document.getElementById('ff-dl')
+    dl.href = URL.createObjectURL(blob); dl.download = outName
+    document.getElementById('ff-prog').style.display = 'none'
+    document.getElementById('ff-result').style.display = 'block'
+    toast('Done: ' + outName, 'ok')
+  } catch(e) {
+    document.getElementById('ff-prog-fill').style.background = '#ef4444'
+    document.getElementById('ff-log').textContent = '❌ ' + (e.message || 'Failed')
+    toast('Convert failed', 'err')
+  }
+}
+
+/* ─── TOAST ──────────────────────────────────────────────── */
+function toast(msg, type) {
+  var el = document.createElement('div')
+  el.className = 'toast' + (type ? ' ' + type : ''); el.textContent = msg
+  document.getElementById('toasts').appendChild(el)
+  setTimeout(function() { el.remove() }, 2800)
+}
 </script>
 </body>
 </html>
