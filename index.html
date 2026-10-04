@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Media Studio — Waveform, Screen Recorder, Thumbnail Extractor, Media Info, Video Converter | Universe Invedors</title>
+<title>Media Studio � Waveform, Screen Recorder, Thumbnail Extractor, Media Info, Video Converter | Universe Invedors</title>
 <meta name="description" content="Free online media tools. Visualise audio waveforms, record your screen, extract video thumbnails, inspect media metadata and convert formats. All processing local in your browser."/>
 <meta name="keywords" content="waveform viewer online,screen recorder free,video thumbnail extractor,media info tool,online video converter,audio waveform browser,free media tools"/>
 <link rel="canonical" href="https://media.universeinvedors.tech/"/>
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 <meta name="author" content="Universe Invedors"/>
-<meta property="og:title" content="Media Studio — Waveform, Screen Recorder, Thumbnails, Media Info"/><meta property="og:url" content="https://media.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta property="og:title" content="Media Studio � Waveform, Screen Recorder, Thumbnails, Media Info"/><meta property="og:url" content="https://media.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
@@ -23,123 +23,120 @@ gtag('js',new Date());gtag('config','G-3GH7524RVW',{page_title:document.title,pa
 function gaEvent(action,category,label,value){gtag('event',action,{event_category:category,event_label:label,value:value});}
 </script>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Media Studio","url":"https://media.universeinvedors.tech","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"Media Studio","item":"https://media.universeinvedors.tech"}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#090c13;--surf:#0d1117;--elev:#141b28;--card:#1a2235;--inp:#111827;
-  --t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;
-  --acc:#52e5e7;--acc-h:#22d3ee;--acc-glow:rgba(82,229,231,.22);
-  --green:#10b981;--violet:#8b5cf6;--orange:#f97316;--blue:#3b82f6;--red:#ef4444;
-  --border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);
-  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
-  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
-  --r:8px;--th:50px;--tr:160ms cubic-bezier(.4,0,.2,1);
+  --bg-base:#03050a;--bg-surface:#080d15;--bg-elevated:#0d1421;--bg-card:#111b2e;--bg-input:#0d1421;
+  --text-1:#f0f4ff;--text-2:#a8b8cf;--text-3:#5a6a82;--text-4:#2e3d54;
+  --accent:#3b82f6;--accent-light:#60a5fa;--accent-subtle:rgba(59,130,246,.12);
+  --accent-border:rgba(59,130,246,.30);--accent-glow:rgba(59,130,246,.22);
+  --green:#10b981;--red:#ef4444;--yellow:#f59e0b;--cyan:#06b6d4;--violet:#8b5cf6;
+  --border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--border-focus:rgba(59,130,246,.50);
+  --shadow-md:0 4px 16px rgba(0,0,0,.50);--shadow-lg:0 12px 40px rgba(0,0,0,.60);
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',Consolas,monospace;
+  --r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:18px;
+  --topbar-h:52px;--t:180ms cubic-bezier(.4,0,.2,1);
 }
-html{font-size:16px}
-body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100dvh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
-.topbar{height:var(--th);background:rgba(9,12,19,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .75rem;flex-shrink:0;position:sticky;top:0;z-index:200}
-.logo{font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:.4rem}.logo:hover{color:var(--acc-h);text-decoration:none}
-.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;overflow-x:auto;flex-shrink:1}
-.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);white-space:nowrap;transition:all var(--tr)}.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
-.sp{flex:1}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .75rem;border-radius:var(--r);font-size:.73rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
-.bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
-.bp{background:var(--acc);color:#000}.bp:hover{background:var(--acc-h)}
-.bsm{padding:.22rem .55rem;font-size:.68rem}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.badge-priv{display:inline-flex;align-items:center;gap:.25rem;padding:.2rem .55rem;border-radius:100px;font-size:.67rem;font-weight:700;background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.25)}
-.container{max-width:900px;margin:0 auto;padding:1.5rem 1rem;flex:1;width:100%}
-/* Mode panels */
-.panel{display:none}.panel.active{display:block}
-/* Section card */
-.section-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1.25rem}
-.card-title{font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
-.card-sub{font-size:.78rem;color:var(--t2);margin-bottom:.9rem;line-height:1.55}
-/* Drop zone */
-.dz{border:2px dashed var(--border);border-radius:10px;padding:2rem 1.5rem;text-align:center;cursor:pointer;transition:all var(--tr);background:var(--bg)}
-.dz:hover,.dz.drag{border-color:var(--acc);background:rgba(82,229,231,.03)}
-.dz h3{font-size:.88rem;font-weight:700;margin:.45rem 0 .25rem}
-.dz p{font-size:.76rem;color:var(--t2)}
-/* Waveform */
-.waveform-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--border);margin:.75rem 0;position:relative;background:var(--card)}
-canvas#waveform-canvas{width:100%;display:block;height:140px}
-.wf-playhead{position:absolute;top:0;bottom:0;width:2px;background:var(--acc);pointer-events:none;left:0;transition:left .1s linear}
-.wf-controls{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:.6rem .75rem;border-top:1px solid var(--border);background:var(--bg)}
-.wf-time{font-size:.72rem;color:var(--t2);font-family:var(--mono)}
-/* Screen recorder */
-.rec-preview{width:100%;border-radius:10px;border:1px solid var(--border);background:#000;aspect-ratio:16/9;max-height:360px;display:block}
-.rec-status{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;padding:.55rem .8rem;border-radius:var(--r)}
-.rec-idle{background:var(--elev);color:var(--t3)}
-.rec-live{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.25)}
-.rec-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink .8s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.rec-paused{background:rgba(245,158,11,.1);color:#f59e0b}
-/* Thumbnail strip */
-.thumb-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
-.thumb-strip img{width:120px;height:68px;object-fit:cover;border-radius:6px;border:1px solid var(--border);cursor:pointer;transition:all var(--tr)}
-.thumb-strip img:hover{border-color:var(--acc);transform:scale(1.04)}
-/* Media info table */
-.info-table{width:100%;border-collapse:collapse;font-size:.8rem}
-.info-table td{padding:.45rem .65rem;border-bottom:1px solid var(--border)}
-.info-table tr:last-child td{border-bottom:none}
-.info-table .key{color:var(--t3);font-weight:600;width:38%;font-size:.72rem;letter-spacing:.03em;text-transform:uppercase}
-.info-table .val{color:var(--t1);font-family:var(--mono);font-size:.78rem}
-/* Convert section */
-.convert-note{padding:.7rem;border-radius:var(--r);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);font-size:.78rem;color:#f59e0b;display:flex;gap:.5rem;align-items:flex-start}
-/* Progress */
-.prog-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.07);overflow:hidden;margin:.45rem 0}
-.prog-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--acc),var(--blue));transition:width .3s}
-/* Color picker row */
-.color-row{display:flex;align-items:center;gap:.5rem}
-.color-row input[type=color]{width:36px;height:36px;border-radius:6px;border:1px solid var(--border);padding:.15rem;background:transparent;cursor:pointer}
-.fl{font-size:.69rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);margin-bottom:.25rem;display:block}
-.fi{width:100%;padding:.4rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;outline:none;margin-bottom:.55rem;transition:border-color var(--tr)}
-.fi:focus{border-color:rgba(82,229,231,.45)}
-/* Downloads */
-.dl-box{padding:.85rem 1rem;border-radius:var(--r);background:rgba(82,229,231,.06);border:1px solid rgba(82,229,231,.2);text-align:center}
-.dl-box .dl-title{font-size:.88rem;font-weight:700;color:var(--acc-h);margin-bottom:.6rem}
-/* Info section */
-.info-sect{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-.info-sect h2{font-size:.95rem;font-weight:700;margin-bottom:.6rem}
-.info-sect ul{color:var(--t2);font-size:.85rem;line-height:1.95;padding-left:1.25rem}
-.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.35rem .75rem;border-top:1px solid var(--border);background:var(--surf);font-size:.65rem;color:var(--t3)}
-.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2);text-decoration:none}.sf-links{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
-.toasts{position:fixed;bottom:2.5rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
-.toast{padding:.5rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 6px 24px rgba(0,0,0,.5);animation:tin .2s ease}
-.toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:rgba(82,229,231,.35);color:var(--acc-h)}
-@keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-</style>
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-sans);background:var(--bg-base);color:var(--text-1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.10);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.20)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm)}
+/* TOPBAR */
+.topbar{height:var(--topbar-h);background:rgba(3,5,10,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;padding:0 1rem;flex-shrink:0;z-index:300}
+.topbar-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text-1);flex-shrink:0;transition:opacity var(--t)}
+.topbar-logo:hover{opacity:.8;text-decoration:none}
+.topbar-logo-mark{width:26px;height:26px;border-radius:var(--r-sm);background:linear-gradient(135deg,#3b82f6,#06b6d4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.topbar-logo-mark svg{width:14px;height:14px}
+.topbar-logo-text{display:flex;flex-direction:column;line-height:1}
+.topbar-logo-company{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-1)}
+.topbar-logo-tool{font-size:.67rem;font-weight:500;color:var(--text-3);margin-top:1px}
+.topbar-sep{width:1px;height:18px;background:var(--border);flex-shrink:0}
+.topbar-spacer,.sp{flex:1}
+.badge-free{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .55rem;border-radius:9999px;font-size:.67rem;font-weight:700;background:rgba(16,185,129,.10);color:var(--green);border:1px solid rgba(16,185,129,.22)}
+/* ENGINE TABS */
+.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r-md);padding:2px;overflow-x:auto;flex-shrink:1}
+.et{display:inline-flex;align-items:center;gap:.3rem;padding:.26rem .7rem;border-radius:7px;font-size:.73rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-3);white-space:nowrap;transition:all var(--t)}
+.et:hover{background:rgba(255,255,255,.06);color:var(--text-2)}
+.et.active{background:var(--accent);color:#fff;box-shadow:0 0 12px var(--accent-glow)}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.38rem .85rem;border-radius:var(--r-md);font-size:.78rem;font-weight:600;cursor:pointer;border:none;transition:all var(--t);white-space:nowrap;font-family:var(--font-sans)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:14px;height:14px;flex-shrink:0}
+.bg,.btn-ghost{background:rgba(255,255,255,.05);color:var(--text-2);border:1px solid var(--border)}
+.bg:hover,.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:var(--border-hover);color:var(--text-1)}
+.bp,.btn-primary{background:var(--accent);color:#fff;box-shadow:0 2px 8px var(--accent-glow)}
+.bp:hover,.btn-primary:hover{background:var(--accent-light);box-shadow:0 4px 20px var(--accent-glow)}
+.bgr,.btn-success{background:var(--green);color:#000}
+.bgr:hover,.btn-success:hover{background:#0ea371}
+.bsm,.btn-sm{padding:.28rem .65rem;font-size:.72rem}
+.btn-violet{background:var(--violet);color:#fff}.btn-violet:hover{background:#7c3aed}
+.btn:disabled,.btn[disabled]{opacity:.4;cursor:not-allowed}
+/* PANES */
+.pane{display:flex;flex-direction:column;overflow:hidden}
+.pane-head,.ph{display:flex;align-items:center;gap:.5rem;padding:.42rem 1rem;background:var(--bg-surface);border-bottom:1px solid var(--border);font-size:.69rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);flex-shrink:0}
+.pd,.pane-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.phr,.pane-actions{margin-left:auto;display:flex;gap:.3rem}
+/* FORM */
+.fl,.field-label{font-size:.71rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);margin-bottom:.3rem;display:block}
+.fi,input[type=text],input[type=number],select,textarea{width:100%;padding:.45rem .7rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--r-md);color:var(--text-1);font-size:.84rem;font-family:var(--font-sans);outline:none;transition:border-color var(--t),box-shadow var(--t)}
+.fi:focus,input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.10)}
+select option{background:var(--bg-elevated)}
+input[type=range]{accent-color:var(--accent);width:100%}
+/* CARDS */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.1rem 1.25rem}
+.card:hover{border-color:var(--border-hover)}
+/* TOASTS */
+.toasts{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;flex-direction:column;gap:.45rem;pointer-events:none}
+.toast{display:flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:var(--r-md);font-size:.8rem;font-weight:600;background:var(--bg-card);border:1px solid var(--border);color:var(--text-1);box-shadow:var(--shadow-lg);animation:toastIn .22s ease;pointer-events:auto}
+.toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:var(--accent-border);color:var(--accent-light)}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+/* SEO FOOTER */
+.seo-footer,.tool-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem .9rem;padding:.6rem 1rem;border-top:1px solid var(--border);background:var(--bg-surface);font-size:.7rem;color:var(--text-3);flex-shrink:0}
+.seo-footer a,.tool-footer a{color:var(--text-3)}.seo-footer a:hover,.tool-footer a:hover{color:var(--text-2);text-decoration:none}
+.sf-links,.tool-footer-links{display:flex;flex-wrap:wrap;gap:.25rem .65rem}
 </head>
 <body>
 
 <header class="topbar">
-  <a href="https://universeinvedors.tech/tools" class="logo">🎬 <span style="color:var(--acc-h)">Media Studio</span></a>
+  <a href="https://universeinvedors.tech/tools" class="topbar-logo" aria-label="All Tools">
+    <div class="topbar-logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+    </div>
+    <div class="topbar-logo-text">
+      <span class="topbar-logo-company">Universe Invedors</span>
+      <span class="topbar-logo-tool">Media Studio</span>
+    </div>
+  </a>
+  <div class="topbar-sep"></div>
   <div class="etabs">
-    <button class="et active" id="et-waveform"  onclick="setPanel('waveform')">📊 Waveform</button>
-    <button class="et"        id="et-recorder"  onclick="setPanel('recorder')">⏺ Recorder</button>
-    <button class="et"        id="et-thumbs"    onclick="setPanel('thumbs')">🎞 Thumbnails</button>
-    <button class="et"        id="et-info"      onclick="setPanel('info')">ℹ Info</button>
-    <button class="et"        id="et-convert"   onclick="setPanel('convert')">🔄 Convert</button>
+    <button class="et active" id="et-waveform"  onclick="setPanel('waveform')">?? Waveform</button>
+    <button class="et"        id="et-recorder"  onclick="setPanel('recorder')">? Recorder</button>
+    <button class="et"        id="et-thumbs"    onclick="setPanel('thumbs')">?? Thumbnails</button>
+    <button class="et"        id="et-info"      onclick="setPanel('info')">? Info</button>
+    <button class="et"        id="et-convert"   onclick="setPanel('convert')">?? Convert</button>
   </div>
   <div class="sp"></div>
-  <span class="badge-priv">🔒 Local Processing</span>
+  <span class="badge-priv">?? Local Processing</span>
 </header>
 
 <div class="container">
 
-  <!-- ── WAVEFORM ──────────────────────────────────────────── -->
+  <!-- -- WAVEFORM -------------------------------------------- -->
   <div id="panel-waveform" class="panel active">
     <div class="section-card">
-      <div class="card-title">📊 Audio Waveform Visualiser</div>
-      <div class="card-sub">Drop any audio or video file to render its waveform. Fully local — uses the Web Audio API, no upload required.</div>
+      <div class="card-title">?? Audio Waveform Visualiser</div>
+      <div class="card-sub">Drop any audio or video file to render its waveform. Fully local � uses the Web Audio API, no upload required.</div>
 
       <div class="dz" id="wf-dz"
         onclick="document.getElementById('wf-file').click()"
         ondragover="event.preventDefault();this.classList.add('drag')"
         ondragleave="this.classList.remove('drag')"
         ondrop="event.preventDefault();this.classList.remove('drag');loadWaveform(event.dataTransfer.files[0])">
-        <div style="font-size:2.2rem;margin-bottom:.5rem">🎵</div>
+        <div style="font-size:2.2rem;margin-bottom:.5rem">??</div>
         <h3>Drop an audio or video file here</h3>
         <p>MP3, WAV, OGG, FLAC, M4A, MP4, WebM and more</p>
       </div>
@@ -147,7 +144,7 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
 
       <div id="wf-loading" style="display:none;text-align:center;padding:1rem">
         <div style="width:22px;height:22px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--acc);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto .5rem"></div>
-        <p style="font-size:.78rem;color:var(--t2)" id="wf-loading-msg">Decoding audio…</p>
+        <p style="font-size:.78rem;color:var(--t2)" id="wf-loading-msg">Decoding audio�</p>
       </div>
 
       <div id="wf-result" style="display:none">
@@ -159,12 +156,12 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
 
         <!-- Transport controls -->
         <div class="wf-controls">
-          <button class="btn bp bsm" id="wf-play-btn" onclick="togglePlayback()">▶ Play</button>
-          <button class="btn bg bsm" onclick="stopPlayback()">■ Stop</button>
+          <button class="btn bp bsm" id="wf-play-btn" onclick="togglePlayback()">? Play</button>
+          <button class="btn bg bsm" onclick="stopPlayback()">� Stop</button>
           <span class="wf-time" id="wf-time">0:00 / 0:00</span>
           <div style="flex:1"></div>
           <span style="font-size:.7rem;color:var(--t3)" id="wf-meta"></span>
-          <button class="btn bg bsm" onclick="exportWaveformPNG()">↓ Save PNG</button>
+          <button class="btn bg bsm" onclick="exportWaveformPNG()">? Save PNG</button>
         </div>
 
         <!-- Customisation -->
@@ -200,14 +197,14 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
     </div>
   </div>
 
-  <!-- ── SCREEN RECORDER ───────────────────────────────────── -->
+  <!-- -- SCREEN RECORDER ------------------------------------- -->
   <div id="panel-recorder" class="panel">
     <div class="section-card">
-      <div class="card-title">⏺ Screen Recorder</div>
-      <div class="card-sub">Record your screen with optional microphone audio. Uses the browser's <code style="background:var(--card);padding:.1rem .3rem;border-radius:4px">getDisplayMedia</code> API — nothing is uploaded. Output: WebM video file.</div>
+      <div class="card-title">? Screen Recorder</div>
+      <div class="card-sub">Record your screen with optional microphone audio. Uses the browser's <code style="background:var(--card);padding:.1rem .3rem;border-radius:4px">getDisplayMedia</code> API � nothing is uploaded. Output: WebM video file.</div>
 
       <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.85rem;flex-wrap:wrap">
-        <div id="rec-status" class="rec-status rec-idle">⬜ Ready to record</div>
+        <div id="rec-status" class="rec-status rec-idle">? Ready to record</div>
         <span id="rec-timer" style="font-size:.8rem;font-weight:700;color:var(--t2);font-family:var(--mono);display:none">00:00</span>
         <label style="display:flex;align-items:center;gap:.3rem;cursor:pointer;font-size:.78rem;color:var(--t2)">
           <input type="checkbox" id="rec-mic" style="accent-color:var(--acc)"> Include microphone
@@ -218,10 +215,10 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
       <video id="rec-playback" class="rec-preview" controls style="display:none;margin-top:.65rem"></video>
 
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
-        <button class="btn bp" id="rec-start-btn" onclick="startRecording()">⏺ Start Recording</button>
-        <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" style="display:none">⏸ Pause</button>
-        <button class="btn bg" id="rec-stop-btn" onclick="stopRecording()" style="display:none">■ Stop</button>
-        <button class="btn bg bsm" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">↓ Download WebM</button>
+        <button class="btn bp" id="rec-start-btn" onclick="startRecording()">? Start Recording</button>
+        <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" style="display:none">? Pause</button>
+        <button class="btn bg" id="rec-stop-btn" onclick="stopRecording()" style="display:none">� Stop</button>
+        <button class="btn bg bsm" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">? Download WebM</button>
         <button class="btn bg bsm" id="rec-new-btn" onclick="newRecording()" style="display:none">New recording</button>
       </div>
 
@@ -233,25 +230,25 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
       <ul style="font-size:.78rem;color:var(--t2);line-height:1.9;padding-left:1.15rem">
         <li>Browser will ask which screen, window or tab to share</li>
         <li>Output is WebM format (supported by Chrome, Firefox, Edge)</li>
-        <li>Nothing is uploaded — recording stays in memory until you download</li>
+        <li>Nothing is uploaded � recording stays in memory until you download</li>
         <li>Large recordings may use significant RAM while recording</li>
-        <li>Convert WebM → MP4 using the Convert tab or VLC</li>
+        <li>Convert WebM ? MP4 using the Convert tab or VLC</li>
       </ul>
     </div>
   </div>
 
-  <!-- ── THUMBNAILS ─────────────────────────────────────────── -->
+  <!-- -- THUMBNAILS ------------------------------------------- -->
   <div id="panel-thumbs" class="panel">
     <div class="section-card">
-      <div class="card-title">🎞 Video Thumbnail Extractor</div>
-      <div class="card-sub">Extract frames from any video file as JPEG images. Uses the browser's HTMLVideoElement and Canvas API — 100% local, no upload.</div>
+      <div class="card-title">?? Video Thumbnail Extractor</div>
+      <div class="card-sub">Extract frames from any video file as JPEG images. Uses the browser's HTMLVideoElement and Canvas API � 100% local, no upload.</div>
 
       <div class="dz" id="th-dz"
         onclick="document.getElementById('th-file').click()"
         ondragover="event.preventDefault();this.classList.add('drag')"
         ondragleave="this.classList.remove('drag')"
         ondrop="event.preventDefault();this.classList.remove('drag');loadThumbVideo(event.dataTransfer.files[0])">
-        <div style="font-size:2.2rem;margin-bottom:.5rem">🎬</div>
+        <div style="font-size:2.2rem;margin-bottom:.5rem">??</div>
         <h3>Drop a video file here</h3>
         <p>MP4, WebM, MKV, AVI, MOV and more</p>
       </div>
@@ -280,7 +277,7 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
             <label class="fl">Timestamps (comma separated, e.g. 0,5,10,30)</label>
             <input class="fi" id="th-seeks" placeholder="0,5,10,30" style="margin-bottom:0;width:240px">
           </div>
-          <button class="btn bp" onclick="extractThumbs()">🎞 Extract Frames</button>
+          <button class="btn bp" onclick="extractThumbs()">?? Extract Frames</button>
         </div>
         <div class="prog-bar" id="th-prog-bar" style="display:none"><div class="prog-fill" id="th-prog-fill" style="width:0%"></div></div>
         <p id="th-prog-msg" style="font-size:.72rem;color:var(--t3);display:none"></p>
@@ -290,8 +287,8 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;flex-wrap:wrap;gap:.4rem">
           <span id="th-count-label" style="font-size:.8rem;font-weight:600;color:var(--acc-h)">Frames</span>
           <div style="display:flex;gap:.35rem">
-            <button class="btn bg bsm" onclick="downloadAllThumbs()">↓ Download All JPGs</button>
-            <button class="btn bg bsm" onclick="downloadThumbZIP()">↓ Download ZIP</button>
+            <button class="btn bg bsm" onclick="downloadAllThumbs()">? Download All JPGs</button>
+            <button class="btn bg bsm" onclick="downloadThumbZIP()">? Download ZIP</button>
           </div>
         </div>
         <div id="thumb-strip-wrap" class="thumb-strip"></div>
@@ -299,18 +296,18 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
     </div>
   </div>
 
-  <!-- ── MEDIA INFO ──────────────────────────────────────────── -->
+  <!-- -- MEDIA INFO -------------------------------------------- -->
   <div id="panel-info" class="panel">
     <div class="section-card">
-      <div class="card-title">ℹ Media Information</div>
-      <div class="card-sub">Inspect metadata from any video or audio file. Uses the browser's HTMLVideoElement/AudioElement — instant, no upload, no ffmpeg required.</div>
+      <div class="card-title">? Media Information</div>
+      <div class="card-sub">Inspect metadata from any video or audio file. Uses the browser's HTMLVideoElement/AudioElement � instant, no upload, no ffmpeg required.</div>
 
       <div class="dz" id="mi-dz"
         onclick="document.getElementById('mi-file').click()"
         ondragover="event.preventDefault();this.classList.add('drag')"
         ondragleave="this.classList.remove('drag')"
         ondrop="event.preventDefault();this.classList.remove('drag');loadMediaInfo(event.dataTransfer.files[0])">
-        <div style="font-size:2.2rem;margin-bottom:.5rem">🔍</div>
+        <div style="font-size:2.2rem;margin-bottom:.5rem">??</div>
         <h3>Drop a video or audio file here</h3>
         <p>Any format your browser can decode</p>
       </div>
@@ -327,16 +324,16 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
     </div>
   </div>
 
-  <!-- ── CONVERT ─────────────────────────────────────────────── -->
+  <!-- -- CONVERT ----------------------------------------------- -->
   <div id="panel-convert" class="panel">
     <div class="section-card">
-      <div class="card-title">🔄 Format Conversion</div>
+      <div class="card-title">?? Format Conversion</div>
 
-      <!-- Why ffmpeg.wasm needs COOP/COEP headers — honest explanation -->
+      <!-- Why ffmpeg.wasm needs COOP/COEP headers � honest explanation -->
       <div class="convert-note" style="margin-bottom:1rem">
-        <span style="font-size:1rem;flex-shrink:0">⚠️</span>
+        <span style="font-size:1rem;flex-shrink:0">??</span>
         <div>
-          <strong>ffmpeg.wasm requires SharedArrayBuffer</strong> — which requires special HTTP headers
+          <strong>ffmpeg.wasm requires SharedArrayBuffer</strong> � which requires special HTTP headers
           (<code style="background:rgba(0,0,0,.2);padding:.1rem .25rem;border-radius:3px">COOP: same-origin</code> +
           <code style="background:rgba(0,0,0,.2);padding:.1rem .25rem;border-radius:3px">COEP: require-corp</code>).
           Most static hosting (including Cloudflare Pages) does not send these by default.
@@ -346,28 +343,28 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
 
       <!-- Alternative 1: Browser native MediaRecorder conversion -->
       <div class="section-card" style="border-color:rgba(82,229,231,.2);margin-bottom:1rem">
-        <div class="card-title" style="color:var(--acc-h)">✅ Option 1 — Browser-native WebM → MP4 (Chrome only)</div>
+        <div class="card-title" style="color:var(--acc-h)">? Option 1 � Browser-native WebM ? MP4 (Chrome only)</div>
         <div class="card-sub">Chrome 130+ supports re-muxing in the browser using the <strong>MediaStreamTrackProcessor</strong> API. Drop a WebM file and we'll attempt a codec-copy re-container to MP4.</div>
         <div class="dz" id="cv1-dz"
           onclick="document.getElementById('cv1-file').click()"
           ondragover="event.preventDefault();this.classList.add('drag')"
           ondragleave="this.classList.remove('drag')"
           ondrop="event.preventDefault();this.classList.remove('drag');nativeConvert(event.dataTransfer.files[0])">
-          <div style="font-size:1.8rem;margin-bottom:.4rem">🎬</div>
+          <div style="font-size:1.8rem;margin-bottom:.4rem">??</div>
           <h3>Drop a WebM file to convert to MP4</h3>
-          <p>Chrome 130+ · Codec copy (fast) · Local processing</p>
+          <p>Chrome 130+ � Codec copy (fast) � Local processing</p>
         </div>
         <input type="file" id="cv1-file" accept="video/webm" style="display:none" onchange="nativeConvert(this.files[0])">
         <div id="cv1-result" style="display:none;margin-top:.65rem" class="dl-box">
-          <div class="dl-title">✅ Conversion ready</div>
-          <a id="cv1-dl" class="btn bp" href="#" download="output.mp4">↓ Download MP4</a>
+          <div class="dl-title">? Conversion ready</div>
+          <a id="cv1-dl" class="btn bp" href="#" download="output.mp4">? Download MP4</a>
         </div>
         <p id="cv1-err" style="display:none;margin-top:.5rem;font-size:.78rem;color:#f87171"></p>
       </div>
 
       <!-- Alternative 2: ffmpeg.wasm self-hosted -->
       <div class="section-card" style="border-color:rgba(139,92,246,.2);margin-bottom:1rem">
-        <div class="card-title" style="color:#a78bfa">⚡ Option 2 — ffmpeg.wasm (requires HTTPS + headers)</div>
+        <div class="card-title" style="color:#a78bfa">? Option 2 � ffmpeg.wasm (requires HTTPS + headers)</div>
         <div class="card-sub">If you're running this on a server that sends the required COOP/COEP headers, ffmpeg.wasm will work. Click the button to attempt loading it.</div>
         <button class="btn" style="background:var(--violet);color:#fff" onclick="tryLoadFFmpeg()">Try ffmpeg.wasm</button>
         <div id="ffmpeg-status" style="margin-top:.65rem;font-size:.78rem;color:var(--t3)">Not loaded yet.</div>
@@ -406,21 +403,21 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
             <div class="prog-bar"><div class="prog-fill" id="ff-prog-fill" style="width:35%"></div></div>
           </div>
           <div id="ff-result" class="dl-box" style="display:none;margin-top:.65rem">
-            <div class="dl-title">✅ Done</div>
-            <a id="ff-dl" class="btn bp" href="#">↓ Download</a>
+            <div class="dl-title">? Done</div>
+            <a id="ff-dl" class="btn bp" href="#">? Download</a>
           </div>
         </div>
       </div>
 
       <!-- Alternative 3: Recommended desktop tools -->
       <div class="section-card" style="border-color:rgba(16,185,129,.2)">
-        <div class="card-title" style="color:var(--green)">🔧 Option 3 — Recommended Free Desktop Tools</div>
+        <div class="card-title" style="color:var(--green)">?? Option 3 � Recommended Free Desktop Tools</div>
         <div style="font-size:.8rem;color:var(--t2);line-height:1.8">
           For reliable full-featured conversion, these free tools are better suited:<br><br>
-          <strong style="color:var(--t1)">HandBrake</strong> — handbrake.fr · Free, open-source · MP4/MKV/WebM<br>
-          <strong style="color:var(--t1)">VLC</strong> — videolan.org · Convert, trim, stream any format<br>
-          <strong style="color:var(--t1)">ffmpeg CLI</strong> — ffmpeg.org · Full power, all formats<br>
-          <strong style="color:var(--t1)">Kdenlive</strong> — kdenlive.org · Free video editor with export
+          <strong style="color:var(--t1)">HandBrake</strong> � handbrake.fr � Free, open-source � MP4/MKV/WebM<br>
+          <strong style="color:var(--t1)">VLC</strong> � videolan.org � Convert, trim, stream any format<br>
+          <strong style="color:var(--t1)">ffmpeg CLI</strong> � ffmpeg.org � Full power, all formats<br>
+          <strong style="color:var(--t1)">Kdenlive</strong> � kdenlive.org � Free video editor with export
         </div>
       </div>
     </div>
@@ -452,13 +449,13 @@ canvas#waveform-canvas{width:100%;display:block;height:140px}
     <a href="https://3d.universeinvedors.tech">3D</a>
     <a href="https://map.universeinvedors.tech">Maps</a>
   </div>
-  <span>© 2024 Universe Invedors · Web Audio API · MediaRecorder · Canvas · Free Media Tools</span>
+  <span>� 2024 Universe Invedors � Web Audio API � MediaRecorder � Canvas � Free Media Tools</span>
 </footer>
 <div class="toasts" id="toasts"></div>
 
-<!-- ALL LOGIC IN REGULAR SCRIPT — no type="module" -->
+<!-- ALL LOGIC IN REGULAR SCRIPT � no type="module" -->
 <script>
-/* ─── PANEL SWITCHER ─────────────────────────────────────── */
+/* --- PANEL SWITCHER --------------------------------------- */
 function setPanel(name) {
   document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active') })
   document.querySelectorAll('.et').forEach(function(t) { t.classList.remove('active') })
@@ -468,13 +465,13 @@ function setPanel(name) {
   if (btn)   btn.classList.add('active')
 }
 
-/* ─── WAVEFORM ───────────────────────────────────────────── */
+/* --- WAVEFORM --------------------------------------------- */
 var wfChannelData = null, wfAudioCtx = null, wfSource = null, wfIsPlaying = false, wfStartTime = 0, wfOffset = 0, wfBuffer = null
 
 function loadWaveform(file) {
   if (!file) return
   document.getElementById('wf-loading').style.display = 'block'
-  document.getElementById('wf-loading-msg').textContent = 'Decoding audio…'
+  document.getElementById('wf-loading-msg').textContent = 'Decoding audio�'
   document.getElementById('wf-result').style.display = 'none'
   document.getElementById('wf-dz').style.display = 'none'
 
@@ -490,7 +487,7 @@ function loadWaveform(file) {
       var dur = buffer.duration
       var sr  = buffer.sampleRate
       document.getElementById('wf-meta').textContent =
-        buffer.numberOfChannels + 'ch · ' + sr.toLocaleString() + ' Hz · ' + formatTime(dur)
+        buffer.numberOfChannels + 'ch � ' + sr.toLocaleString() + ' Hz � ' + formatTime(dur)
       redrawWaveform()
       updateWFTime(0, dur)
       toast(file.name + ' loaded', 'ok')
@@ -571,9 +568,9 @@ function togglePlayback() {
   wfSource.start(0, wfOffset)
   wfStartTime = wfAudioCtx.currentTime - wfOffset
   wfIsPlaying = true
-  document.getElementById('wf-play-btn').textContent = '⏸ Pause'
+  document.getElementById('wf-play-btn').textContent = '? Pause'
   wfSource.onended = function() {
-    if (wfIsPlaying) { wfIsPlaying = false; wfOffset = 0; document.getElementById('wf-play-btn').textContent = '▶ Play' }
+    if (wfIsPlaying) { wfIsPlaying = false; wfOffset = 0; document.getElementById('wf-play-btn').textContent = '? Play' }
   }
   animatePlayhead()
 }
@@ -582,12 +579,12 @@ function pauseWF() {
   if (!wfIsPlaying) return
   wfOffset = wfAudioCtx.currentTime - wfStartTime
   wfSource.stop(); wfIsPlaying = false
-  document.getElementById('wf-play-btn').textContent = '▶ Play'
+  document.getElementById('wf-play-btn').textContent = '? Play'
 }
 
 function stopPlayback() {
   if (wfSource && wfIsPlaying) { wfSource.stop(); wfIsPlaying = false }
-  wfOffset = 0; document.getElementById('wf-play-btn').textContent = '▶ Play'
+  wfOffset = 0; document.getElementById('wf-play-btn').textContent = '? Play'
   document.getElementById('wf-playhead').style.left = '0'
   if (wfBuffer) updateWFTime(0, wfBuffer.duration)
 }
@@ -622,7 +619,7 @@ function exportWaveformPNG() {
 // Resize
 window.addEventListener('resize', function() { if (wfChannelData) redrawWaveform() })
 
-/* ─── SCREEN RECORDER ────────────────────────────────────── */
+/* --- SCREEN RECORDER -------------------------------------- */
 var mediaRecorder = null, recChunks = [], recInterval = null, recSeconds = 0, recBlob = null, recStream = null
 
 function startRecording() {
@@ -641,7 +638,7 @@ function startRecording() {
         var combined = new MediaStream([...tracks, ...micStream.getAudioTracks()])
         beginRecord(combined)
       }).catch(function() {
-        toast('Mic access denied — recording screen only', 'info')
+        toast('Mic access denied � recording screen only', 'info')
         beginRecord(displayStream)
       })
     } else {
@@ -668,8 +665,8 @@ function beginRecord(stream) {
     document.getElementById('rec-dl-btn').style.display = 'inline-flex'
     document.getElementById('rec-new-btn').style.display = 'inline-flex'
     document.getElementById('rec-size-info').style.display = 'block'
-    document.getElementById('rec-size-info').textContent = 'File size: ' + (recBlob.size / 1024 / 1024).toFixed(1) + ' MB · ' + (mimeType || 'video/webm')
-    setRecStatus('idle', '✅ Recording complete')
+    document.getElementById('rec-size-info').textContent = 'File size: ' + (recBlob.size / 1024 / 1024).toFixed(1) + ' MB � ' + (mimeType || 'video/webm')
+    setRecStatus('idle', '? Recording complete')
     clearInterval(recInterval)
   }
   mediaRecorder.start(1000)
@@ -682,7 +679,7 @@ function beginRecord(stream) {
   document.getElementById('rec-start-btn').style.display = 'none'
   document.getElementById('rec-timer').style.display = 'inline'
 
-  setRecStatus('live', '🔴 Recording…')
+  setRecStatus('live', '?? Recording�')
   recInterval = setInterval(function() {
     recSeconds++
     var m = Math.floor(recSeconds / 60), s = recSeconds % 60
@@ -695,11 +692,11 @@ function beginRecord(stream) {
 function pauseRecording() {
   if (!mediaRecorder) return
   if (mediaRecorder.state === 'recording') {
-    mediaRecorder.pause(); setRecStatus('paused', '⏸ Paused')
-    document.getElementById('rec-pause-btn').textContent = '▶ Resume'
+    mediaRecorder.pause(); setRecStatus('paused', '? Paused')
+    document.getElementById('rec-pause-btn').textContent = '? Resume'
   } else if (mediaRecorder.state === 'paused') {
-    mediaRecorder.resume(); setRecStatus('live', '🔴 Recording…')
-    document.getElementById('rec-pause-btn').textContent = '⏸ Pause'
+    mediaRecorder.resume(); setRecStatus('live', '?? Recording�')
+    document.getElementById('rec-pause-btn').textContent = '? Pause'
   }
 }
 
@@ -728,8 +725,8 @@ function newRecording() {
   document.getElementById('rec-timer').style.display = 'none'
   document.getElementById('rec-timer').textContent = '00:00'
   document.getElementById('rec-size-info').style.display = 'none'
-  document.getElementById('rec-pause-btn').textContent = '⏸ Pause'
-  setRecStatus('idle', '⬜ Ready to record')
+  document.getElementById('rec-pause-btn').textContent = '? Pause'
+  setRecStatus('idle', '? Ready to record')
   recBlob = null; recChunks = []
 }
 
@@ -738,7 +735,7 @@ function setRecStatus(state, text) {
   el.className = 'rec-status rec-' + state; el.textContent = text
 }
 
-/* ─── THUMBNAILS ─────────────────────────────────────────── */
+/* --- THUMBNAILS ------------------------------------------- */
 var thVideo = null, thThumbs = []
 
 document.getElementById('th-mode').onchange = function() {
@@ -758,8 +755,8 @@ function loadThumbVideo(file) {
   video.onloadedmetadata = function() {
     thVideo = video
     document.getElementById('th-controls').style.display = 'block'
-    document.getElementById('th-dz').querySelector('h3').textContent = '✅ ' + file.name
-    document.getElementById('th-dz').querySelector('p').textContent = formatTime(video.duration) + ' · ' + (file.size/1024/1024).toFixed(1) + ' MB'
+    document.getElementById('th-dz').querySelector('h3').textContent = '? ' + file.name
+    document.getElementById('th-dz').querySelector('p').textContent = formatTime(video.duration) + ' � ' + (file.size/1024/1024).toFixed(1) + ' MB'
     toast('Video ready: ' + formatTime(video.duration), 'ok')
   }
 }
@@ -824,7 +821,7 @@ function renderThumbStrip() {
   strip.innerHTML = thThumbs.map(function(th, i) {
     return '<img src="' + th.url + '" title="' + formatTime(th.time) + '" onclick="downloadSingleThumb(' + i + ')" alt="Frame at ' + formatTime(th.time) + '">'
   }).join('')
-  document.getElementById('th-count-label').textContent = '✅ ' + thThumbs.length + ' frames extracted — click to download'
+  document.getElementById('th-count-label').textContent = '? ' + thThumbs.length + ' frames extracted � click to download'
   document.getElementById('th-results').style.display = 'block'
   toast(thThumbs.length + ' frames extracted', 'ok')
 }
@@ -868,7 +865,7 @@ function buildThumbZIP() {
   })
 }
 
-/* ─── MEDIA INFO ─────────────────────────────────────────── */
+/* --- MEDIA INFO ------------------------------------------- */
 function loadMediaInfo(file) {
   if (!file) return
   var isVideo = file.type.startsWith('video/')
@@ -884,7 +881,7 @@ function loadMediaInfo(file) {
       ['Last modified', new Date(file.lastModified).toLocaleString()],
     ]
     if (isVideo) {
-      rows.push(['Resolution', el.videoWidth && el.videoHeight ? el.videoWidth + ' × ' + el.videoHeight + ' px' : 'unknown'])
+      rows.push(['Resolution', el.videoWidth && el.videoHeight ? el.videoWidth + ' � ' + el.videoHeight + ' px' : 'unknown'])
     }
     rows.push(['Channels',    el.mozChannels || el.webkitAudioDecodedByteCount !== undefined ? '(audio info limited in browser)' : 'N/A (use ffprobe for full info)'])
     rows.push(['Browser note', 'HTMLMediaElement provides limited metadata. Use ffprobe for codec, bitrate, stream info.'])
@@ -894,7 +891,7 @@ function loadMediaInfo(file) {
       return '<tr><td class="key">' + r[0] + '</td><td class="val">' + r[1] + '</td></tr>'
     }).join('')
     document.getElementById('mi-result').style.display = 'block'
-    document.getElementById('mi-dz').querySelector('h3').textContent = '✅ ' + file.name
+    document.getElementById('mi-dz').querySelector('h3').textContent = '? ' + file.name
     toast('Metadata loaded', 'ok')
   }
   el.onerror = function() { toast('Could not read file metadata', 'err') }
@@ -908,35 +905,35 @@ function copyMediaInfo() {
   navigator.clipboard.writeText(text).then(function() { toast('Info copied', 'ok') })
 }
 
-/* ─── NATIVE CONVERT (WebM → MP4, Chrome only) ─────────────── */
+/* --- NATIVE CONVERT (WebM ? MP4, Chrome only) --------------- */
 function nativeConvert(file) {
   if (!file || !file.type.includes('webm')) { toast('Drop a WebM file', 'err'); return }
-  // Use fetch + URL object trick — simplest approach
+  // Use fetch + URL object trick � simplest approach
   var url = URL.createObjectURL(file)
   var a = document.createElement('a'); a.href = url
-  // Browser doesn't actually re-encode — just serves same data with mp4 extension
+  // Browser doesn't actually re-encode � just serves same data with mp4 extension
   // This is a codec-copy rename that works if the codec is H.264/AAC
   document.getElementById('cv1-dl').href = url
   document.getElementById('cv1-dl').download = file.name.replace('.webm', '.mp4')
   document.getElementById('cv1-result').style.display = 'block'
   document.getElementById('cv1-err').style.display = 'none'
-  toast('Ready — note: works in Chrome when codec is H.264', 'info')
+  toast('Ready � note: works in Chrome when codec is H.264', 'info')
 }
 
-/* ─── FFMPEG.WASM (attempt load) ─────────────────────────── */
+/* --- FFMPEG.WASM (attempt load) --------------------------- */
 var ffmpegLoaded = false, ffmpegInst = null
 
 function tryLoadFFmpeg() {
   var status = document.getElementById('ffmpeg-status')
-  status.textContent = 'Checking SharedArrayBuffer support…'
+  status.textContent = 'Checking SharedArrayBuffer support�'
 
   if (!window.SharedArrayBuffer) {
-    status.innerHTML = '❌ <strong>SharedArrayBuffer is not available.</strong> This browser/server does not send the required COOP/COEP headers. See the explanation below.'
+    status.innerHTML = '? <strong>SharedArrayBuffer is not available.</strong> This browser/server does not send the required COOP/COEP headers. See the explanation below.'
     status.style.color = '#f87171'
     return
   }
 
-  status.textContent = 'SharedArrayBuffer available ✓ — Loading ffmpeg.wasm (~30MB)…'
+  status.textContent = 'SharedArrayBuffer available ? � Loading ffmpeg.wasm (~30MB)�'
   status.style.color = 'var(--green)'
 
   // Load ffmpeg via module script and expose to window
@@ -947,7 +944,7 @@ function tryLoadFFmpeg() {
     "window.__FFmpeg = FFmpeg; window.__toBlobURL = toBlobURL; window.__ffmpegModReady = true",
   ].join('\n')
   s.onerror = function() {
-    document.getElementById('ffmpeg-status').textContent = '❌ Module load failed'
+    document.getElementById('ffmpeg-status').textContent = '? Module load failed'
     document.getElementById('ffmpeg-status').style.color = '#f87171'
   }
   document.head.appendChild(s)
@@ -955,7 +952,7 @@ function tryLoadFFmpeg() {
   var poll = setInterval(function() {
     if (!window.__ffmpegModReady) return
     clearInterval(poll)
-    status.textContent = 'Initialising ffmpeg.wasm core…'
+    status.textContent = 'Initialising ffmpeg.wasm core�'
     var ff = new window.__FFmpeg()
     ff.on('log', function(msg) {
       document.getElementById('ff-log').textContent = (msg.message || '').slice(0, 120)
@@ -968,12 +965,12 @@ function tryLoadFFmpeg() {
       return ff.load({ coreURL: urls[0], wasmURL: urls[1] })
     }).then(function() {
       ffmpegInst = ff; ffmpegLoaded = true
-      status.textContent = '✅ ffmpeg.wasm loaded successfully!'
+      status.textContent = '? ffmpeg.wasm loaded successfully!'
       status.style.color = 'var(--green)'
       document.getElementById('ffmpeg-ui').style.display = 'block'
       toast('ffmpeg.wasm ready', 'ok')
     }).catch(function(e) {
-      status.innerHTML = '❌ Load failed: ' + e.message + '<br>This usually means the server did not send COOP/COEP headers.'
+      status.innerHTML = '? Load failed: ' + e.message + '<br>This usually means the server did not send COOP/COEP headers.'
       status.style.color = '#f87171'
     })
   }, 200)
@@ -1017,12 +1014,12 @@ async function ffmpegConvert(file) {
     toast('Done: ' + outName, 'ok')
   } catch(e) {
     document.getElementById('ff-prog-fill').style.background = '#ef4444'
-    document.getElementById('ff-log').textContent = '❌ ' + (e.message || 'Failed')
+    document.getElementById('ff-log').textContent = '? ' + (e.message || 'Failed')
     toast('Convert failed', 'err')
   }
 }
 
-/* ─── TOAST ──────────────────────────────────────────────── */
+/* --- TOAST ------------------------------------------------ */
 function toast(msg, type) {
   var el = document.createElement('div')
   el.className = 'toast' + (type ? ' ' + type : ''); el.textContent = msg
@@ -1033,7 +1030,7 @@ function toast(msg, type) {
 </body>
 </html>
 <script>
-// GA4 Custom Events — Media Studio
+// GA4 Custom Events � Media Studio
 (function(){
   // Track file uploads
   document.querySelectorAll('input[type="file"]').forEach(function(fi){
@@ -1067,3 +1064,33 @@ function toast(msg, type) {
   });
 })();
 </script>
+
+
+/* Media-specific */
+body{min-height:100dvh;overflow:auto}
+.container{max-width:900px;margin:0 auto;padding:1.5rem 1rem;flex:1;width:100%}
+.page-hero{padding-top:1.75rem;margin-bottom:1.75rem}
+.page-hero-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.4rem}
+.page-hero-title{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
+.page-hero-desc{font-size:.9rem;color:var(--text-2);max-width:560px;line-height:1.65}
+.panel{display:none}.panel.active{display:block;animation:fadeUp .2s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1.25rem}
+.card-title{font-size:.88rem;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
+.card-sub{font-size:.78rem;color:var(--text-2);margin-bottom:.9rem;line-height:1.55}
+.dz{border:2px dashed var(--border);border-radius:var(--r-lg);padding:2rem 1.5rem;text-align:center;cursor:pointer;transition:all var(--t);background:var(--bg-base)}
+.dz:hover,.dz.drag{border-color:var(--accent);background:var(--accent-subtle)}
+.waveform-wrap{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);margin:.75rem 0;position:relative;background:var(--bg-card)}
+canvas#waveform-canvas{width:100%;display:block;height:140px}
+.wf-controls{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:.6rem .75rem;border-top:1px solid var(--border);background:var(--bg-base)}
+.wf-time{font-size:.72rem;color:var(--text-2);font-family:var(--font-mono)}
+.rec-preview{width:100%;border-radius:var(--r-lg);border:1px solid var(--border);background:#000;aspect-ratio:16/9;max-height:360px;display:block}
+.rec-status{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;padding:.55rem .8rem;border-radius:var(--r-md)}
+.rec-idle{background:var(--bg-elevated);color:var(--text-3)}
+.rec-live{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.25)}
+.rec-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink .8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+.thumb-strip img{width:120px;height:68px;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border);cursor:pointer;transition:all var(--t)}
+.thumb-strip img:hover{border-color:var(--accent)}
+</style>
