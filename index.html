@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Media Studio — Waveform, Screen Recorder, Thumbnail Extractor, Media Info, Video Converter | Universe Invedors</title>
+<title>Media Studio ï¿½ Waveform, Screen Recorder, Thumbnail Extractor, Media Info, Video Converter | Universe Invedors</title>
 <meta name="description" content="Free online media tools. Visualise audio waveforms, record your screen, extract video thumbnails, inspect media metadata and convert formats. All processing local in your browser."/>
 <meta name="keywords" content="waveform viewer online,screen recorder free,video thumbnail extractor,media info tool,online video converter,audio waveform browser,free media tools"/>
 <link rel="canonical" href="https://media.universeinvedors.tech/"/>
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 <meta name="author" content="Universe Invedors"/>
-<meta property="og:title" content="Media Studio — Waveform, Screen Recorder, Thumbnails, Media Info"/><meta property="og:url" content="https://media.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta property="og:title" content="Media Studio ï¿½ Waveform, Screen Recorder, Thumbnails, Media Info"/><meta property="og:url" content="https://media.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
@@ -99,6 +99,9 @@ input[type=range]{accent-color:var(--accent);width:100%}
 .seo-footer,.tool-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem .9rem;padding:.6rem 1rem;border-top:1px solid var(--border);background:var(--bg-surface);font-size:.7rem;color:var(--text-3);flex-shrink:0}
 .seo-footer a,.tool-footer a{color:var(--text-3)}.seo-footer a:hover,.tool-footer a:hover{color:var(--text-2);text-decoration:none}
 .sf-links,.tool-footer-links{display:flex;flex-wrap:wrap;gap:.25rem .65rem}
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to record screen and visualise audio in the browser","description":"Record your screen, visualise audio waveforms, extract video thumbnails, and inspect media metadata â€” no install needed.","step":[{"@type":"HowToStep","position":1,"name":"Choose a tool","text":"Select Waveform, Screen Recorder, Thumbnails, Inspector, or Microphone from the toolbar tabs."},{"@type":"HowToStep","position":2,"name":"For screen recording","text":"Click Start Recording. Your browser shows a screen/window/tab picker. Select what to capture and click Share."},{"@type":"HowToStep","position":3,"name":"For waveform or thumbnails","text":"Drop your audio or video file onto the panel. Waveforms render instantly. For thumbnails, scrub to the timestamp and click Capture."},{"@type":"HowToStep","position":4,"name":"Download your output","text":"Click Download to save the recording, waveform screenshot, or captured frame to your device."}]}</script>
+
 </head>
 <body>
 
@@ -131,7 +134,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <div id="panel-waveform" class="panel active">
     <div class="section-card">
       <div class="card-title">?? Audio Waveform Visualiser</div>
-      <div class="card-sub">Drop any audio or video file to render its waveform. Fully local — uses the Web Audio API, no upload required.</div>
+      <div class="card-sub">Drop any audio or video file to render its waveform. Fully local ï¿½ uses the Web Audio API, no upload required.</div>
 
       <div class="dz" id="wf-dz"
         onclick="document.getElementById('wf-file').click()"
@@ -146,7 +149,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
       <div id="wf-loading" style="display:none;text-align:center;padding:1rem">
         <div style="width:22px;height:22px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--acc);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto .5rem"></div>
-        <p style="font-size:.78rem;color:var(--t2)" id="wf-loading-msg">Decoding audio…</p>
+        <p style="font-size:.78rem;color:var(--t2)" id="wf-loading-msg">Decoding audioï¿½</p>
       </div>
 
       <div id="wf-result" style="display:none">
@@ -159,7 +162,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
         <!-- Transport controls -->
         <div class="wf-controls">
           <button class="btn bp bsm" id="wf-play-btn" onclick="togglePlayback()">? Play</button>
-          <button class="btn bg bsm" onclick="stopPlayback()">¦ Stop</button>
+          <button class="btn bg bsm" onclick="stopPlayback()">ï¿½ Stop</button>
           <span class="wf-time" id="wf-time">0:00 / 0:00</span>
           <div style="flex:1"></div>
           <span style="font-size:.7rem;color:var(--t3)" id="wf-meta"></span>
@@ -203,7 +206,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <div id="panel-recorder" class="panel">
     <div class="section-card">
       <div class="card-title">? Screen Recorder</div>
-      <div class="card-sub">Record your screen with optional microphone audio. Uses the browser's <code style="background:var(--card);padding:.1rem .3rem;border-radius:4px">getDisplayMedia</code> API — nothing is uploaded. Output: WebM video file.</div>
+      <div class="card-sub">Record your screen with optional microphone audio. Uses the browser's <code style="background:var(--card);padding:.1rem .3rem;border-radius:4px">getDisplayMedia</code> API ï¿½ nothing is uploaded. Output: WebM video file.</div>
 
       <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.85rem;flex-wrap:wrap">
         <div id="rec-status" class="rec-status rec-idle">? Ready to record</div>
@@ -219,7 +222,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
         <button class="btn bp" id="rec-start-btn" onclick="startRecording()">? Start Recording</button>
         <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" style="display:none">? Pause</button>
-        <button class="btn bg" id="rec-stop-btn" onclick="stopRecording()" style="display:none">¦ Stop</button>
+        <button class="btn bg" id="rec-stop-btn" onclick="stopRecording()" style="display:none">ï¿½ Stop</button>
         <button class="btn bg bsm" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">? Download WebM</button>
         <button class="btn bg bsm" id="rec-new-btn" onclick="newRecording()" style="display:none">New recording</button>
       </div>
@@ -232,7 +235,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
       <ul style="font-size:.78rem;color:var(--t2);line-height:1.9;padding-left:1.15rem">
         <li>Browser will ask which screen, window or tab to share</li>
         <li>Output is WebM format (supported by Chrome, Firefox, Edge)</li>
-        <li>Nothing is uploaded — recording stays in memory until you download</li>
+        <li>Nothing is uploaded ï¿½ recording stays in memory until you download</li>
         <li>Large recordings may use significant RAM while recording</li>
         <li>Convert WebM ? MP4 using the Convert tab or VLC</li>
       </ul>
@@ -243,7 +246,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <div id="panel-thumbs" class="panel">
     <div class="section-card">
       <div class="card-title">?? Video Thumbnail Extractor</div>
-      <div class="card-sub">Extract frames from any video file as JPEG images. Uses the browser's HTMLVideoElement and Canvas API — 100% local, no upload.</div>
+      <div class="card-sub">Extract frames from any video file as JPEG images. Uses the browser's HTMLVideoElement and Canvas API ï¿½ 100% local, no upload.</div>
 
       <div class="dz" id="th-dz"
         onclick="document.getElementById('th-file').click()"
@@ -302,7 +305,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <div id="panel-info" class="panel">
     <div class="section-card">
       <div class="card-title">? Media Information</div>
-      <div class="card-sub">Inspect metadata from any video or audio file. Uses the browser's HTMLVideoElement/AudioElement — instant, no upload, no ffmpeg required.</div>
+      <div class="card-sub">Inspect metadata from any video or audio file. Uses the browser's HTMLVideoElement/AudioElement ï¿½ instant, no upload, no ffmpeg required.</div>
 
       <div class="dz" id="mi-dz"
         onclick="document.getElementById('mi-file').click()"
@@ -331,11 +334,11 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <div class="section-card">
       <div class="card-title">?? Format Conversion</div>
 
-      <!-- Why ffmpeg.wasm needs COOP/COEP headers — honest explanation -->
+      <!-- Why ffmpeg.wasm needs COOP/COEP headers ï¿½ honest explanation -->
       <div class="convert-note" style="margin-bottom:1rem">
         <span style="font-size:1rem;flex-shrink:0">??</span>
         <div>
-          <strong>ffmpeg.wasm requires SharedArrayBuffer</strong> — which requires special HTTP headers
+          <strong>ffmpeg.wasm requires SharedArrayBuffer</strong> ï¿½ which requires special HTTP headers
           (<code style="background:rgba(0,0,0,.2);padding:.1rem .25rem;border-radius:3px">COOP: same-origin</code> +
           <code style="background:rgba(0,0,0,.2);padding:.1rem .25rem;border-radius:3px">COEP: require-corp</code>).
           Most static hosting (including Cloudflare Pages) does not send these by default.
@@ -345,7 +348,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
       <!-- Alternative 1: Browser native MediaRecorder conversion -->
       <div class="section-card" style="border-color:rgba(82,229,231,.2);margin-bottom:1rem">
-        <div class="card-title" style="color:var(--acc-h)">? Option 1 — Browser-native WebM ? MP4 (Chrome only)</div>
+        <div class="card-title" style="color:var(--acc-h)">? Option 1 ï¿½ Browser-native WebM ? MP4 (Chrome only)</div>
         <div class="card-sub">Chrome 130+ supports re-muxing in the browser using the <strong>MediaStreamTrackProcessor</strong> API. Drop a WebM file and we'll attempt a codec-copy re-container to MP4.</div>
         <div class="dz" id="cv1-dz"
           onclick="document.getElementById('cv1-file').click()"
@@ -354,7 +357,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
           ondrop="event.preventDefault();this.classList.remove('drag');nativeConvert(event.dataTransfer.files[0])">
           <div style="font-size:1.8rem;margin-bottom:.4rem">??</div>
           <h3>Drop a WebM file to convert to MP4</h3>
-          <p>Chrome 130+ · Codec copy (fast) · Local processing</p>
+          <p>Chrome 130+ ï¿½ Codec copy (fast) ï¿½ Local processing</p>
         </div>
         <input type="file" id="cv1-file" accept="video/webm" style="display:none" onchange="nativeConvert(this.files[0])">
         <div id="cv1-result" style="display:none;margin-top:.65rem" class="dl-box">
@@ -366,7 +369,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
       <!-- Alternative 2: ffmpeg.wasm self-hosted -->
       <div class="section-card" style="border-color:rgba(139,92,246,.2);margin-bottom:1rem">
-        <div class="card-title" style="color:#a78bfa">? Option 2 — ffmpeg.wasm (requires HTTPS + headers)</div>
+        <div class="card-title" style="color:#a78bfa">? Option 2 ï¿½ ffmpeg.wasm (requires HTTPS + headers)</div>
         <div class="card-sub">If you're running this on a server that sends the required COOP/COEP headers, ffmpeg.wasm will work. Click the button to attempt loading it.</div>
         <button class="btn" style="background:var(--violet);color:#fff" onclick="tryLoadFFmpeg()">Try ffmpeg.wasm</button>
         <div id="ffmpeg-status" style="margin-top:.65rem;font-size:.78rem;color:var(--t3)">Not loaded yet.</div>
@@ -413,13 +416,13 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
       <!-- Alternative 3: Recommended desktop tools -->
       <div class="section-card" style="border-color:rgba(16,185,129,.2)">
-        <div class="card-title" style="color:var(--green)">?? Option 3 — Recommended Free Desktop Tools</div>
+        <div class="card-title" style="color:var(--green)">?? Option 3 ï¿½ Recommended Free Desktop Tools</div>
         <div style="font-size:.8rem;color:var(--t2);line-height:1.8">
           For reliable full-featured conversion, these free tools are better suited:<br><br>
-          <strong style="color:var(--t1)">HandBrake</strong> — handbrake.fr · Free, open-source · MP4/MKV/WebM<br>
-          <strong style="color:var(--t1)">VLC</strong> — videolan.org · Convert, trim, stream any format<br>
-          <strong style="color:var(--t1)">ffmpeg CLI</strong> — ffmpeg.org · Full power, all formats<br>
-          <strong style="color:var(--t1)">Kdenlive</strong> — kdenlive.org · Free video editor with export
+          <strong style="color:var(--t1)">HandBrake</strong> ï¿½ handbrake.fr ï¿½ Free, open-source ï¿½ MP4/MKV/WebM<br>
+          <strong style="color:var(--t1)">VLC</strong> ï¿½ videolan.org ï¿½ Convert, trim, stream any format<br>
+          <strong style="color:var(--t1)">ffmpeg CLI</strong> ï¿½ ffmpeg.org ï¿½ Full power, all formats<br>
+          <strong style="color:var(--t1)">Kdenlive</strong> ï¿½ kdenlive.org ï¿½ Free video editor with export
         </div>
       </div>
     </div>
@@ -438,24 +441,53 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
 </div>
 
-<footer class="seo-footer">
-  <div class="sf-links">
-    <a href="https://universeinvedors.tech">Universe Invedors</a>
-    <a href="https://universeinvedors.tech/tools">All Tools</a>
-    <a href="https://code.universeinvedors.tech">Code</a>
-    <a href="https://diagram.universeinvedors.tech">Diagrams</a>
-    <a href="https://chart.universeinvedors.tech">Charts</a>
-    <a href="https://ocr.universeinvedors.tech">OCR</a>
-    <a href="https://pdf.universeinvedors.tech">PDF</a>
-    <a href="https://image.universeinvedors.tech">Image</a>
-    <a href="https://3d.universeinvedors.tech">3D</a>
-    <a href="https://map.universeinvedors.tech">Maps</a>
+<section style="max-width:900px;margin:0 auto;padding:2.5rem 1rem 1.5rem;border-top:1px solid rgba(255,255,255,.07)">
+  <h1 style="font-size:1.55rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.5rem;color:#f0f4ff">Media Studio ï¿½ Free Online Audio Waveform Viewer, Screen Recorder &amp; Video Thumbnail Extractor</h1>
+  <p style="font-size:.88rem;color:#a8b8cf;line-height:1.7;margin-bottom:1.5rem">Browser-native media processing tools ï¿½ no install, no upload, fully private. Visualise audio waveforms, record your screen with audio, extract video thumbnails at any timestamp, inspect media metadata, and record from your microphone. Powered by Web Audio API, MediaRecorder API, and HTML5 Canvas.</p>
+  <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:.5rem;color:#f0f4ff">Media tools included</h2>
+  <ul style="font-size:.85rem;color:#a8b8cf;line-height:1.95;padding-left:1.2rem;margin-bottom:1.25rem"><li><strong style="color:#f0f4ff">Audio Waveform Visualiser</strong> ï¿½ Upload any audio file to see the full waveform with playback scrubbing</li><li><strong style="color:#f0f4ff">Screen Recorder</strong> ï¿½ Record your screen and system audio using the MediaRecorder API ï¿½ no extension needed</li><li><strong style="color:#f0f4ff">Video Thumbnail Extractor</strong> ï¿½ Upload a video and capture any frame as a PNG at any timestamp</li><li><strong style="color:#f0f4ff">Media Metadata Inspector</strong> ï¿½ View duration, resolution, codec, bitrate, and file size of any media file</li><li><strong style="color:#f0f4ff">Microphone Recorder</strong> ï¿½ Record audio from your microphone, see live waveform, download as WebM</li></ul>
+  <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:.5rem;color:#f0f4ff">Frequently Asked Questions</h2>
+  <div itemscope itemtype="https://schema.org/FAQPage">
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin-bottom:.75rem"><h3 itemprop="name" style="font-size:.88rem;font-weight:700;color:#f0f4ff;margin-bottom:.25rem">How do I record my screen online without software?</h3><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text" style="font-size:.82rem;color:#a8b8cf;line-height:1.6">Click the Screen Recorder tab and click Start Recording. Your browser will ask which screen, window, or tab to capture. Recording uses the native MediaRecorder API ï¿½ no extension or software install required. Download as WebM when done.</p></div></div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin-bottom:.75rem"><h3 itemprop="name" style="font-size:.88rem;font-weight:700;color:#f0f4ff;margin-bottom:.25rem">How do I extract a thumbnail from a video?</h3><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text" style="font-size:.82rem;color:#a8b8cf;line-height:1.6">Open the Thumbnail Extractor tab, upload your video, scrub to the desired timestamp, and click Capture Frame. The frame is saved as a PNG image ready to download.</p></div></div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin-bottom:.75rem"><h3 itemprop="name" style="font-size:.88rem;font-weight:700;color:#f0f4ff;margin-bottom:.25rem">Are my media files uploaded anywhere?</h3><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text" style="font-size:.82rem;color:#a8b8cf;line-height:1.6">No. All processing uses native browser APIs (Web Audio, MediaRecorder, Canvas). Your media files are never uploaded to any server.</p></div></div>
   </div>
-  <span>© 2024 Universe Invedors · Web Audio API · MediaRecorder · Canvas · Free Media Tools</span>
+</section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I record my screen online without software?","acceptedAnswer":{"@type":"Answer","text":"Click Screen Recorder, click Start Recording. Browser asks which screen to capture. Uses MediaRecorder API ï¿½ no install needed."}},{"@type":"Question","name":"How do I extract a thumbnail from a video?","acceptedAnswer":{"@type":"Answer","text":"Upload video in Thumbnail Extractor, scrub to the desired timestamp, click Capture Frame. Downloads as PNG."}},{"@type":"Question","name":"Are my media files uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All processing uses native browser APIs. Media files never leave your device."}},{"@type":"Question","name":"What audio formats does the waveform viewer support?","acceptedAnswer":{"@type":"Answer","text":"MP3, WAV, OGG, FLAC, AAC, and WebM audio files are supported via the Web Audio API."}},{"@type":"Question","name":"Can I record microphone audio?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Microphone Recorder tab captures mic audio with a live waveform display. Download the recording as WebM."}}]}</script>
+
+<footer class="seo-footer" style="flex-direction:column;align-items:flex-start;gap:.5rem">
+  <div style="width:100%">
+    <div class="sf-links" style="margin-bottom:.35rem">
+      <strong style="color:var(--text-2);font-size:.71rem;white-space:nowrap">Free tools:</strong>
+      <a href="https://calc.universeinvedors.tech">Free Online Calculators â€” BMI, EMI, GST, Percentage, Age</a>
+      <a href="https://json.universeinvedors.tech">JSON Studio â€” Format, Validate, Diff &amp; Convert JSON</a>
+      <a href="https://qr.universeinvedors.tech">QR Code Generator â€” URL, WiFi, vCard, SMS Free</a>
+      <a href="https://color.universeinvedors.tech">Color Picker, Palette Generator &amp; Gradient Maker</a>
+      <a href="https://text.universeinvedors.tech">Word Counter, Case Converter &amp; Text Tools Free</a>
+      <a href="https://code.universeinvedors.tech">Free Online Code IDE â€” 50+ Languages, AI Assist</a>
+      <a href="https://diagram.universeinvedors.tech">Online Diagram Maker â€” Flowcharts, ERD, UML, Sequence</a>
+      <a href="https://chart.universeinvedors.tech">Online Chart Builder â€” Chart.js, ECharts, Plotly</a>
+      <a href="https://ocr.universeinvedors.tech">Free OCR â€” Image to Text, PDF Text Extraction</a>
+      <a href="https://pdf.universeinvedors.tech">Free PDF Tools â€” Merge, Split, Watermark, Rotate</a>
+      <a href="https://image.universeinvedors.tech">Image Editor â€” Resize, Compress, Convert, Filter Free</a>
+      <a href="https://3d.universeinvedors.tech">3D Studio â€” GLTF Viewer, Scene Builder, Physics</a>
+      <a href="https://map.universeinvedors.tech">Interactive Map Builder â€” Markers, Routes, Heatmap, GeoJSON</a>
+    </div>
+    <div class="sf-links" style="justify-content:space-between;width:100%">
+      <span>
+        <a href="https://universeinvedors.tech">Universe Invedors</a> Â· 
+        <a href="https://universeinvedors.tech/tools">All Free Tools</a> Â· 
+        <a href="https://universeinvedors.tech/services">AI &amp; Software Development</a> Â· 
+        <a href="https://universeinvedors.tech/about">About</a> Â· 
+        <a href="https://universeinvedors.tech/contact">Start a Project</a>
+      </span>
+      <span>Â© 2026 Universe Invedors Â· Media Studio â€” Screen Recorder, Waveform, Thumbnails</span>
+    </div>
+  </div>
 </footer>
 <div class="toasts" id="toasts"></div>
 
-<!-- ALL LOGIC IN REGULAR SCRIPT — no type="module" -->
+<!-- ALL LOGIC IN REGULAR SCRIPT ï¿½ no type="module" -->
 <script>
 /* --- PANEL SWITCHER --------------------------------------- */
 function setPanel(name) {
@@ -473,7 +505,7 @@ var wfChannelData = null, wfAudioCtx = null, wfSource = null, wfIsPlaying = fals
 function loadWaveform(file) {
   if (!file) return
   document.getElementById('wf-loading').style.display = 'block'
-  document.getElementById('wf-loading-msg').textContent = 'Decoding audio…'
+  document.getElementById('wf-loading-msg').textContent = 'Decoding audioï¿½'
   document.getElementById('wf-result').style.display = 'none'
   document.getElementById('wf-dz').style.display = 'none'
 
@@ -489,7 +521,7 @@ function loadWaveform(file) {
       var dur = buffer.duration
       var sr  = buffer.sampleRate
       document.getElementById('wf-meta').textContent =
-        buffer.numberOfChannels + 'ch · ' + sr.toLocaleString() + ' Hz · ' + formatTime(dur)
+        buffer.numberOfChannels + 'ch ï¿½ ' + sr.toLocaleString() + ' Hz ï¿½ ' + formatTime(dur)
       redrawWaveform()
       updateWFTime(0, dur)
       toast(file.name + ' loaded', 'ok')
@@ -640,7 +672,7 @@ function startRecording() {
         var combined = new MediaStream([...tracks, ...micStream.getAudioTracks()])
         beginRecord(combined)
       }).catch(function() {
-        toast('Mic access denied — recording screen only', 'info')
+        toast('Mic access denied ï¿½ recording screen only', 'info')
         beginRecord(displayStream)
       })
     } else {
@@ -667,7 +699,7 @@ function beginRecord(stream) {
     document.getElementById('rec-dl-btn').style.display = 'inline-flex'
     document.getElementById('rec-new-btn').style.display = 'inline-flex'
     document.getElementById('rec-size-info').style.display = 'block'
-    document.getElementById('rec-size-info').textContent = 'File size: ' + (recBlob.size / 1024 / 1024).toFixed(1) + ' MB · ' + (mimeType || 'video/webm')
+    document.getElementById('rec-size-info').textContent = 'File size: ' + (recBlob.size / 1024 / 1024).toFixed(1) + ' MB ï¿½ ' + (mimeType || 'video/webm')
     setRecStatus('idle', '? Recording complete')
     clearInterval(recInterval)
   }
@@ -681,7 +713,7 @@ function beginRecord(stream) {
   document.getElementById('rec-start-btn').style.display = 'none'
   document.getElementById('rec-timer').style.display = 'inline'
 
-  setRecStatus('live', '?? Recording…')
+  setRecStatus('live', '?? Recordingï¿½')
   recInterval = setInterval(function() {
     recSeconds++
     var m = Math.floor(recSeconds / 60), s = recSeconds % 60
@@ -697,7 +729,7 @@ function pauseRecording() {
     mediaRecorder.pause(); setRecStatus('paused', '? Paused')
     document.getElementById('rec-pause-btn').textContent = '? Resume'
   } else if (mediaRecorder.state === 'paused') {
-    mediaRecorder.resume(); setRecStatus('live', '?? Recording…')
+    mediaRecorder.resume(); setRecStatus('live', '?? Recordingï¿½')
     document.getElementById('rec-pause-btn').textContent = '? Pause'
   }
 }
@@ -758,7 +790,7 @@ function loadThumbVideo(file) {
     thVideo = video
     document.getElementById('th-controls').style.display = 'block'
     document.getElementById('th-dz').querySelector('h3').textContent = '? ' + file.name
-    document.getElementById('th-dz').querySelector('p').textContent = formatTime(video.duration) + ' · ' + (file.size/1024/1024).toFixed(1) + ' MB'
+    document.getElementById('th-dz').querySelector('p').textContent = formatTime(video.duration) + ' ï¿½ ' + (file.size/1024/1024).toFixed(1) + ' MB'
     toast('Video ready: ' + formatTime(video.duration), 'ok')
   }
 }
@@ -823,7 +855,7 @@ function renderThumbStrip() {
   strip.innerHTML = thThumbs.map(function(th, i) {
     return '<img src="' + th.url + '" title="' + formatTime(th.time) + '" onclick="downloadSingleThumb(' + i + ')" alt="Frame at ' + formatTime(th.time) + '">'
   }).join('')
-  document.getElementById('th-count-label').textContent = '? ' + thThumbs.length + ' frames extracted — click to download'
+  document.getElementById('th-count-label').textContent = '? ' + thThumbs.length + ' frames extracted ï¿½ click to download'
   document.getElementById('th-results').style.display = 'block'
   toast(thThumbs.length + ' frames extracted', 'ok')
 }
@@ -883,7 +915,7 @@ function loadMediaInfo(file) {
       ['Last modified', new Date(file.lastModified).toLocaleString()],
     ]
     if (isVideo) {
-      rows.push(['Resolution', el.videoWidth && el.videoHeight ? el.videoWidth + ' × ' + el.videoHeight + ' px' : 'unknown'])
+      rows.push(['Resolution', el.videoWidth && el.videoHeight ? el.videoWidth + ' ï¿½ ' + el.videoHeight + ' px' : 'unknown'])
     }
     rows.push(['Channels',    el.mozChannels || el.webkitAudioDecodedByteCount !== undefined ? '(audio info limited in browser)' : 'N/A (use ffprobe for full info)'])
     rows.push(['Browser note', 'HTMLMediaElement provides limited metadata. Use ffprobe for codec, bitrate, stream info.'])
@@ -910,16 +942,16 @@ function copyMediaInfo() {
 /* --- NATIVE CONVERT (WebM ? MP4, Chrome only) --------------- */
 function nativeConvert(file) {
   if (!file || !file.type.includes('webm')) { toast('Drop a WebM file', 'err'); return }
-  // Use fetch + URL object trick — simplest approach
+  // Use fetch + URL object trick ï¿½ simplest approach
   var url = URL.createObjectURL(file)
   var a = document.createElement('a'); a.href = url
-  // Browser doesn't actually re-encode — just serves same data with mp4 extension
+  // Browser doesn't actually re-encode ï¿½ just serves same data with mp4 extension
   // This is a codec-copy rename that works if the codec is H.264/AAC
   document.getElementById('cv1-dl').href = url
   document.getElementById('cv1-dl').download = file.name.replace('.webm', '.mp4')
   document.getElementById('cv1-result').style.display = 'block'
   document.getElementById('cv1-err').style.display = 'none'
-  toast('Ready — note: works in Chrome when codec is H.264', 'info')
+  toast('Ready ï¿½ note: works in Chrome when codec is H.264', 'info')
 }
 
 /* --- FFMPEG.WASM (attempt load) --------------------------- */
@@ -927,7 +959,7 @@ var ffmpegLoaded = false, ffmpegInst = null
 
 function tryLoadFFmpeg() {
   var status = document.getElementById('ffmpeg-status')
-  status.textContent = 'Checking SharedArrayBuffer support…'
+  status.textContent = 'Checking SharedArrayBuffer supportï¿½'
 
   if (!window.SharedArrayBuffer) {
     status.innerHTML = '? <strong>SharedArrayBuffer is not available.</strong> This browser/server does not send the required COOP/COEP headers. See the explanation below.'
@@ -935,7 +967,7 @@ function tryLoadFFmpeg() {
     return
   }
 
-  status.textContent = 'SharedArrayBuffer available ? — Loading ffmpeg.wasm (~30MB)…'
+  status.textContent = 'SharedArrayBuffer available ? ï¿½ Loading ffmpeg.wasm (~30MB)ï¿½'
   status.style.color = 'var(--green)'
 
   // Load ffmpeg via module script and expose to window
@@ -954,7 +986,7 @@ function tryLoadFFmpeg() {
   var poll = setInterval(function() {
     if (!window.__ffmpegModReady) return
     clearInterval(poll)
-    status.textContent = 'Initialising ffmpeg.wasm core…'
+    status.textContent = 'Initialising ffmpeg.wasm coreï¿½'
     var ff = new window.__FFmpeg()
     ff.on('log', function(msg) {
       document.getElementById('ff-log').textContent = (msg.message || '').slice(0, 120)
@@ -1035,7 +1067,7 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catc
 
 <!-- -- Guided Tour ------------------------------------ -->
 <script>
-window.__TOUR_STEPS__ = [{sel:".topbar-logo",title:"Welcome to Media Studio",body:"Browser-native media tools — audio waveform viewer, screen recorder, thumbnail extractor, and media inspector.",tip:"bottom"},{sel:".etabs",title:"5 media tools",body:"Waveform Visualizer, Screen Recorder, Thumbnail Extractor, Media Inspector, and Microphone Recorder.",tip:"bottom"},{sel:"#panel-waveform,.section-card",title:"Audio Waveform",body:"Drop any audio file to see its full waveform. Click anywhere on the waveform to seek to that position during playback.",tip:"top"},{sel:"#panel-record,.section-card",title:"Screen Recorder",body:"Record your screen and system audio using the MediaRecorder API — no extension or install required.",tip:"top"},{sel:"#panel-thumb,.section-card",title:"Thumbnail Extractor",body:"Upload a video and capture any frame as a PNG. Perfect for generating thumbnails or preview images.",tip:"top"}];
+window.__TOUR_STEPS__ = [{sel:".topbar-logo",title:"Welcome to Media Studio",body:"Browser-native media tools ï¿½ audio waveform viewer, screen recorder, thumbnail extractor, and media inspector.",tip:"bottom"},{sel:".etabs",title:"5 media tools",body:"Waveform Visualizer, Screen Recorder, Thumbnail Extractor, Media Inspector, and Microphone Recorder.",tip:"bottom"},{sel:"#panel-waveform,.section-card",title:"Audio Waveform",body:"Drop any audio file to see its full waveform. Click anywhere on the waveform to seek to that position during playback.",tip:"top"},{sel:"#panel-record,.section-card",title:"Screen Recorder",body:"Record your screen and system audio using the MediaRecorder API ï¿½ no extension or install required.",tip:"top"},{sel:"#panel-thumb,.section-card",title:"Thumbnail Extractor",body:"Upload a video and capture any frame as a PNG. Perfect for generating thumbnails or preview images.",tip:"top"}];
 </script>
 <script>
 (function(){
@@ -1203,7 +1235,7 @@ window.__TOUR_STEPS__ = [{sel:".topbar-logo",title:"Welcome to Media Studio",bod
 </body>
 </html>
 <script>
-// GA4 Custom Events — Media Studio
+// GA4 Custom Events ï¿½ Media Studio
 (function(){
   // Track file uploads
   document.querySelectorAll('input[type="file"]').forEach(function(fi){
