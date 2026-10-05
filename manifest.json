@@ -1,0 +1,35 @@
+﻿{
+    "description":  "Waveform viewer, screen recorder, video thumbnails and media metadata.",
+    "short_name":  "Media",
+    "shortcuts":  [
+                      {
+                          "url":  "/",
+                          "name":  "Media Studio",
+                          "description":  "Waveform viewer, screen recorder, video thumbnails and media metadata."
+                      }
+                  ],
+    "icons":  [
+                  {
+                      "type":  "image/png",
+                      "sizes":  "192x192",
+                      "src":  "/icons/icon-192.png"
+                  },
+                  {
+                      "purpose":  "maskable",
+                      "type":  "image/png",
+                      "sizes":  "512x512",
+                      "src":  "/icons/icon-512.png"
+                  }
+              ],
+    "theme_color":  "#8b5cf6",
+    "display":  "standalone",
+    "name":  "Universe Invedors — Media Studio",
+    "categories":  [
+                       "productivity",
+                       "utilities",
+                       "developer tools"
+                   ],
+    "background_color":  "#03050a",
+    "start_url":  "/",
+    "orientation":  "any"
+}
