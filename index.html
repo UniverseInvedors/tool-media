@@ -117,14 +117,14 @@ input[type=range]{accent-color:var(--accent);width:100%}
   </a>
   <div class="topbar-sep"></div>
   <div class="etabs">
-    <button class="et active" id="et-waveform"  onclick="setPanel('waveform')">?? Waveform</button>
-    <button class="et"        id="et-recorder"  onclick="setPanel('recorder')">? Recorder</button>
-    <button class="et"        id="et-thumbs"    onclick="setPanel('thumbs')">?? Thumbnails</button>
-    <button class="et"        id="et-info"      onclick="setPanel('info')">? Info</button>
-    <button class="et"        id="et-convert"   onclick="setPanel('convert')">?? Convert</button>
+    <button class="et active" id="et-waveform"  onclick="setPanel('waveform')">Waveform</button>
+    <button class="et"        id="et-recorder"  onclick="setPanel('recorder')">Recorder</button>
+    <button class="et"        id="et-thumbs"    onclick="setPanel('thumbs')">Thumbnails</button>
+    <button class="et"        id="et-info"      onclick="setPanel('info')">Info</button>
+    <button class="et"        id="et-convert"   onclick="setPanel('convert')">Convert</button>
   </div>
   <div class="sp"></div>
-  <span class="badge-priv">?? Local Processing</span>
+  <span class="badge-priv">Local Processing</span>
   <button class="tour-btn" onclick="startTour()" aria-label="Start guided tour" title="Take a quick tour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Tour</button>
 </header>
 
@@ -133,7 +133,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <!-- -- WAVEFORM -------------------------------------------- -->
   <div id="panel-waveform" class="panel active">
     <div class="section-card">
-      <div class="card-title">?? Audio Waveform Visualiser</div>
+      <div class="card-title">Audio Waveform Visualiser</div>
       <div class="card-sub">Drop any audio or video file to render its waveform. Fully local � uses the Web Audio API, no upload required.</div>
 
       <div class="dz" id="wf-dz"
@@ -161,12 +161,12 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
         <!-- Transport controls -->
         <div class="wf-controls">
-          <button class="btn bp bsm" id="wf-play-btn" onclick="togglePlayback()">? Play</button>
+          <button class="btn bp bsm" id="wf-play-btn" onclick="togglePlayback()">Play</button>
           <button class="btn bg bsm" onclick="stopPlayback()">� Stop</button>
           <span class="wf-time" id="wf-time">0:00 / 0:00</span>
           <div style="flex:1"></div>
           <span style="font-size:.7rem;color:var(--t3)" id="wf-meta"></span>
-          <button class="btn bg bsm" onclick="exportWaveformPNG()">? Save PNG</button>
+          <button class="btn bg bsm" onclick="exportWaveformPNG()">Save PNG</button>
         </div>
 
         <!-- Customisation -->
@@ -205,11 +205,11 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <!-- -- SCREEN RECORDER ------------------------------------- -->
   <div id="panel-recorder" class="panel">
     <div class="section-card">
-      <div class="card-title">? Screen Recorder</div>
+      <div class="card-title">Screen Recorder</div>
       <div class="card-sub">Record your screen with optional microphone audio. Uses the browser's <code style="background:var(--card);padding:.1rem .3rem;border-radius:4px">getDisplayMedia</code> API � nothing is uploaded. Output: WebM video file.</div>
 
       <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.85rem;flex-wrap:wrap">
-        <div id="rec-status" class="rec-status rec-idle">? Ready to record</div>
+        <div id="rec-status" class="rec-status rec-idle">Ready to record</div>
         <span id="rec-timer" style="font-size:.8rem;font-weight:700;color:var(--t2);font-family:var(--mono);display:none">00:00</span>
         <label style="display:flex;align-items:center;gap:.3rem;cursor:pointer;font-size:.78rem;color:var(--t2)">
           <input type="checkbox" id="rec-mic" style="accent-color:var(--acc)"> Include microphone
@@ -220,10 +220,10 @@ input[type=range]{accent-color:var(--accent);width:100%}
       <video id="rec-playback" class="rec-preview" controls style="display:none;margin-top:.65rem"></video>
 
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
-        <button class="btn bp" id="rec-start-btn" onclick="startRecording()">? Start Recording</button>
-        <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" style="display:none">? Pause</button>
+        <button class="btn bp" id="rec-start-btn" onclick="startRecording()">Start Recording</button>
+        <button class="btn bg" id="rec-pause-btn" onclick="pauseRecording()" style="display:none">Pause</button>
         <button class="btn bg" id="rec-stop-btn" onclick="stopRecording()" style="display:none">� Stop</button>
-        <button class="btn bg bsm" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">? Download WebM</button>
+        <button class="btn bg bsm" id="rec-dl-btn" onclick="downloadRecording()" style="display:none">Download WebM</button>
         <button class="btn bg bsm" id="rec-new-btn" onclick="newRecording()" style="display:none">New recording</button>
       </div>
 
@@ -245,7 +245,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <!-- -- THUMBNAILS ------------------------------------------- -->
   <div id="panel-thumbs" class="panel">
     <div class="section-card">
-      <div class="card-title">?? Video Thumbnail Extractor</div>
+      <div class="card-title">Video Thumbnail Extractor</div>
       <div class="card-sub">Extract frames from any video file as JPEG images. Uses the browser's HTMLVideoElement and Canvas API � 100% local, no upload.</div>
 
       <div class="dz" id="th-dz"
@@ -282,7 +282,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
             <label class="fl">Timestamps (comma separated, e.g. 0,5,10,30)</label>
             <input class="fi" id="th-seeks" placeholder="0,5,10,30" style="margin-bottom:0;width:240px">
           </div>
-          <button class="btn bp" onclick="extractThumbs()">?? Extract Frames</button>
+          <button class="btn bp" onclick="extractThumbs()">Extract Frames</button>
         </div>
         <div class="prog-bar" id="th-prog-bar" style="display:none"><div class="prog-fill" id="th-prog-fill" style="width:0%"></div></div>
         <p id="th-prog-msg" style="font-size:.72rem;color:var(--t3);display:none"></p>
@@ -292,8 +292,8 @@ input[type=range]{accent-color:var(--accent);width:100%}
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;flex-wrap:wrap;gap:.4rem">
           <span id="th-count-label" style="font-size:.8rem;font-weight:600;color:var(--acc-h)">Frames</span>
           <div style="display:flex;gap:.35rem">
-            <button class="btn bg bsm" onclick="downloadAllThumbs()">? Download All JPGs</button>
-            <button class="btn bg bsm" onclick="downloadThumbZIP()">? Download ZIP</button>
+            <button class="btn bg bsm" onclick="downloadAllThumbs()">Download All JPGs</button>
+            <button class="btn bg bsm" onclick="downloadThumbZIP()">Download ZIP</button>
           </div>
         </div>
         <div id="thumb-strip-wrap" class="thumb-strip"></div>
@@ -304,7 +304,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <!-- -- MEDIA INFO -------------------------------------------- -->
   <div id="panel-info" class="panel">
     <div class="section-card">
-      <div class="card-title">? Media Information</div>
+      <div class="card-title">Media Information</div>
       <div class="card-sub">Inspect metadata from any video or audio file. Uses the browser's HTMLVideoElement/AudioElement � instant, no upload, no ffmpeg required.</div>
 
       <div class="dz" id="mi-dz"
@@ -332,7 +332,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
   <!-- -- CONVERT ----------------------------------------------- -->
   <div id="panel-convert" class="panel">
     <div class="section-card">
-      <div class="card-title">?? Format Conversion</div>
+      <div class="card-title">Format Conversion</div>
 
       <!-- Why ffmpeg.wasm needs COOP/COEP headers � honest explanation -->
       <div class="convert-note" style="margin-bottom:1rem">
@@ -348,7 +348,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
       <!-- Alternative 1: Browser native MediaRecorder conversion -->
       <div class="section-card" style="border-color:rgba(82,229,231,.2);margin-bottom:1rem">
-        <div class="card-title" style="color:var(--acc-h)">? Option 1 � Browser-native WebM ? MP4 (Chrome only)</div>
+        <div class="card-title" style="color:var(--acc-h)">Option 1 � Browser-native WebM ? MP4 (Chrome only)</div>
         <div class="card-sub">Chrome 130+ supports re-muxing in the browser using the <strong>MediaStreamTrackProcessor</strong> API. Drop a WebM file and we'll attempt a codec-copy re-container to MP4.</div>
         <div class="dz" id="cv1-dz"
           onclick="document.getElementById('cv1-file').click()"
@@ -361,15 +361,15 @@ input[type=range]{accent-color:var(--accent);width:100%}
         </div>
         <input type="file" id="cv1-file" accept="video/webm" style="display:none" onchange="nativeConvert(this.files[0])">
         <div id="cv1-result" style="display:none;margin-top:.65rem" class="dl-box">
-          <div class="dl-title">? Conversion ready</div>
-          <a id="cv1-dl" class="btn bp" href="#" download="output.mp4">? Download MP4</a>
+          <div class="dl-title">Conversion ready</div>
+          <a id="cv1-dl" class="btn bp" href="#" download="output.mp4">Download MP4</a>
         </div>
         <p id="cv1-err" style="display:none;margin-top:.5rem;font-size:.78rem;color:#f87171"></p>
       </div>
 
       <!-- Alternative 2: ffmpeg.wasm self-hosted -->
       <div class="section-card" style="border-color:rgba(139,92,246,.2);margin-bottom:1rem">
-        <div class="card-title" style="color:#a78bfa">? Option 2 � ffmpeg.wasm (requires HTTPS + headers)</div>
+        <div class="card-title" style="color:#a78bfa">Option 2 � ffmpeg.wasm (requires HTTPS + headers)</div>
         <div class="card-sub">If you're running this on a server that sends the required COOP/COEP headers, ffmpeg.wasm will work. Click the button to attempt loading it.</div>
         <button class="btn" style="background:var(--violet);color:#fff" onclick="tryLoadFFmpeg()">Try ffmpeg.wasm</button>
         <div id="ffmpeg-status" style="margin-top:.65rem;font-size:.78rem;color:var(--t3)">Not loaded yet.</div>
@@ -408,15 +408,15 @@ input[type=range]{accent-color:var(--accent);width:100%}
             <div class="prog-bar"><div class="prog-fill" id="ff-prog-fill" style="width:35%"></div></div>
           </div>
           <div id="ff-result" class="dl-box" style="display:none;margin-top:.65rem">
-            <div class="dl-title">? Done</div>
-            <a id="ff-dl" class="btn bp" href="#">? Download</a>
+            <div class="dl-title">Done</div>
+            <a id="ff-dl" class="btn bp" href="#">Download</a>
           </div>
         </div>
       </div>
 
       <!-- Alternative 3: Recommended desktop tools -->
       <div class="section-card" style="border-color:rgba(16,185,129,.2)">
-        <div class="card-title" style="color:var(--green)">?? Option 3 � Recommended Free Desktop Tools</div>
+        <div class="card-title" style="color:var(--green)">Option 3 � Recommended Free Desktop Tools</div>
         <div style="font-size:.8rem;color:var(--t2);line-height:1.8">
           For reliable full-featured conversion, these free tools are better suited:<br><br>
           <strong style="color:var(--t1)">HandBrake</strong> � handbrake.fr � Free, open-source � MP4/MKV/WebM<br>
